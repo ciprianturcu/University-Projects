@@ -3,7 +3,7 @@
 Organised list with all my faculty projects, lectures and other resources.
 
 <ul>
-  <li>
+  <li>:file_folder: Semester 1
     <ul>
       <li>
         <a href = "https://github.com/ciprianturcu/University-Projects/tree/main/Semester1/Algebra" >
