@@ -30,7 +30,6 @@ Organised list with all my faculty projects, lectures and other resources.
         Mathematical Analysis.
       </a>
       </li>
-      
     </ul>
   </li>
 </ul>
