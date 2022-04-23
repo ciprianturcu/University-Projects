@@ -32,5 +32,39 @@ Organised list with all my faculty projects, lectures and other resources.
       </li>
     </ul>
   </li>
+  <li>:file_folder: Semester 2
+    <ul>
+      <li>
+        <a href = "https://github.com/ciprianturcu/University-Projects/tree/main/Semester2/Data%20Structures%20and%20Algorithms" >
+          Data Structures and Algorithms.
+        </a>
+      </li>
+      <li>
+        <a href = "https://github.com/ciprianturcu/University-Projects/tree/main/Semester2/Dynamical%20Systems" >
+            Dynamical Systems.
+        </a>
+      </li>
+      <li>
+      <a href = "https://github.com/ciprianturcu/University-Projects/tree/main/Semester2/Geometry">
+        Geometry.
+      </a>
+      </li>
+      <li>
+      <a href = "https://github.com/ciprianturcu/University-Projects/tree/main/Semester2/Graph%20Algorithms">
+        Graph Algorithms.
+      </a>
+      </li>
+      <li>
+      <a href = "https://github.com/ciprianturcu/University-Projects/tree/main/Semester2/Object%20Oriented%20Programming">
+        Object Oriented Programming.
+      </a>
+      </li>
+      <li>
+      <a href = "https://github.com/ciprianturcu/University-Projects/tree/main/Semester2/Operating%20Systems">
+        Operating Systems.
+      </a>
+      </li>
+    </ul>
+  </li>
 </ul>
   
