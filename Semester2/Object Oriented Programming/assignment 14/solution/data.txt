@@ -1,0 +1,10 @@
+XXS,White,78.000000,20.000000,https://bit.ly/3jkAkgB
+L,White,48.000000,150.000000,https://bit.ly/3rdgR5W
+XL,Grey,230.000000,80.000000,https://bit.ly/3uZpiCW
+S,Blue,60.000000,940.000000,https://bit.ly/3Koetkd
+M,Grey,140.000000,100.000000,https://bit.ly/3xdN9S0
+XL,White,139.000000,27.000000,https://bit.ly/38rDAEI
+L,Red,188.000000,3.000000,httpsr
+S,Brown,60.000000,940.000000,https://bit.ly/3Koetkd
+M,Black,140.000000,100.000000,https://bit.ly/3xdN9S0
+XL,Green,139.000000,27.000000,https://bit.ly/38rDAEI
