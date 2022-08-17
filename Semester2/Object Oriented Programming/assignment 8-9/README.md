@@ -3,7 +3,7 @@
 * Implement at least requirements **1**, **2** and **3**.
 ## Week 9
 * Implement all requirements
-* Requirements **4** and **5** must be implemented using inheritance and polymorphism.
+* Requirements **5** and **6** must be implemented using inheritance and polymorphism.
 
 ## Bonus possibility (0.2p, deadline week 9)
 In addition to the file-based implementation for the repository, implement a true database-backed repository. For this, use inheritance and polymorphism. You are free to choose any type of database management system (e.g. `MySQL`, `SQLite`, `PostgreSQL`, `Couchbase` etc.).
