@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0e7ce0d0-e66b-470c-80de-f3851a52039a" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2Jlr5qKkilHRKPXSSqiwhAWXYnK" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/javafx/javafx-sdk-19/lib&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\javra\toylanguageGui" />
+      <recent name="D:\javra\toylanguageGui\src" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="view.gui.Main" />
+      <module name="toylanguageGui" />
+      <option name="VM_PARAMETERS" value="--module-path D:\javafx\javafx-sdk-19\lib --add-modules=javafx.controls,javafx.fxml" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0e7ce0d0-e66b-470c-80de-f3851a52039a" name="Changes" comment="" />
+      <created>1672663336158</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1672663336158</updated>
+      <workItem from="1672663337276" duration="12060000" />
+      <workItem from="1672680897084" duration="4500000" />
+      <workItem from="1672696814531" duration="7000" />
+      <workItem from="1672752924332" duration="11301000" />
+      <workItem from="1672775222286" duration="703000" />
+      <workItem from="1672776127466" duration="378000" />
+      <workItem from="1673372429961" duration="130000" />
+      <workItem from="1673372642407" duration="73000" />
+      <workItem from="1673374097394" duration="728000" />
+      <workItem from="1673377145894" duration="99000" />
+      <workItem from="1673377828273" duration="890000" />
+      <workItem from="1673379348893" duration="1808000" />
+      <workItem from="1673386373149" duration="3478000" />
+      <workItem from="1673433513069" duration="74000" />
+      <workItem from="1673437729788" duration="2272000" />
+      <workItem from="1673851920430" duration="5000" />
+      <workItem from="1674829714338" duration="1229000" />
+      <workItem from="1674848394416" duration="9000" />
+      <workItem from="1674887255924" duration="14000" />
+      <workItem from="1674897958091" duration="2355000" />
+      <workItem from="1674901648287" duration="593000" />
+      <workItem from="1674991894551" duration="10000" />
+      <workItem from="1674993237534" duration="1000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

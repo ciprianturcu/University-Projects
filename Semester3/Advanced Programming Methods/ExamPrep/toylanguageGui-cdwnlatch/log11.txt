@@ -1,0 +1,1916 @@
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+Ref int v1
+(Ref int v2|(Ref int v3|(int cnt|(new(v1, 2)|(new(v2, 3)|(new(v3, 4)|(newLatch(cnt,ReadHeap(v2))|(Fork((WriteHeap(v1, ReadHeap(v1) * 10)|(print(ReadHeap(v1))|(countDown(cnt)|Fork((WriteHeap(v2, ReadHeap(v2) * 10)|(print(ReadHeap(v2))|(countDown(cnt)|Fork((WriteHeap(v3, ReadHeap(v3) * 10)|(print(ReadHeap(v3))|countDown(cnt))))))))))))|(await(cnt)|(print(100)|(countDown(cnt)|print(100))))))))))))
+
+Symtable:
+
+Out:
+
+FileTable:
+
+Heap:
+
+LatchTable: 
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+(Ref int v2|(Ref int v3|(int cnt|(new(v1, 2)|(new(v2, 3)|(new(v3, 4)|(newLatch(cnt,ReadHeap(v2))|(Fork((WriteHeap(v1, ReadHeap(v1) * 10)|(print(ReadHeap(v1))|(countDown(cnt)|Fork((WriteHeap(v2, ReadHeap(v2) * 10)|(print(ReadHeap(v2))|(countDown(cnt)|Fork((WriteHeap(v3, ReadHeap(v3) * 10)|(print(ReadHeap(v3))|countDown(cnt))))))))))))|(await(cnt)|(print(100)|(countDown(cnt)|print(100))))))))))))
+
+Symtable:
+v1 --> (0,int)
+
+Out:
+
+FileTable:
+
+Heap:
+
+LatchTable: 
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+Ref int v2
+(Ref int v3|(int cnt|(new(v1, 2)|(new(v2, 3)|(new(v3, 4)|(newLatch(cnt,ReadHeap(v2))|(Fork((WriteHeap(v1, ReadHeap(v1) * 10)|(print(ReadHeap(v1))|(countDown(cnt)|Fork((WriteHeap(v2, ReadHeap(v2) * 10)|(print(ReadHeap(v2))|(countDown(cnt)|Fork((WriteHeap(v3, ReadHeap(v3) * 10)|(print(ReadHeap(v3))|countDown(cnt))))))))))))|(await(cnt)|(print(100)|(countDown(cnt)|print(100)))))))))))
+
+Symtable:
+v1 --> (0,int)
+
+Out:
+
+FileTable:
+
+Heap:
+
+LatchTable: 
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+(Ref int v3|(int cnt|(new(v1, 2)|(new(v2, 3)|(new(v3, 4)|(newLatch(cnt,ReadHeap(v2))|(Fork((WriteHeap(v1, ReadHeap(v1) * 10)|(print(ReadHeap(v1))|(countDown(cnt)|Fork((WriteHeap(v2, ReadHeap(v2) * 10)|(print(ReadHeap(v2))|(countDown(cnt)|Fork((WriteHeap(v3, ReadHeap(v3) * 10)|(print(ReadHeap(v3))|countDown(cnt))))))))))))|(await(cnt)|(print(100)|(countDown(cnt)|print(100)))))))))))
+
+Symtable:
+v1 --> (0,int)
+v2 --> (0,int)
+
+Out:
+
+FileTable:
+
+Heap:
+
+LatchTable: 
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+Ref int v3
+(int cnt|(new(v1, 2)|(new(v2, 3)|(new(v3, 4)|(newLatch(cnt,ReadHeap(v2))|(Fork((WriteHeap(v1, ReadHeap(v1) * 10)|(print(ReadHeap(v1))|(countDown(cnt)|Fork((WriteHeap(v2, ReadHeap(v2) * 10)|(print(ReadHeap(v2))|(countDown(cnt)|Fork((WriteHeap(v3, ReadHeap(v3) * 10)|(print(ReadHeap(v3))|countDown(cnt))))))))))))|(await(cnt)|(print(100)|(countDown(cnt)|print(100))))))))))
+
+Symtable:
+v1 --> (0,int)
+v2 --> (0,int)
+
+Out:
+
+FileTable:
+
+Heap:
+
+LatchTable: 
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+(int cnt|(new(v1, 2)|(new(v2, 3)|(new(v3, 4)|(newLatch(cnt,ReadHeap(v2))|(Fork((WriteHeap(v1, ReadHeap(v1) * 10)|(print(ReadHeap(v1))|(countDown(cnt)|Fork((WriteHeap(v2, ReadHeap(v2) * 10)|(print(ReadHeap(v2))|(countDown(cnt)|Fork((WriteHeap(v3, ReadHeap(v3) * 10)|(print(ReadHeap(v3))|countDown(cnt))))))))))))|(await(cnt)|(print(100)|(countDown(cnt)|print(100))))))))))
+
+Symtable:
+v1 --> (0,int)
+v2 --> (0,int)
+v3 --> (0,int)
+
+Out:
+
+FileTable:
+
+Heap:
+
+LatchTable: 
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+int cnt
+(new(v1, 2)|(new(v2, 3)|(new(v3, 4)|(newLatch(cnt,ReadHeap(v2))|(Fork((WriteHeap(v1, ReadHeap(v1) * 10)|(print(ReadHeap(v1))|(countDown(cnt)|Fork((WriteHeap(v2, ReadHeap(v2) * 10)|(print(ReadHeap(v2))|(countDown(cnt)|Fork((WriteHeap(v3, ReadHeap(v3) * 10)|(print(ReadHeap(v3))|countDown(cnt))))))))))))|(await(cnt)|(print(100)|(countDown(cnt)|print(100)))))))))
+
+Symtable:
+v1 --> (0,int)
+v2 --> (0,int)
+v3 --> (0,int)
+
+Out:
+
+FileTable:
+
+Heap:
+
+LatchTable: 
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+(new(v1, 2)|(new(v2, 3)|(new(v3, 4)|(newLatch(cnt,ReadHeap(v2))|(Fork((WriteHeap(v1, ReadHeap(v1) * 10)|(print(ReadHeap(v1))|(countDown(cnt)|Fork((WriteHeap(v2, ReadHeap(v2) * 10)|(print(ReadHeap(v2))|(countDown(cnt)|Fork((WriteHeap(v3, ReadHeap(v3) * 10)|(print(ReadHeap(v3))|countDown(cnt))))))))))))|(await(cnt)|(print(100)|(countDown(cnt)|print(100)))))))))
+
+Symtable:
+cnt --> 0
+v1 --> (0,int)
+v2 --> (0,int)
+v3 --> (0,int)
+
+Out:
+
+FileTable:
+
+Heap:
+
+LatchTable: 
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+new(v1, 2)
+(new(v2, 3)|(new(v3, 4)|(newLatch(cnt,ReadHeap(v2))|(Fork((WriteHeap(v1, ReadHeap(v1) * 10)|(print(ReadHeap(v1))|(countDown(cnt)|Fork((WriteHeap(v2, ReadHeap(v2) * 10)|(print(ReadHeap(v2))|(countDown(cnt)|Fork((WriteHeap(v3, ReadHeap(v3) * 10)|(print(ReadHeap(v3))|countDown(cnt))))))))))))|(await(cnt)|(print(100)|(countDown(cnt)|print(100))))))))
+
+Symtable:
+cnt --> 0
+v1 --> (0,int)
+v2 --> (0,int)
+v3 --> (0,int)
+
+Out:
+
+FileTable:
+
+Heap:
+
+LatchTable: 
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+(new(v2, 3)|(new(v3, 4)|(newLatch(cnt,ReadHeap(v2))|(Fork((WriteHeap(v1, ReadHeap(v1) * 10)|(print(ReadHeap(v1))|(countDown(cnt)|Fork((WriteHeap(v2, ReadHeap(v2) * 10)|(print(ReadHeap(v2))|(countDown(cnt)|Fork((WriteHeap(v3, ReadHeap(v3) * 10)|(print(ReadHeap(v3))|countDown(cnt))))))))))))|(await(cnt)|(print(100)|(countDown(cnt)|print(100))))))))
+
+Symtable:
+cnt --> 0
+v1 --> (1,int)
+v2 --> (0,int)
+v3 --> (0,int)
+
+Out:
+
+FileTable:
+
+Heap:
+1 --> 2
+
+LatchTable: 
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+new(v2, 3)
+(new(v3, 4)|(newLatch(cnt,ReadHeap(v2))|(Fork((WriteHeap(v1, ReadHeap(v1) * 10)|(print(ReadHeap(v1))|(countDown(cnt)|Fork((WriteHeap(v2, ReadHeap(v2) * 10)|(print(ReadHeap(v2))|(countDown(cnt)|Fork((WriteHeap(v3, ReadHeap(v3) * 10)|(print(ReadHeap(v3))|countDown(cnt))))))))))))|(await(cnt)|(print(100)|(countDown(cnt)|print(100)))))))
+
+Symtable:
+cnt --> 0
+v1 --> (1,int)
+v2 --> (0,int)
+v3 --> (0,int)
+
+Out:
+
+FileTable:
+
+Heap:
+1 --> 2
+
+LatchTable: 
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+(new(v3, 4)|(newLatch(cnt,ReadHeap(v2))|(Fork((WriteHeap(v1, ReadHeap(v1) * 10)|(print(ReadHeap(v1))|(countDown(cnt)|Fork((WriteHeap(v2, ReadHeap(v2) * 10)|(print(ReadHeap(v2))|(countDown(cnt)|Fork((WriteHeap(v3, ReadHeap(v3) * 10)|(print(ReadHeap(v3))|countDown(cnt))))))))))))|(await(cnt)|(print(100)|(countDown(cnt)|print(100)))))))
+
+Symtable:
+cnt --> 0
+v1 --> (1,int)
+v2 --> (2,int)
+v3 --> (0,int)
+
+Out:
+
+FileTable:
+
+Heap:
+1 --> 2
+2 --> 3
+
+LatchTable: 
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+new(v3, 4)
+(newLatch(cnt,ReadHeap(v2))|(Fork((WriteHeap(v1, ReadHeap(v1) * 10)|(print(ReadHeap(v1))|(countDown(cnt)|Fork((WriteHeap(v2, ReadHeap(v2) * 10)|(print(ReadHeap(v2))|(countDown(cnt)|Fork((WriteHeap(v3, ReadHeap(v3) * 10)|(print(ReadHeap(v3))|countDown(cnt))))))))))))|(await(cnt)|(print(100)|(countDown(cnt)|print(100))))))
+
+Symtable:
+cnt --> 0
+v1 --> (1,int)
+v2 --> (2,int)
+v3 --> (0,int)
+
+Out:
+
+FileTable:
+
+Heap:
+1 --> 2
+2 --> 3
+
+LatchTable: 
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+(newLatch(cnt,ReadHeap(v2))|(Fork((WriteHeap(v1, ReadHeap(v1) * 10)|(print(ReadHeap(v1))|(countDown(cnt)|Fork((WriteHeap(v2, ReadHeap(v2) * 10)|(print(ReadHeap(v2))|(countDown(cnt)|Fork((WriteHeap(v3, ReadHeap(v3) * 10)|(print(ReadHeap(v3))|countDown(cnt))))))))))))|(await(cnt)|(print(100)|(countDown(cnt)|print(100))))))
+
+Symtable:
+cnt --> 0
+v1 --> (1,int)
+v2 --> (2,int)
+v3 --> (3,int)
+
+Out:
+
+FileTable:
+
+Heap:
+1 --> 2
+2 --> 3
+3 --> 4
+
+LatchTable: 
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+newLatch(cnt,ReadHeap(v2))
+(Fork((WriteHeap(v1, ReadHeap(v1) * 10)|(print(ReadHeap(v1))|(countDown(cnt)|Fork((WriteHeap(v2, ReadHeap(v2) * 10)|(print(ReadHeap(v2))|(countDown(cnt)|Fork((WriteHeap(v3, ReadHeap(v3) * 10)|(print(ReadHeap(v3))|countDown(cnt))))))))))))|(await(cnt)|(print(100)|(countDown(cnt)|print(100)))))
+
+Symtable:
+cnt --> 0
+v1 --> (1,int)
+v2 --> (2,int)
+v3 --> (3,int)
+
+Out:
+
+FileTable:
+
+Heap:
+1 --> 2
+2 --> 3
+3 --> 4
+
+LatchTable: 
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+(Fork((WriteHeap(v1, ReadHeap(v1) * 10)|(print(ReadHeap(v1))|(countDown(cnt)|Fork((WriteHeap(v2, ReadHeap(v2) * 10)|(print(ReadHeap(v2))|(countDown(cnt)|Fork((WriteHeap(v3, ReadHeap(v3) * 10)|(print(ReadHeap(v3))|countDown(cnt))))))))))))|(await(cnt)|(print(100)|(countDown(cnt)|print(100)))))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+v2 --> (2,int)
+v3 --> (3,int)
+
+Out:
+
+FileTable:
+
+Heap:
+1 --> 2
+2 --> 3
+3 --> 4
+
+LatchTable: 
+1 -> 3
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+Fork((WriteHeap(v1, ReadHeap(v1) * 10)|(print(ReadHeap(v1))|(countDown(cnt)|Fork((WriteHeap(v2, ReadHeap(v2) * 10)|(print(ReadHeap(v2))|(countDown(cnt)|Fork((WriteHeap(v3, ReadHeap(v3) * 10)|(print(ReadHeap(v3))|countDown(cnt))))))))))))
+(await(cnt)|(print(100)|(countDown(cnt)|print(100))))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+v2 --> (2,int)
+v3 --> (3,int)
+
+Out:
+
+FileTable:
+
+Heap:
+1 --> 2
+2 --> 3
+3 --> 4
+
+LatchTable: 
+1 -> 3
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+(await(cnt)|(print(100)|(countDown(cnt)|print(100))))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+v2 --> (2,int)
+v3 --> (3,int)
+
+Out:
+
+FileTable:
+
+Heap:
+1 --> 2
+2 --> 3
+3 --> 4
+
+LatchTable: 
+1 -> 3
+
+
+-------------------------------------------------------------------------
+
+Id: 2
+ExeStack:
+(WriteHeap(v1, ReadHeap(v1) * 10)|(print(ReadHeap(v1))|(countDown(cnt)|Fork((WriteHeap(v2, ReadHeap(v2) * 10)|(print(ReadHeap(v2))|(countDown(cnt)|Fork((WriteHeap(v3, ReadHeap(v3) * 10)|(print(ReadHeap(v3))|countDown(cnt)))))))))))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+v2 --> (2,int)
+v3 --> (3,int)
+
+Out:
+
+FileTable:
+
+Heap:
+1 --> 2
+2 --> 3
+3 --> 4
+
+LatchTable: 
+1 -> 3
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+await(cnt)
+(print(100)|(countDown(cnt)|print(100)))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+v2 --> (2,int)
+v3 --> (3,int)
+
+Out:
+
+FileTable:
+
+Heap:
+1 --> 2
+2 --> 3
+3 --> 4
+
+LatchTable: 
+1 -> 3
+
+
+-------------------------------------------------------------------------
+
+Id: 2
+ExeStack:
+WriteHeap(v1, ReadHeap(v1) * 10)
+(print(ReadHeap(v1))|(countDown(cnt)|Fork((WriteHeap(v2, ReadHeap(v2) * 10)|(print(ReadHeap(v2))|(countDown(cnt)|Fork((WriteHeap(v3, ReadHeap(v3) * 10)|(print(ReadHeap(v3))|countDown(cnt))))))))))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+v2 --> (2,int)
+v3 --> (3,int)
+
+Out:
+
+FileTable:
+
+Heap:
+1 --> 2
+2 --> 3
+3 --> 4
+
+LatchTable: 
+1 -> 3
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+await(cnt)
+(print(100)|(countDown(cnt)|print(100)))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+v2 --> (2,int)
+v3 --> (3,int)
+
+Out:
+
+FileTable:
+
+Heap:
+1 --> 20
+2 --> 3
+3 --> 4
+
+LatchTable: 
+1 -> 3
+
+
+-------------------------------------------------------------------------
+
+Id: 2
+ExeStack:
+(print(ReadHeap(v1))|(countDown(cnt)|Fork((WriteHeap(v2, ReadHeap(v2) * 10)|(print(ReadHeap(v2))|(countDown(cnt)|Fork((WriteHeap(v3, ReadHeap(v3) * 10)|(print(ReadHeap(v3))|countDown(cnt))))))))))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+v2 --> (2,int)
+v3 --> (3,int)
+
+Out:
+
+FileTable:
+
+Heap:
+1 --> 20
+2 --> 3
+3 --> 4
+
+LatchTable: 
+1 -> 3
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+await(cnt)
+(print(100)|(countDown(cnt)|print(100)))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+v2 --> (2,int)
+v3 --> (3,int)
+
+Out:
+
+FileTable:
+
+Heap:
+1 --> 20
+2 --> 3
+3 --> 4
+
+LatchTable: 
+1 -> 3
+
+
+-------------------------------------------------------------------------
+
+Id: 2
+ExeStack:
+print(ReadHeap(v1))
+(countDown(cnt)|Fork((WriteHeap(v2, ReadHeap(v2) * 10)|(print(ReadHeap(v2))|(countDown(cnt)|Fork((WriteHeap(v3, ReadHeap(v3) * 10)|(print(ReadHeap(v3))|countDown(cnt)))))))))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+v2 --> (2,int)
+v3 --> (3,int)
+
+Out:
+
+FileTable:
+
+Heap:
+1 --> 20
+2 --> 3
+3 --> 4
+
+LatchTable: 
+1 -> 3
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+await(cnt)
+(print(100)|(countDown(cnt)|print(100)))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+v2 --> (2,int)
+v3 --> (3,int)
+
+Out:
+20
+
+FileTable:
+
+Heap:
+1 --> 20
+2 --> 3
+3 --> 4
+
+LatchTable: 
+1 -> 3
+
+
+-------------------------------------------------------------------------
+
+Id: 2
+ExeStack:
+(countDown(cnt)|Fork((WriteHeap(v2, ReadHeap(v2) * 10)|(print(ReadHeap(v2))|(countDown(cnt)|Fork((WriteHeap(v3, ReadHeap(v3) * 10)|(print(ReadHeap(v3))|countDown(cnt)))))))))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+v2 --> (2,int)
+v3 --> (3,int)
+
+Out:
+20
+
+FileTable:
+
+Heap:
+1 --> 20
+2 --> 3
+3 --> 4
+
+LatchTable: 
+1 -> 3
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+await(cnt)
+(print(100)|(countDown(cnt)|print(100)))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+v2 --> (2,int)
+v3 --> (3,int)
+
+Out:
+20
+
+FileTable:
+
+Heap:
+1 --> 20
+2 --> 3
+3 --> 4
+
+LatchTable: 
+1 -> 3
+
+
+-------------------------------------------------------------------------
+
+Id: 2
+ExeStack:
+countDown(cnt)
+Fork((WriteHeap(v2, ReadHeap(v2) * 10)|(print(ReadHeap(v2))|(countDown(cnt)|Fork((WriteHeap(v3, ReadHeap(v3) * 10)|(print(ReadHeap(v3))|countDown(cnt))))))))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+v2 --> (2,int)
+v3 --> (3,int)
+
+Out:
+20
+
+FileTable:
+
+Heap:
+1 --> 20
+2 --> 3
+3 --> 4
+
+LatchTable: 
+1 -> 3
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+await(cnt)
+(print(100)|(countDown(cnt)|print(100)))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+v2 --> (2,int)
+v3 --> (3,int)
+
+Out:
+20
+
+FileTable:
+
+Heap:
+1 --> 20
+2 --> 3
+3 --> 4
+
+LatchTable: 
+1 -> 2
+
+
+-------------------------------------------------------------------------
+
+Id: 2
+ExeStack:
+print(2)
+Fork((WriteHeap(v2, ReadHeap(v2) * 10)|(print(ReadHeap(v2))|(countDown(cnt)|Fork((WriteHeap(v3, ReadHeap(v3) * 10)|(print(ReadHeap(v3))|countDown(cnt))))))))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+v2 --> (2,int)
+v3 --> (3,int)
+
+Out:
+20
+
+FileTable:
+
+Heap:
+1 --> 20
+2 --> 3
+3 --> 4
+
+LatchTable: 
+1 -> 2
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+await(cnt)
+(print(100)|(countDown(cnt)|print(100)))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+v2 --> (2,int)
+v3 --> (3,int)
+
+Out:
+20
+2
+
+FileTable:
+
+Heap:
+1 --> 20
+2 --> 3
+3 --> 4
+
+LatchTable: 
+1 -> 2
+
+
+-------------------------------------------------------------------------
+
+Id: 2
+ExeStack:
+Fork((WriteHeap(v2, ReadHeap(v2) * 10)|(print(ReadHeap(v2))|(countDown(cnt)|Fork((WriteHeap(v3, ReadHeap(v3) * 10)|(print(ReadHeap(v3))|countDown(cnt))))))))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+v2 --> (2,int)
+v3 --> (3,int)
+
+Out:
+20
+2
+
+FileTable:
+
+Heap:
+1 --> 20
+2 --> 3
+3 --> 4
+
+LatchTable: 
+1 -> 2
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+await(cnt)
+(print(100)|(countDown(cnt)|print(100)))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+v2 --> (2,int)
+v3 --> (3,int)
+
+Out:
+20
+2
+
+FileTable:
+
+Heap:
+1 --> 20
+2 --> 3
+3 --> 4
+
+LatchTable: 
+1 -> 2
+
+
+-------------------------------------------------------------------------
+
+Id: 2
+ExeStack:
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+v2 --> (2,int)
+v3 --> (3,int)
+
+Out:
+20
+2
+
+FileTable:
+
+Heap:
+1 --> 20
+2 --> 3
+3 --> 4
+
+LatchTable: 
+1 -> 2
+
+
+-------------------------------------------------------------------------
+
+Id: 3
+ExeStack:
+(WriteHeap(v2, ReadHeap(v2) * 10)|(print(ReadHeap(v2))|(countDown(cnt)|Fork((WriteHeap(v3, ReadHeap(v3) * 10)|(print(ReadHeap(v3))|countDown(cnt)))))))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+v2 --> (2,int)
+v3 --> (3,int)
+
+Out:
+20
+2
+
+FileTable:
+
+Heap:
+1 --> 20
+2 --> 3
+3 --> 4
+
+LatchTable: 
+1 -> 2
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+await(cnt)
+(print(100)|(countDown(cnt)|print(100)))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+v2 --> (2,int)
+v3 --> (3,int)
+
+Out:
+20
+2
+
+FileTable:
+
+Heap:
+1 --> 20
+2 --> 3
+3 --> 4
+
+LatchTable: 
+1 -> 2
+
+
+-------------------------------------------------------------------------
+
+Id: 3
+ExeStack:
+WriteHeap(v2, ReadHeap(v2) * 10)
+(print(ReadHeap(v2))|(countDown(cnt)|Fork((WriteHeap(v3, ReadHeap(v3) * 10)|(print(ReadHeap(v3))|countDown(cnt))))))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+v2 --> (2,int)
+v3 --> (3,int)
+
+Out:
+20
+2
+
+FileTable:
+
+Heap:
+1 --> 20
+2 --> 3
+3 --> 4
+
+LatchTable: 
+1 -> 2
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+await(cnt)
+(print(100)|(countDown(cnt)|print(100)))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+v2 --> (2,int)
+v3 --> (3,int)
+
+Out:
+20
+2
+
+FileTable:
+
+Heap:
+1 --> 20
+2 --> 30
+3 --> 4
+
+LatchTable: 
+1 -> 2
+
+
+-------------------------------------------------------------------------
+
+Id: 3
+ExeStack:
+(print(ReadHeap(v2))|(countDown(cnt)|Fork((WriteHeap(v3, ReadHeap(v3) * 10)|(print(ReadHeap(v3))|countDown(cnt))))))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+v2 --> (2,int)
+v3 --> (3,int)
+
+Out:
+20
+2
+
+FileTable:
+
+Heap:
+1 --> 20
+2 --> 30
+3 --> 4
+
+LatchTable: 
+1 -> 2
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+await(cnt)
+(print(100)|(countDown(cnt)|print(100)))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+v2 --> (2,int)
+v3 --> (3,int)
+
+Out:
+20
+2
+
+FileTable:
+
+Heap:
+1 --> 20
+2 --> 30
+3 --> 4
+
+LatchTable: 
+1 -> 2
+
+
+-------------------------------------------------------------------------
+
+Id: 3
+ExeStack:
+print(ReadHeap(v2))
+(countDown(cnt)|Fork((WriteHeap(v3, ReadHeap(v3) * 10)|(print(ReadHeap(v3))|countDown(cnt)))))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+v2 --> (2,int)
+v3 --> (3,int)
+
+Out:
+20
+2
+
+FileTable:
+
+Heap:
+1 --> 20
+2 --> 30
+3 --> 4
+
+LatchTable: 
+1 -> 2
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+await(cnt)
+(print(100)|(countDown(cnt)|print(100)))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+v2 --> (2,int)
+v3 --> (3,int)
+
+Out:
+20
+2
+30
+
+FileTable:
+
+Heap:
+1 --> 20
+2 --> 30
+3 --> 4
+
+LatchTable: 
+1 -> 2
+
+
+-------------------------------------------------------------------------
+
+Id: 3
+ExeStack:
+(countDown(cnt)|Fork((WriteHeap(v3, ReadHeap(v3) * 10)|(print(ReadHeap(v3))|countDown(cnt)))))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+v2 --> (2,int)
+v3 --> (3,int)
+
+Out:
+20
+2
+30
+
+FileTable:
+
+Heap:
+1 --> 20
+2 --> 30
+3 --> 4
+
+LatchTable: 
+1 -> 2
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+await(cnt)
+(print(100)|(countDown(cnt)|print(100)))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+v2 --> (2,int)
+v3 --> (3,int)
+
+Out:
+20
+2
+30
+
+FileTable:
+
+Heap:
+1 --> 20
+2 --> 30
+3 --> 4
+
+LatchTable: 
+1 -> 2
+
+
+-------------------------------------------------------------------------
+
+Id: 3
+ExeStack:
+countDown(cnt)
+Fork((WriteHeap(v3, ReadHeap(v3) * 10)|(print(ReadHeap(v3))|countDown(cnt))))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+v2 --> (2,int)
+v3 --> (3,int)
+
+Out:
+20
+2
+30
+
+FileTable:
+
+Heap:
+1 --> 20
+2 --> 30
+3 --> 4
+
+LatchTable: 
+1 -> 2
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+await(cnt)
+(print(100)|(countDown(cnt)|print(100)))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+v2 --> (2,int)
+v3 --> (3,int)
+
+Out:
+20
+2
+30
+
+FileTable:
+
+Heap:
+1 --> 20
+2 --> 30
+3 --> 4
+
+LatchTable: 
+1 -> 1
+
+
+-------------------------------------------------------------------------
+
+Id: 3
+ExeStack:
+print(3)
+Fork((WriteHeap(v3, ReadHeap(v3) * 10)|(print(ReadHeap(v3))|countDown(cnt))))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+v2 --> (2,int)
+v3 --> (3,int)
+
+Out:
+20
+2
+30
+
+FileTable:
+
+Heap:
+1 --> 20
+2 --> 30
+3 --> 4
+
+LatchTable: 
+1 -> 1
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+await(cnt)
+(print(100)|(countDown(cnt)|print(100)))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+v2 --> (2,int)
+v3 --> (3,int)
+
+Out:
+20
+2
+30
+3
+
+FileTable:
+
+Heap:
+1 --> 20
+2 --> 30
+3 --> 4
+
+LatchTable: 
+1 -> 1
+
+
+-------------------------------------------------------------------------
+
+Id: 3
+ExeStack:
+Fork((WriteHeap(v3, ReadHeap(v3) * 10)|(print(ReadHeap(v3))|countDown(cnt))))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+v2 --> (2,int)
+v3 --> (3,int)
+
+Out:
+20
+2
+30
+3
+
+FileTable:
+
+Heap:
+1 --> 20
+2 --> 30
+3 --> 4
+
+LatchTable: 
+1 -> 1
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+await(cnt)
+(print(100)|(countDown(cnt)|print(100)))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+v2 --> (2,int)
+v3 --> (3,int)
+
+Out:
+20
+2
+30
+3
+
+FileTable:
+
+Heap:
+1 --> 20
+2 --> 30
+3 --> 4
+
+LatchTable: 
+1 -> 1
+
+
+-------------------------------------------------------------------------
+
+Id: 3
+ExeStack:
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+v2 --> (2,int)
+v3 --> (3,int)
+
+Out:
+20
+2
+30
+3
+
+FileTable:
+
+Heap:
+1 --> 20
+2 --> 30
+3 --> 4
+
+LatchTable: 
+1 -> 1
+
+
+-------------------------------------------------------------------------
+
+Id: 4
+ExeStack:
+(WriteHeap(v3, ReadHeap(v3) * 10)|(print(ReadHeap(v3))|countDown(cnt)))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+v2 --> (2,int)
+v3 --> (3,int)
+
+Out:
+20
+2
+30
+3
+
+FileTable:
+
+Heap:
+1 --> 20
+2 --> 30
+3 --> 4
+
+LatchTable: 
+1 -> 1
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+await(cnt)
+(print(100)|(countDown(cnt)|print(100)))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+v2 --> (2,int)
+v3 --> (3,int)
+
+Out:
+20
+2
+30
+3
+
+FileTable:
+
+Heap:
+1 --> 20
+2 --> 30
+3 --> 4
+
+LatchTable: 
+1 -> 1
+
+
+-------------------------------------------------------------------------
+
+Id: 4
+ExeStack:
+WriteHeap(v3, ReadHeap(v3) * 10)
+(print(ReadHeap(v3))|countDown(cnt))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+v2 --> (2,int)
+v3 --> (3,int)
+
+Out:
+20
+2
+30
+3
+
+FileTable:
+
+Heap:
+1 --> 20
+2 --> 30
+3 --> 4
+
+LatchTable: 
+1 -> 1
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+await(cnt)
+(print(100)|(countDown(cnt)|print(100)))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+v2 --> (2,int)
+v3 --> (3,int)
+
+Out:
+20
+2
+30
+3
+
+FileTable:
+
+Heap:
+1 --> 20
+2 --> 30
+3 --> 40
+
+LatchTable: 
+1 -> 1
+
+
+-------------------------------------------------------------------------
+
+Id: 4
+ExeStack:
+(print(ReadHeap(v3))|countDown(cnt))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+v2 --> (2,int)
+v3 --> (3,int)
+
+Out:
+20
+2
+30
+3
+
+FileTable:
+
+Heap:
+1 --> 20
+2 --> 30
+3 --> 40
+
+LatchTable: 
+1 -> 1
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+await(cnt)
+(print(100)|(countDown(cnt)|print(100)))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+v2 --> (2,int)
+v3 --> (3,int)
+
+Out:
+20
+2
+30
+3
+
+FileTable:
+
+Heap:
+1 --> 20
+2 --> 30
+3 --> 40
+
+LatchTable: 
+1 -> 1
+
+
+-------------------------------------------------------------------------
+
+Id: 4
+ExeStack:
+print(ReadHeap(v3))
+countDown(cnt)
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+v2 --> (2,int)
+v3 --> (3,int)
+
+Out:
+20
+2
+30
+3
+
+FileTable:
+
+Heap:
+1 --> 20
+2 --> 30
+3 --> 40
+
+LatchTable: 
+1 -> 1
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+await(cnt)
+(print(100)|(countDown(cnt)|print(100)))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+v2 --> (2,int)
+v3 --> (3,int)
+
+Out:
+20
+2
+30
+3
+40
+
+FileTable:
+
+Heap:
+1 --> 20
+2 --> 30
+3 --> 40
+
+LatchTable: 
+1 -> 1
+
+
+-------------------------------------------------------------------------
+
+Id: 4
+ExeStack:
+countDown(cnt)
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+v2 --> (2,int)
+v3 --> (3,int)
+
+Out:
+20
+2
+30
+3
+40
+
+FileTable:
+
+Heap:
+1 --> 20
+2 --> 30
+3 --> 40
+
+LatchTable: 
+1 -> 1
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+await(cnt)
+(print(100)|(countDown(cnt)|print(100)))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+v2 --> (2,int)
+v3 --> (3,int)
+
+Out:
+20
+2
+30
+3
+40
+
+FileTable:
+
+Heap:
+1 --> 20
+2 --> 30
+3 --> 40
+
+LatchTable: 
+1 -> 0
+
+
+-------------------------------------------------------------------------
+
+Id: 4
+ExeStack:
+print(4)
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+v2 --> (2,int)
+v3 --> (3,int)
+
+Out:
+20
+2
+30
+3
+40
+
+FileTable:
+
+Heap:
+1 --> 20
+2 --> 30
+3 --> 40
+
+LatchTable: 
+1 -> 0
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+(print(100)|(countDown(cnt)|print(100)))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+v2 --> (2,int)
+v3 --> (3,int)
+
+Out:
+20
+2
+30
+3
+40
+4
+
+FileTable:
+
+Heap:
+1 --> 20
+2 --> 30
+3 --> 40
+
+LatchTable: 
+1 -> 0
+
+
+-------------------------------------------------------------------------
+
+Id: 4
+ExeStack:
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+v2 --> (2,int)
+v3 --> (3,int)
+
+Out:
+20
+2
+30
+3
+40
+4
+
+FileTable:
+
+Heap:
+1 --> 20
+2 --> 30
+3 --> 40
+
+LatchTable: 
+1 -> 0
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+print(100)
+(countDown(cnt)|print(100))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+v2 --> (2,int)
+v3 --> (3,int)
+
+Out:
+20
+2
+30
+3
+40
+4
+
+FileTable:
+
+Heap:
+1 --> 20
+2 --> 30
+3 --> 40
+
+LatchTable: 
+1 -> 0
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+(countDown(cnt)|print(100))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+v2 --> (2,int)
+v3 --> (3,int)
+
+Out:
+20
+2
+30
+3
+40
+4
+100
+
+FileTable:
+
+Heap:
+1 --> 20
+2 --> 30
+3 --> 40
+
+LatchTable: 
+1 -> 0
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+countDown(cnt)
+print(100)
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+v2 --> (2,int)
+v3 --> (3,int)
+
+Out:
+20
+2
+30
+3
+40
+4
+100
+
+FileTable:
+
+Heap:
+1 --> 20
+2 --> 30
+3 --> 40
+
+LatchTable: 
+1 -> 0
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+print(1)
+print(100)
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+v2 --> (2,int)
+v3 --> (3,int)
+
+Out:
+20
+2
+30
+3
+40
+4
+100
+
+FileTable:
+
+Heap:
+1 --> 20
+2 --> 30
+3 --> 40
+
+LatchTable: 
+1 -> 0
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+print(100)
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+v2 --> (2,int)
+v3 --> (3,int)
+
+Out:
+20
+2
+30
+3
+40
+4
+100
+1
+
+FileTable:
+
+Heap:
+1 --> 20
+2 --> 30
+3 --> 40
+
+LatchTable: 
+1 -> 0
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+v2 --> (2,int)
+v3 --> (3,int)
+
+Out:
+20
+2
+30
+3
+40
+4
+100
+1
+100
+
+FileTable:
+
+Heap:
+1 --> 20
+2 --> 30
+3 --> 40
+
+LatchTable: 
+1 -> 0
+

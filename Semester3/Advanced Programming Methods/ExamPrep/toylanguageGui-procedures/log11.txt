@@ -1,0 +1,969 @@
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+int v
+(int w|(v = 2|(w = 5|(call sum[v * 10, w]|(print(v)|Fork((call product[v, w]|Fork(call sum[v, w]))))))))
+
+Symtable:
+
+
+Out:
+
+FileTable:
+
+Heap:
+
+Procedure Table:
+product -> Parameters: [a, b], Statement (int v|(v = a * b|print(v)))
+sum -> Parameters: [a, b], Statement (int v|(v = a + b|print(v)))
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+(int w|(v = 2|(w = 5|(call sum[v * 10, w]|(print(v)|Fork((call product[v, w]|Fork(call sum[v, w]))))))))
+
+Symtable:
+v --> 0
+
+
+Out:
+
+FileTable:
+
+Heap:
+
+Procedure Table:
+product -> Parameters: [a, b], Statement (int v|(v = a * b|print(v)))
+sum -> Parameters: [a, b], Statement (int v|(v = a + b|print(v)))
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+int w
+(v = 2|(w = 5|(call sum[v * 10, w]|(print(v)|Fork((call product[v, w]|Fork(call sum[v, w])))))))
+
+Symtable:
+v --> 0
+
+
+Out:
+
+FileTable:
+
+Heap:
+
+Procedure Table:
+product -> Parameters: [a, b], Statement (int v|(v = a * b|print(v)))
+sum -> Parameters: [a, b], Statement (int v|(v = a + b|print(v)))
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+(v = 2|(w = 5|(call sum[v * 10, w]|(print(v)|Fork((call product[v, w]|Fork(call sum[v, w])))))))
+
+Symtable:
+v --> 0
+w --> 0
+
+
+Out:
+
+FileTable:
+
+Heap:
+
+Procedure Table:
+product -> Parameters: [a, b], Statement (int v|(v = a * b|print(v)))
+sum -> Parameters: [a, b], Statement (int v|(v = a + b|print(v)))
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+v = 2
+(w = 5|(call sum[v * 10, w]|(print(v)|Fork((call product[v, w]|Fork(call sum[v, w]))))))
+
+Symtable:
+v --> 0
+w --> 0
+
+
+Out:
+
+FileTable:
+
+Heap:
+
+Procedure Table:
+product -> Parameters: [a, b], Statement (int v|(v = a * b|print(v)))
+sum -> Parameters: [a, b], Statement (int v|(v = a + b|print(v)))
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+(w = 5|(call sum[v * 10, w]|(print(v)|Fork((call product[v, w]|Fork(call sum[v, w]))))))
+
+Symtable:
+v --> 2
+w --> 0
+
+
+Out:
+
+FileTable:
+
+Heap:
+
+Procedure Table:
+product -> Parameters: [a, b], Statement (int v|(v = a * b|print(v)))
+sum -> Parameters: [a, b], Statement (int v|(v = a + b|print(v)))
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+w = 5
+(call sum[v * 10, w]|(print(v)|Fork((call product[v, w]|Fork(call sum[v, w])))))
+
+Symtable:
+v --> 2
+w --> 0
+
+
+Out:
+
+FileTable:
+
+Heap:
+
+Procedure Table:
+product -> Parameters: [a, b], Statement (int v|(v = a * b|print(v)))
+sum -> Parameters: [a, b], Statement (int v|(v = a + b|print(v)))
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+(call sum[v * 10, w]|(print(v)|Fork((call product[v, w]|Fork(call sum[v, w])))))
+
+Symtable:
+v --> 2
+w --> 5
+
+
+Out:
+
+FileTable:
+
+Heap:
+
+Procedure Table:
+product -> Parameters: [a, b], Statement (int v|(v = a * b|print(v)))
+sum -> Parameters: [a, b], Statement (int v|(v = a + b|print(v)))
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+call sum[v * 10, w]
+(print(v)|Fork((call product[v, w]|Fork(call sum[v, w]))))
+
+Symtable:
+v --> 2
+w --> 5
+
+
+Out:
+
+FileTable:
+
+Heap:
+
+Procedure Table:
+product -> Parameters: [a, b], Statement (int v|(v = a * b|print(v)))
+sum -> Parameters: [a, b], Statement (int v|(v = a + b|print(v)))
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+(int v|(v = a + b|print(v)))
+return
+(print(v)|Fork((call product[v, w]|Fork(call sum[v, w]))))
+
+Symtable:
+a --> 20
+b --> 5
+
+v --> 2
+w --> 5
+
+
+Out:
+
+FileTable:
+
+Heap:
+
+Procedure Table:
+product -> Parameters: [a, b], Statement (int v|(v = a * b|print(v)))
+sum -> Parameters: [a, b], Statement (int v|(v = a + b|print(v)))
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+int v
+(v = a + b|print(v))
+return
+(print(v)|Fork((call product[v, w]|Fork(call sum[v, w]))))
+
+Symtable:
+a --> 20
+b --> 5
+
+v --> 2
+w --> 5
+
+
+Out:
+
+FileTable:
+
+Heap:
+
+Procedure Table:
+product -> Parameters: [a, b], Statement (int v|(v = a * b|print(v)))
+sum -> Parameters: [a, b], Statement (int v|(v = a + b|print(v)))
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+(v = a + b|print(v))
+return
+(print(v)|Fork((call product[v, w]|Fork(call sum[v, w]))))
+
+Symtable:
+a --> 20
+b --> 5
+v --> 0
+
+v --> 2
+w --> 5
+
+
+Out:
+
+FileTable:
+
+Heap:
+
+Procedure Table:
+product -> Parameters: [a, b], Statement (int v|(v = a * b|print(v)))
+sum -> Parameters: [a, b], Statement (int v|(v = a + b|print(v)))
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+v = a + b
+print(v)
+return
+(print(v)|Fork((call product[v, w]|Fork(call sum[v, w]))))
+
+Symtable:
+a --> 20
+b --> 5
+v --> 0
+
+v --> 2
+w --> 5
+
+
+Out:
+
+FileTable:
+
+Heap:
+
+Procedure Table:
+product -> Parameters: [a, b], Statement (int v|(v = a * b|print(v)))
+sum -> Parameters: [a, b], Statement (int v|(v = a + b|print(v)))
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+print(v)
+return
+(print(v)|Fork((call product[v, w]|Fork(call sum[v, w]))))
+
+Symtable:
+a --> 20
+b --> 5
+v --> 25
+
+v --> 2
+w --> 5
+
+
+Out:
+
+FileTable:
+
+Heap:
+
+Procedure Table:
+product -> Parameters: [a, b], Statement (int v|(v = a * b|print(v)))
+sum -> Parameters: [a, b], Statement (int v|(v = a + b|print(v)))
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+return
+(print(v)|Fork((call product[v, w]|Fork(call sum[v, w]))))
+
+Symtable:
+a --> 20
+b --> 5
+v --> 25
+
+v --> 2
+w --> 5
+
+
+Out:
+25
+
+FileTable:
+
+Heap:
+
+Procedure Table:
+product -> Parameters: [a, b], Statement (int v|(v = a * b|print(v)))
+sum -> Parameters: [a, b], Statement (int v|(v = a + b|print(v)))
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+(print(v)|Fork((call product[v, w]|Fork(call sum[v, w]))))
+
+Symtable:
+v --> 2
+w --> 5
+
+
+Out:
+25
+
+FileTable:
+
+Heap:
+
+Procedure Table:
+product -> Parameters: [a, b], Statement (int v|(v = a * b|print(v)))
+sum -> Parameters: [a, b], Statement (int v|(v = a + b|print(v)))
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+print(v)
+Fork((call product[v, w]|Fork(call sum[v, w])))
+
+Symtable:
+v --> 2
+w --> 5
+
+
+Out:
+25
+
+FileTable:
+
+Heap:
+
+Procedure Table:
+product -> Parameters: [a, b], Statement (int v|(v = a * b|print(v)))
+sum -> Parameters: [a, b], Statement (int v|(v = a + b|print(v)))
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+Fork((call product[v, w]|Fork(call sum[v, w])))
+
+Symtable:
+v --> 2
+w --> 5
+
+
+Out:
+25
+2
+
+FileTable:
+
+Heap:
+
+Procedure Table:
+product -> Parameters: [a, b], Statement (int v|(v = a * b|print(v)))
+sum -> Parameters: [a, b], Statement (int v|(v = a + b|print(v)))
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+
+Symtable:
+v --> 2
+w --> 5
+
+
+Out:
+25
+2
+
+FileTable:
+
+Heap:
+
+Procedure Table:
+product -> Parameters: [a, b], Statement (int v|(v = a * b|print(v)))
+sum -> Parameters: [a, b], Statement (int v|(v = a + b|print(v)))
+
+
+-------------------------------------------------------------------------
+
+Id: 2
+ExeStack:
+(call product[v, w]|Fork(call sum[v, w]))
+
+Symtable:
+v --> 2
+w --> 5
+
+
+Out:
+25
+2
+
+FileTable:
+
+Heap:
+
+Procedure Table:
+product -> Parameters: [a, b], Statement (int v|(v = a * b|print(v)))
+sum -> Parameters: [a, b], Statement (int v|(v = a + b|print(v)))
+
+
+-------------------------------------------------------------------------
+
+Id: 2
+ExeStack:
+call product[v, w]
+Fork(call sum[v, w])
+
+Symtable:
+v --> 2
+w --> 5
+
+
+Out:
+25
+2
+
+FileTable:
+
+Heap:
+
+Procedure Table:
+product -> Parameters: [a, b], Statement (int v|(v = a * b|print(v)))
+sum -> Parameters: [a, b], Statement (int v|(v = a + b|print(v)))
+
+
+-------------------------------------------------------------------------
+
+Id: 2
+ExeStack:
+(int v|(v = a * b|print(v)))
+return
+Fork(call sum[v, w])
+
+Symtable:
+a --> 2
+b --> 5
+
+v --> 2
+w --> 5
+
+
+Out:
+25
+2
+
+FileTable:
+
+Heap:
+
+Procedure Table:
+product -> Parameters: [a, b], Statement (int v|(v = a * b|print(v)))
+sum -> Parameters: [a, b], Statement (int v|(v = a + b|print(v)))
+
+
+-------------------------------------------------------------------------
+
+Id: 2
+ExeStack:
+int v
+(v = a * b|print(v))
+return
+Fork(call sum[v, w])
+
+Symtable:
+a --> 2
+b --> 5
+
+v --> 2
+w --> 5
+
+
+Out:
+25
+2
+
+FileTable:
+
+Heap:
+
+Procedure Table:
+product -> Parameters: [a, b], Statement (int v|(v = a * b|print(v)))
+sum -> Parameters: [a, b], Statement (int v|(v = a + b|print(v)))
+
+
+-------------------------------------------------------------------------
+
+Id: 2
+ExeStack:
+(v = a * b|print(v))
+return
+Fork(call sum[v, w])
+
+Symtable:
+a --> 2
+b --> 5
+v --> 0
+
+v --> 2
+w --> 5
+
+
+Out:
+25
+2
+
+FileTable:
+
+Heap:
+
+Procedure Table:
+product -> Parameters: [a, b], Statement (int v|(v = a * b|print(v)))
+sum -> Parameters: [a, b], Statement (int v|(v = a + b|print(v)))
+
+
+-------------------------------------------------------------------------
+
+Id: 2
+ExeStack:
+v = a * b
+print(v)
+return
+Fork(call sum[v, w])
+
+Symtable:
+a --> 2
+b --> 5
+v --> 0
+
+v --> 2
+w --> 5
+
+
+Out:
+25
+2
+
+FileTable:
+
+Heap:
+
+Procedure Table:
+product -> Parameters: [a, b], Statement (int v|(v = a * b|print(v)))
+sum -> Parameters: [a, b], Statement (int v|(v = a + b|print(v)))
+
+
+-------------------------------------------------------------------------
+
+Id: 2
+ExeStack:
+print(v)
+return
+Fork(call sum[v, w])
+
+Symtable:
+a --> 2
+b --> 5
+v --> 10
+
+v --> 2
+w --> 5
+
+
+Out:
+25
+2
+
+FileTable:
+
+Heap:
+
+Procedure Table:
+product -> Parameters: [a, b], Statement (int v|(v = a * b|print(v)))
+sum -> Parameters: [a, b], Statement (int v|(v = a + b|print(v)))
+
+
+-------------------------------------------------------------------------
+
+Id: 2
+ExeStack:
+return
+Fork(call sum[v, w])
+
+Symtable:
+a --> 2
+b --> 5
+v --> 10
+
+v --> 2
+w --> 5
+
+
+Out:
+25
+2
+10
+
+FileTable:
+
+Heap:
+
+Procedure Table:
+product -> Parameters: [a, b], Statement (int v|(v = a * b|print(v)))
+sum -> Parameters: [a, b], Statement (int v|(v = a + b|print(v)))
+
+
+-------------------------------------------------------------------------
+
+Id: 2
+ExeStack:
+Fork(call sum[v, w])
+
+Symtable:
+v --> 2
+w --> 5
+
+
+Out:
+25
+2
+10
+
+FileTable:
+
+Heap:
+
+Procedure Table:
+product -> Parameters: [a, b], Statement (int v|(v = a * b|print(v)))
+sum -> Parameters: [a, b], Statement (int v|(v = a + b|print(v)))
+
+
+-------------------------------------------------------------------------
+
+Id: 2
+ExeStack:
+
+Symtable:
+v --> 2
+w --> 5
+
+
+Out:
+25
+2
+10
+
+FileTable:
+
+Heap:
+
+Procedure Table:
+product -> Parameters: [a, b], Statement (int v|(v = a * b|print(v)))
+sum -> Parameters: [a, b], Statement (int v|(v = a + b|print(v)))
+
+
+-------------------------------------------------------------------------
+
+Id: 3
+ExeStack:
+call sum[v, w]
+
+Symtable:
+v --> 2
+w --> 5
+
+
+Out:
+25
+2
+10
+
+FileTable:
+
+Heap:
+
+Procedure Table:
+product -> Parameters: [a, b], Statement (int v|(v = a * b|print(v)))
+sum -> Parameters: [a, b], Statement (int v|(v = a + b|print(v)))
+
+
+-------------------------------------------------------------------------
+
+Id: 3
+ExeStack:
+(int v|(v = a + b|print(v)))
+return
+
+Symtable:
+a --> 2
+b --> 5
+
+v --> 2
+w --> 5
+
+
+Out:
+25
+2
+10
+
+FileTable:
+
+Heap:
+
+Procedure Table:
+product -> Parameters: [a, b], Statement (int v|(v = a * b|print(v)))
+sum -> Parameters: [a, b], Statement (int v|(v = a + b|print(v)))
+
+
+-------------------------------------------------------------------------
+
+Id: 3
+ExeStack:
+int v
+(v = a + b|print(v))
+return
+
+Symtable:
+a --> 2
+b --> 5
+
+v --> 2
+w --> 5
+
+
+Out:
+25
+2
+10
+
+FileTable:
+
+Heap:
+
+Procedure Table:
+product -> Parameters: [a, b], Statement (int v|(v = a * b|print(v)))
+sum -> Parameters: [a, b], Statement (int v|(v = a + b|print(v)))
+
+
+-------------------------------------------------------------------------
+
+Id: 3
+ExeStack:
+(v = a + b|print(v))
+return
+
+Symtable:
+a --> 2
+b --> 5
+v --> 0
+
+v --> 2
+w --> 5
+
+
+Out:
+25
+2
+10
+
+FileTable:
+
+Heap:
+
+Procedure Table:
+product -> Parameters: [a, b], Statement (int v|(v = a * b|print(v)))
+sum -> Parameters: [a, b], Statement (int v|(v = a + b|print(v)))
+
+
+-------------------------------------------------------------------------
+
+Id: 3
+ExeStack:
+v = a + b
+print(v)
+return
+
+Symtable:
+a --> 2
+b --> 5
+v --> 0
+
+v --> 2
+w --> 5
+
+
+Out:
+25
+2
+10
+
+FileTable:
+
+Heap:
+
+Procedure Table:
+product -> Parameters: [a, b], Statement (int v|(v = a * b|print(v)))
+sum -> Parameters: [a, b], Statement (int v|(v = a + b|print(v)))
+
+
+-------------------------------------------------------------------------
+
+Id: 3
+ExeStack:
+print(v)
+return
+
+Symtable:
+a --> 2
+b --> 5
+v --> 7
+
+v --> 2
+w --> 5
+
+
+Out:
+25
+2
+10
+
+FileTable:
+
+Heap:
+
+Procedure Table:
+product -> Parameters: [a, b], Statement (int v|(v = a * b|print(v)))
+sum -> Parameters: [a, b], Statement (int v|(v = a + b|print(v)))
+
+
+-------------------------------------------------------------------------
+
+Id: 3
+ExeStack:
+return
+
+Symtable:
+a --> 2
+b --> 5
+v --> 7
+
+v --> 2
+w --> 5
+
+
+Out:
+25
+2
+10
+7
+
+FileTable:
+
+Heap:
+
+Procedure Table:
+product -> Parameters: [a, b], Statement (int v|(v = a * b|print(v)))
+sum -> Parameters: [a, b], Statement (int v|(v = a + b|print(v)))
+
+
+-------------------------------------------------------------------------
+
+Id: 3
+ExeStack:
+
+Symtable:
+v --> 2
+w --> 5
+
+
+Out:
+25
+2
+10
+7
+
+FileTable:
+
+Heap:
+
+Procedure Table:
+product -> Parameters: [a, b], Statement (int v|(v = a * b|print(v)))
+sum -> Parameters: [a, b], Statement (int v|(v = a + b|print(v)))
+

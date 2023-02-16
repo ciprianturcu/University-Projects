@@ -1,0 +1,307 @@
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+string varf
+(varf = test.in|(OpenReadFile(varf)|(int varc|(ReadFile(varf, varc)|(print(varc)|(ReadFile(varf, varc)|(print(varc)|CloseReadFile(varf))))))))
+
+Symtable:
+
+Out:
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+(varf = test.in|(OpenReadFile(varf)|(int varc|(ReadFile(varf, varc)|(print(varc)|(ReadFile(varf, varc)|(print(varc)|CloseReadFile(varf))))))))
+
+Symtable:
+varf --> 
+
+Out:
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+varf = test.in
+(OpenReadFile(varf)|(int varc|(ReadFile(varf, varc)|(print(varc)|(ReadFile(varf, varc)|(print(varc)|CloseReadFile(varf)))))))
+
+Symtable:
+varf --> 
+
+Out:
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+(OpenReadFile(varf)|(int varc|(ReadFile(varf, varc)|(print(varc)|(ReadFile(varf, varc)|(print(varc)|CloseReadFile(varf)))))))
+
+Symtable:
+varf --> test.in
+
+Out:
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+OpenReadFile(varf)
+(int varc|(ReadFile(varf, varc)|(print(varc)|(ReadFile(varf, varc)|(print(varc)|CloseReadFile(varf))))))
+
+Symtable:
+varf --> test.in
+
+Out:
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+(int varc|(ReadFile(varf, varc)|(print(varc)|(ReadFile(varf, varc)|(print(varc)|CloseReadFile(varf))))))
+
+Symtable:
+varf --> test.in
+
+Out:
+
+FileTable:
+test.in
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+int varc
+(ReadFile(varf, varc)|(print(varc)|(ReadFile(varf, varc)|(print(varc)|CloseReadFile(varf)))))
+
+Symtable:
+varf --> test.in
+
+Out:
+
+FileTable:
+test.in
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+(ReadFile(varf, varc)|(print(varc)|(ReadFile(varf, varc)|(print(varc)|CloseReadFile(varf)))))
+
+Symtable:
+varf --> test.in
+varc --> 0
+
+Out:
+
+FileTable:
+test.in
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+ReadFile(varf, varc)
+(print(varc)|(ReadFile(varf, varc)|(print(varc)|CloseReadFile(varf))))
+
+Symtable:
+varf --> test.in
+varc --> 0
+
+Out:
+
+FileTable:
+test.in
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+(print(varc)|(ReadFile(varf, varc)|(print(varc)|CloseReadFile(varf))))
+
+Symtable:
+varf --> test.in
+varc --> 5
+
+Out:
+
+FileTable:
+test.in
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+print(varc)
+(ReadFile(varf, varc)|(print(varc)|CloseReadFile(varf)))
+
+Symtable:
+varf --> test.in
+varc --> 5
+
+Out:
+
+FileTable:
+test.in
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+(ReadFile(varf, varc)|(print(varc)|CloseReadFile(varf)))
+
+Symtable:
+varf --> test.in
+varc --> 5
+
+Out:
+5
+
+FileTable:
+test.in
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+ReadFile(varf, varc)
+(print(varc)|CloseReadFile(varf))
+
+Symtable:
+varf --> test.in
+varc --> 5
+
+Out:
+5
+
+FileTable:
+test.in
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+(print(varc)|CloseReadFile(varf))
+
+Symtable:
+varf --> test.in
+varc --> 50
+
+Out:
+5
+
+FileTable:
+test.in
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+print(varc)
+CloseReadFile(varf)
+
+Symtable:
+varf --> test.in
+varc --> 50
+
+Out:
+5
+
+FileTable:
+test.in
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+CloseReadFile(varf)
+
+Symtable:
+varf --> test.in
+varc --> 50
+
+Out:
+5
+50
+
+FileTable:
+test.in
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+
+Symtable:
+varf --> test.in
+varc --> 50
+
+Out:
+5
+50
+
+FileTable:
+
+Heap:
+

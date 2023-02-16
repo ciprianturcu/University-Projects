@@ -1,0 +1,200 @@
+
+-------------------------------------------------------------------------
+
+Id: 6
+ExeStack:
+Ref int v
+(new(v, 20)|(Ref Ref int a|(new(a, v)|(print(v)|print(a)))))
+
+Symtable:
+
+Out:
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 6
+ExeStack:
+(new(v, 20)|(Ref Ref int a|(new(a, v)|(print(v)|print(a)))))
+
+Symtable:
+v --> (0,int)
+
+Out:
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 6
+ExeStack:
+new(v, 20)
+(Ref Ref int a|(new(a, v)|(print(v)|print(a))))
+
+Symtable:
+v --> (0,int)
+
+Out:
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 6
+ExeStack:
+(Ref Ref int a|(new(a, v)|(print(v)|print(a))))
+
+Symtable:
+v --> (1,int)
+
+Out:
+
+FileTable:
+
+Heap:
+1 --> 20
+
+
+-------------------------------------------------------------------------
+
+Id: 6
+ExeStack:
+Ref Ref int a
+(new(a, v)|(print(v)|print(a)))
+
+Symtable:
+v --> (1,int)
+
+Out:
+
+FileTable:
+
+Heap:
+1 --> 20
+
+
+-------------------------------------------------------------------------
+
+Id: 6
+ExeStack:
+(new(a, v)|(print(v)|print(a)))
+
+Symtable:
+a --> (0,Ref int)
+v --> (1,int)
+
+Out:
+
+FileTable:
+
+Heap:
+1 --> 20
+
+
+-------------------------------------------------------------------------
+
+Id: 6
+ExeStack:
+new(a, v)
+(print(v)|print(a))
+
+Symtable:
+a --> (0,Ref int)
+v --> (1,int)
+
+Out:
+
+FileTable:
+
+Heap:
+1 --> 20
+
+
+-------------------------------------------------------------------------
+
+Id: 6
+ExeStack:
+(print(v)|print(a))
+
+Symtable:
+a --> (2,Ref int)
+v --> (1,int)
+
+Out:
+
+FileTable:
+
+Heap:
+1 --> 20
+2 --> (1,int)
+
+
+-------------------------------------------------------------------------
+
+Id: 6
+ExeStack:
+print(v)
+print(a)
+
+Symtable:
+a --> (2,Ref int)
+v --> (1,int)
+
+Out:
+
+FileTable:
+
+Heap:
+1 --> 20
+2 --> (1,int)
+
+
+-------------------------------------------------------------------------
+
+Id: 6
+ExeStack:
+print(a)
+
+Symtable:
+a --> (2,Ref int)
+v --> (1,int)
+
+Out:
+(1,int)
+
+FileTable:
+
+Heap:
+1 --> 20
+2 --> (1,int)
+
+
+-------------------------------------------------------------------------
+
+Id: 6
+ExeStack:
+
+Symtable:
+a --> (2,Ref int)
+v --> (1,int)
+
+Out:
+(1,int)
+(2,Ref int)
+
+FileTable:
+
+Heap:
+1 --> 20
+2 --> (1,int)
+

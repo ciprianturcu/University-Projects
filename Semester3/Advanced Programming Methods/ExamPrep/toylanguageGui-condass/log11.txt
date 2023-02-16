@@ -1,0 +1,495 @@
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+Ref int a
+(Ref int b|(int v|(new(a, 0)|(new(b, 0)|(WriteHeap(a, 1)|(WriteHeap(b, 2)|(v=(ReadHeap(a) < ReadHeap(b))? 100:200|(print(v)|(v=(ReadHeap(b) - 2 > ReadHeap(a))? 100:200|print(v))))))))))
+
+Symtable:
+
+Out:
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+(Ref int b|(int v|(new(a, 0)|(new(b, 0)|(WriteHeap(a, 1)|(WriteHeap(b, 2)|(v=(ReadHeap(a) < ReadHeap(b))? 100:200|(print(v)|(v=(ReadHeap(b) - 2 > ReadHeap(a))? 100:200|print(v))))))))))
+
+Symtable:
+a --> (0,int)
+
+Out:
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+Ref int b
+(int v|(new(a, 0)|(new(b, 0)|(WriteHeap(a, 1)|(WriteHeap(b, 2)|(v=(ReadHeap(a) < ReadHeap(b))? 100:200|(print(v)|(v=(ReadHeap(b) - 2 > ReadHeap(a))? 100:200|print(v)))))))))
+
+Symtable:
+a --> (0,int)
+
+Out:
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+(int v|(new(a, 0)|(new(b, 0)|(WriteHeap(a, 1)|(WriteHeap(b, 2)|(v=(ReadHeap(a) < ReadHeap(b))? 100:200|(print(v)|(v=(ReadHeap(b) - 2 > ReadHeap(a))? 100:200|print(v)))))))))
+
+Symtable:
+a --> (0,int)
+b --> (0,int)
+
+Out:
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+int v
+(new(a, 0)|(new(b, 0)|(WriteHeap(a, 1)|(WriteHeap(b, 2)|(v=(ReadHeap(a) < ReadHeap(b))? 100:200|(print(v)|(v=(ReadHeap(b) - 2 > ReadHeap(a))? 100:200|print(v))))))))
+
+Symtable:
+a --> (0,int)
+b --> (0,int)
+
+Out:
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+(new(a, 0)|(new(b, 0)|(WriteHeap(a, 1)|(WriteHeap(b, 2)|(v=(ReadHeap(a) < ReadHeap(b))? 100:200|(print(v)|(v=(ReadHeap(b) - 2 > ReadHeap(a))? 100:200|print(v))))))))
+
+Symtable:
+a --> (0,int)
+b --> (0,int)
+v --> 0
+
+Out:
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+new(a, 0)
+(new(b, 0)|(WriteHeap(a, 1)|(WriteHeap(b, 2)|(v=(ReadHeap(a) < ReadHeap(b))? 100:200|(print(v)|(v=(ReadHeap(b) - 2 > ReadHeap(a))? 100:200|print(v)))))))
+
+Symtable:
+a --> (0,int)
+b --> (0,int)
+v --> 0
+
+Out:
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+(new(b, 0)|(WriteHeap(a, 1)|(WriteHeap(b, 2)|(v=(ReadHeap(a) < ReadHeap(b))? 100:200|(print(v)|(v=(ReadHeap(b) - 2 > ReadHeap(a))? 100:200|print(v)))))))
+
+Symtable:
+a --> (1,int)
+b --> (0,int)
+v --> 0
+
+Out:
+
+FileTable:
+
+Heap:
+1 --> 0
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+new(b, 0)
+(WriteHeap(a, 1)|(WriteHeap(b, 2)|(v=(ReadHeap(a) < ReadHeap(b))? 100:200|(print(v)|(v=(ReadHeap(b) - 2 > ReadHeap(a))? 100:200|print(v))))))
+
+Symtable:
+a --> (1,int)
+b --> (0,int)
+v --> 0
+
+Out:
+
+FileTable:
+
+Heap:
+1 --> 0
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+(WriteHeap(a, 1)|(WriteHeap(b, 2)|(v=(ReadHeap(a) < ReadHeap(b))? 100:200|(print(v)|(v=(ReadHeap(b) - 2 > ReadHeap(a))? 100:200|print(v))))))
+
+Symtable:
+a --> (1,int)
+b --> (2,int)
+v --> 0
+
+Out:
+
+FileTable:
+
+Heap:
+1 --> 0
+2 --> 0
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+WriteHeap(a, 1)
+(WriteHeap(b, 2)|(v=(ReadHeap(a) < ReadHeap(b))? 100:200|(print(v)|(v=(ReadHeap(b) - 2 > ReadHeap(a))? 100:200|print(v)))))
+
+Symtable:
+a --> (1,int)
+b --> (2,int)
+v --> 0
+
+Out:
+
+FileTable:
+
+Heap:
+1 --> 0
+2 --> 0
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+(WriteHeap(b, 2)|(v=(ReadHeap(a) < ReadHeap(b))? 100:200|(print(v)|(v=(ReadHeap(b) - 2 > ReadHeap(a))? 100:200|print(v)))))
+
+Symtable:
+a --> (1,int)
+b --> (2,int)
+v --> 0
+
+Out:
+
+FileTable:
+
+Heap:
+1 --> 1
+2 --> 0
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+WriteHeap(b, 2)
+(v=(ReadHeap(a) < ReadHeap(b))? 100:200|(print(v)|(v=(ReadHeap(b) - 2 > ReadHeap(a))? 100:200|print(v))))
+
+Symtable:
+a --> (1,int)
+b --> (2,int)
+v --> 0
+
+Out:
+
+FileTable:
+
+Heap:
+1 --> 1
+2 --> 0
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+(v=(ReadHeap(a) < ReadHeap(b))? 100:200|(print(v)|(v=(ReadHeap(b) - 2 > ReadHeap(a))? 100:200|print(v))))
+
+Symtable:
+a --> (1,int)
+b --> (2,int)
+v --> 0
+
+Out:
+
+FileTable:
+
+Heap:
+1 --> 1
+2 --> 2
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+v=(ReadHeap(a) < ReadHeap(b))? 100:200
+(print(v)|(v=(ReadHeap(b) - 2 > ReadHeap(a))? 100:200|print(v)))
+
+Symtable:
+a --> (1,int)
+b --> (2,int)
+v --> 0
+
+Out:
+
+FileTable:
+
+Heap:
+1 --> 1
+2 --> 2
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+if(ReadHeap(a) < ReadHeap(b)){v = 100}else{v = 200}
+(print(v)|(v=(ReadHeap(b) - 2 > ReadHeap(a))? 100:200|print(v)))
+
+Symtable:
+a --> (1,int)
+b --> (2,int)
+v --> 0
+
+Out:
+
+FileTable:
+
+Heap:
+1 --> 1
+2 --> 2
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+v = 100
+(print(v)|(v=(ReadHeap(b) - 2 > ReadHeap(a))? 100:200|print(v)))
+
+Symtable:
+a --> (1,int)
+b --> (2,int)
+v --> 0
+
+Out:
+
+FileTable:
+
+Heap:
+1 --> 1
+2 --> 2
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+(print(v)|(v=(ReadHeap(b) - 2 > ReadHeap(a))? 100:200|print(v)))
+
+Symtable:
+a --> (1,int)
+b --> (2,int)
+v --> 100
+
+Out:
+
+FileTable:
+
+Heap:
+1 --> 1
+2 --> 2
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+print(v)
+(v=(ReadHeap(b) - 2 > ReadHeap(a))? 100:200|print(v))
+
+Symtable:
+a --> (1,int)
+b --> (2,int)
+v --> 100
+
+Out:
+
+FileTable:
+
+Heap:
+1 --> 1
+2 --> 2
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+(v=(ReadHeap(b) - 2 > ReadHeap(a))? 100:200|print(v))
+
+Symtable:
+a --> (1,int)
+b --> (2,int)
+v --> 100
+
+Out:
+100
+
+FileTable:
+
+Heap:
+1 --> 1
+2 --> 2
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+v=(ReadHeap(b) - 2 > ReadHeap(a))? 100:200
+print(v)
+
+Symtable:
+a --> (1,int)
+b --> (2,int)
+v --> 100
+
+Out:
+100
+
+FileTable:
+
+Heap:
+1 --> 1
+2 --> 2
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+if(ReadHeap(b) - 2 > ReadHeap(a)){v = 100}else{v = 200}
+print(v)
+
+Symtable:
+a --> (1,int)
+b --> (2,int)
+v --> 100
+
+Out:
+100
+
+FileTable:
+
+Heap:
+1 --> 1
+2 --> 2
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+v = 200
+print(v)
+
+Symtable:
+a --> (1,int)
+b --> (2,int)
+v --> 100
+
+Out:
+100
+
+FileTable:
+
+Heap:
+1 --> 1
+2 --> 2
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+print(v)
+
+Symtable:
+a --> (1,int)
+b --> (2,int)
+v --> 200
+
+Out:
+100
+
+FileTable:
+
+Heap:
+1 --> 1
+2 --> 2
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+
+Symtable:
+a --> (1,int)
+b --> (2,int)
+v --> 200
+
+Out:
+100
+200
+
+FileTable:
+
+Heap:
+1 --> 1
+2 --> 2
+

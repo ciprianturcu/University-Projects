@@ -1,0 +1,877 @@
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+int v
+(int x|(int y|(v = 0|(repeat((Fork((print(v)|v = v - 1))|v = v + 1)) until (v == 3)|(x = 1|(NopStmt|(y = 3|(NopStmt|print(v * 10)))))))))
+
+Symtable:
+
+Out:
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+(int x|(int y|(v = 0|(repeat((Fork((print(v)|v = v - 1))|v = v + 1)) until (v == 3)|(x = 1|(NopStmt|(y = 3|(NopStmt|print(v * 10)))))))))
+
+Symtable:
+v --> 0
+
+Out:
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+int x
+(int y|(v = 0|(repeat((Fork((print(v)|v = v - 1))|v = v + 1)) until (v == 3)|(x = 1|(NopStmt|(y = 3|(NopStmt|print(v * 10))))))))
+
+Symtable:
+v --> 0
+
+Out:
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+(int y|(v = 0|(repeat((Fork((print(v)|v = v - 1))|v = v + 1)) until (v == 3)|(x = 1|(NopStmt|(y = 3|(NopStmt|print(v * 10))))))))
+
+Symtable:
+v --> 0
+x --> 0
+
+Out:
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+int y
+(v = 0|(repeat((Fork((print(v)|v = v - 1))|v = v + 1)) until (v == 3)|(x = 1|(NopStmt|(y = 3|(NopStmt|print(v * 10)))))))
+
+Symtable:
+v --> 0
+x --> 0
+
+Out:
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+(v = 0|(repeat((Fork((print(v)|v = v - 1))|v = v + 1)) until (v == 3)|(x = 1|(NopStmt|(y = 3|(NopStmt|print(v * 10)))))))
+
+Symtable:
+v --> 0
+x --> 0
+y --> 0
+
+Out:
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+v = 0
+(repeat((Fork((print(v)|v = v - 1))|v = v + 1)) until (v == 3)|(x = 1|(NopStmt|(y = 3|(NopStmt|print(v * 10))))))
+
+Symtable:
+v --> 0
+x --> 0
+y --> 0
+
+Out:
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+(repeat((Fork((print(v)|v = v - 1))|v = v + 1)) until (v == 3)|(x = 1|(NopStmt|(y = 3|(NopStmt|print(v * 10))))))
+
+Symtable:
+v --> 0
+x --> 0
+y --> 0
+
+Out:
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+repeat((Fork((print(v)|v = v - 1))|v = v + 1)) until (v == 3)
+(x = 1|(NopStmt|(y = 3|(NopStmt|print(v * 10)))))
+
+Symtable:
+v --> 0
+x --> 0
+y --> 0
+
+Out:
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+((Fork((print(v)|v = v - 1))|v = v + 1)|while(model.expressions.NotExpression@9251db5){(Fork((print(v)|v = v - 1))|v = v + 1)})
+(x = 1|(NopStmt|(y = 3|(NopStmt|print(v * 10)))))
+
+Symtable:
+v --> 0
+x --> 0
+y --> 0
+
+Out:
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+(Fork((print(v)|v = v - 1))|v = v + 1)
+while(model.expressions.NotExpression@9251db5){(Fork((print(v)|v = v - 1))|v = v + 1)}
+(x = 1|(NopStmt|(y = 3|(NopStmt|print(v * 10)))))
+
+Symtable:
+v --> 0
+x --> 0
+y --> 0
+
+Out:
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+Fork((print(v)|v = v - 1))
+v = v + 1
+while(model.expressions.NotExpression@9251db5){(Fork((print(v)|v = v - 1))|v = v + 1)}
+(x = 1|(NopStmt|(y = 3|(NopStmt|print(v * 10)))))
+
+Symtable:
+v --> 0
+x --> 0
+y --> 0
+
+Out:
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+v = v + 1
+while(model.expressions.NotExpression@9251db5){(Fork((print(v)|v = v - 1))|v = v + 1)}
+(x = 1|(NopStmt|(y = 3|(NopStmt|print(v * 10)))))
+
+Symtable:
+v --> 0
+x --> 0
+y --> 0
+
+Out:
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 2
+ExeStack:
+(print(v)|v = v - 1)
+
+Symtable:
+v --> 0
+x --> 0
+y --> 0
+
+Out:
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+while(model.expressions.NotExpression@9251db5){(Fork((print(v)|v = v - 1))|v = v + 1)}
+(x = 1|(NopStmt|(y = 3|(NopStmt|print(v * 10)))))
+
+Symtable:
+v --> 1
+x --> 0
+y --> 0
+
+Out:
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 2
+ExeStack:
+print(v)
+v = v - 1
+
+Symtable:
+v --> 0
+x --> 0
+y --> 0
+
+Out:
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+(Fork((print(v)|v = v - 1))|v = v + 1)
+while(model.expressions.NotExpression@9251db5){(Fork((print(v)|v = v - 1))|v = v + 1)}
+(x = 1|(NopStmt|(y = 3|(NopStmt|print(v * 10)))))
+
+Symtable:
+v --> 1
+x --> 0
+y --> 0
+
+Out:
+0
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 2
+ExeStack:
+v = v - 1
+
+Symtable:
+v --> 0
+x --> 0
+y --> 0
+
+Out:
+0
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+Fork((print(v)|v = v - 1))
+v = v + 1
+while(model.expressions.NotExpression@9251db5){(Fork((print(v)|v = v - 1))|v = v + 1)}
+(x = 1|(NopStmt|(y = 3|(NopStmt|print(v * 10)))))
+
+Symtable:
+v --> 1
+x --> 0
+y --> 0
+
+Out:
+0
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 2
+ExeStack:
+
+Symtable:
+v --> -1
+x --> 0
+y --> 0
+
+Out:
+0
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+v = v + 1
+while(model.expressions.NotExpression@9251db5){(Fork((print(v)|v = v - 1))|v = v + 1)}
+(x = 1|(NopStmt|(y = 3|(NopStmt|print(v * 10)))))
+
+Symtable:
+v --> 1
+x --> 0
+y --> 0
+
+Out:
+0
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 3
+ExeStack:
+(print(v)|v = v - 1)
+
+Symtable:
+v --> 1
+x --> 0
+y --> 0
+
+Out:
+0
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+while(model.expressions.NotExpression@9251db5){(Fork((print(v)|v = v - 1))|v = v + 1)}
+(x = 1|(NopStmt|(y = 3|(NopStmt|print(v * 10)))))
+
+Symtable:
+v --> 2
+x --> 0
+y --> 0
+
+Out:
+0
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 3
+ExeStack:
+print(v)
+v = v - 1
+
+Symtable:
+v --> 1
+x --> 0
+y --> 0
+
+Out:
+0
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+(Fork((print(v)|v = v - 1))|v = v + 1)
+while(model.expressions.NotExpression@9251db5){(Fork((print(v)|v = v - 1))|v = v + 1)}
+(x = 1|(NopStmt|(y = 3|(NopStmt|print(v * 10)))))
+
+Symtable:
+v --> 2
+x --> 0
+y --> 0
+
+Out:
+0
+1
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 3
+ExeStack:
+v = v - 1
+
+Symtable:
+v --> 1
+x --> 0
+y --> 0
+
+Out:
+0
+1
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+Fork((print(v)|v = v - 1))
+v = v + 1
+while(model.expressions.NotExpression@9251db5){(Fork((print(v)|v = v - 1))|v = v + 1)}
+(x = 1|(NopStmt|(y = 3|(NopStmt|print(v * 10)))))
+
+Symtable:
+v --> 2
+x --> 0
+y --> 0
+
+Out:
+0
+1
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 3
+ExeStack:
+
+Symtable:
+v --> 0
+x --> 0
+y --> 0
+
+Out:
+0
+1
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+v = v + 1
+while(model.expressions.NotExpression@9251db5){(Fork((print(v)|v = v - 1))|v = v + 1)}
+(x = 1|(NopStmt|(y = 3|(NopStmt|print(v * 10)))))
+
+Symtable:
+v --> 2
+x --> 0
+y --> 0
+
+Out:
+0
+1
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 4
+ExeStack:
+(print(v)|v = v - 1)
+
+Symtable:
+v --> 2
+x --> 0
+y --> 0
+
+Out:
+0
+1
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+while(model.expressions.NotExpression@9251db5){(Fork((print(v)|v = v - 1))|v = v + 1)}
+(x = 1|(NopStmt|(y = 3|(NopStmt|print(v * 10)))))
+
+Symtable:
+v --> 3
+x --> 0
+y --> 0
+
+Out:
+0
+1
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 4
+ExeStack:
+print(v)
+v = v - 1
+
+Symtable:
+v --> 2
+x --> 0
+y --> 0
+
+Out:
+0
+1
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+(x = 1|(NopStmt|(y = 3|(NopStmt|print(v * 10)))))
+
+Symtable:
+v --> 3
+x --> 0
+y --> 0
+
+Out:
+0
+1
+2
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 4
+ExeStack:
+v = v - 1
+
+Symtable:
+v --> 2
+x --> 0
+y --> 0
+
+Out:
+0
+1
+2
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+x = 1
+(NopStmt|(y = 3|(NopStmt|print(v * 10))))
+
+Symtable:
+v --> 3
+x --> 0
+y --> 0
+
+Out:
+0
+1
+2
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 4
+ExeStack:
+
+Symtable:
+v --> 1
+x --> 0
+y --> 0
+
+Out:
+0
+1
+2
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+(NopStmt|(y = 3|(NopStmt|print(v * 10))))
+
+Symtable:
+v --> 3
+x --> 1
+y --> 0
+
+Out:
+0
+1
+2
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+NopStmt
+(y = 3|(NopStmt|print(v * 10)))
+
+Symtable:
+v --> 3
+x --> 1
+y --> 0
+
+Out:
+0
+1
+2
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+(y = 3|(NopStmt|print(v * 10)))
+
+Symtable:
+v --> 3
+x --> 1
+y --> 0
+
+Out:
+0
+1
+2
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+y = 3
+(NopStmt|print(v * 10))
+
+Symtable:
+v --> 3
+x --> 1
+y --> 0
+
+Out:
+0
+1
+2
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+(NopStmt|print(v * 10))
+
+Symtable:
+v --> 3
+x --> 1
+y --> 3
+
+Out:
+0
+1
+2
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+NopStmt
+print(v * 10)
+
+Symtable:
+v --> 3
+x --> 1
+y --> 3
+
+Out:
+0
+1
+2
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+print(v * 10)
+
+Symtable:
+v --> 3
+x --> 1
+y --> 3
+
+Out:
+0
+1
+2
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+
+Symtable:
+v --> 3
+x --> 1
+y --> 3
+
+Out:
+0
+1
+2
+30
+
+FileTable:
+
+Heap:
+

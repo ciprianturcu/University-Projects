@@ -1,0 +1,391 @@
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+int v
+(Ref int a|(v = 10|(new(a, 22)|(Fork((WriteHeap(a, 30)|(v = 32|(print(v)|print(ReadHeap(a))))))|(print(v)|print(ReadHeap(a)))))))
+
+Symtable:
+
+Out:
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+(Ref int a|(v = 10|(new(a, 22)|(Fork((WriteHeap(a, 30)|(v = 32|(print(v)|print(ReadHeap(a))))))|(print(v)|print(ReadHeap(a)))))))
+
+Symtable:
+v --> 0
+
+Out:
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+Ref int a
+(v = 10|(new(a, 22)|(Fork((WriteHeap(a, 30)|(v = 32|(print(v)|print(ReadHeap(a))))))|(print(v)|print(ReadHeap(a))))))
+
+Symtable:
+v --> 0
+
+Out:
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+(v = 10|(new(a, 22)|(Fork((WriteHeap(a, 30)|(v = 32|(print(v)|print(ReadHeap(a))))))|(print(v)|print(ReadHeap(a))))))
+
+Symtable:
+a --> (0,int)
+v --> 0
+
+Out:
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+v = 10
+(new(a, 22)|(Fork((WriteHeap(a, 30)|(v = 32|(print(v)|print(ReadHeap(a))))))|(print(v)|print(ReadHeap(a)))))
+
+Symtable:
+a --> (0,int)
+v --> 0
+
+Out:
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+(new(a, 22)|(Fork((WriteHeap(a, 30)|(v = 32|(print(v)|print(ReadHeap(a))))))|(print(v)|print(ReadHeap(a)))))
+
+Symtable:
+a --> (0,int)
+v --> 10
+
+Out:
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+new(a, 22)
+(Fork((WriteHeap(a, 30)|(v = 32|(print(v)|print(ReadHeap(a))))))|(print(v)|print(ReadHeap(a))))
+
+Symtable:
+a --> (0,int)
+v --> 10
+
+Out:
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+(Fork((WriteHeap(a, 30)|(v = 32|(print(v)|print(ReadHeap(a))))))|(print(v)|print(ReadHeap(a))))
+
+Symtable:
+a --> (1,int)
+v --> 10
+
+Out:
+
+FileTable:
+
+Heap:
+1 --> 22
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+Fork((WriteHeap(a, 30)|(v = 32|(print(v)|print(ReadHeap(a))))))
+(print(v)|print(ReadHeap(a)))
+
+Symtable:
+a --> (1,int)
+v --> 10
+
+Out:
+
+FileTable:
+
+Heap:
+1 --> 22
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+(print(v)|print(ReadHeap(a)))
+
+Symtable:
+a --> (1,int)
+v --> 10
+
+Out:
+
+FileTable:
+
+Heap:
+1 --> 22
+
+
+-------------------------------------------------------------------------
+
+Id: 2
+ExeStack:
+(WriteHeap(a, 30)|(v = 32|(print(v)|print(ReadHeap(a)))))
+
+Symtable:
+a --> (1,int)
+v --> 10
+
+Out:
+
+FileTable:
+
+Heap:
+1 --> 22
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+print(v)
+print(ReadHeap(a))
+
+Symtable:
+a --> (1,int)
+v --> 10
+
+Out:
+
+FileTable:
+
+Heap:
+1 --> 22
+
+
+-------------------------------------------------------------------------
+
+Id: 2
+ExeStack:
+WriteHeap(a, 30)
+(v = 32|(print(v)|print(ReadHeap(a))))
+
+Symtable:
+a --> (1,int)
+v --> 10
+
+Out:
+
+FileTable:
+
+Heap:
+1 --> 22
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+print(ReadHeap(a))
+
+Symtable:
+a --> (1,int)
+v --> 10
+
+Out:
+10
+
+FileTable:
+
+Heap:
+1 --> 30
+
+
+-------------------------------------------------------------------------
+
+Id: 2
+ExeStack:
+(v = 32|(print(v)|print(ReadHeap(a))))
+
+Symtable:
+a --> (1,int)
+v --> 10
+
+Out:
+10
+
+FileTable:
+
+Heap:
+1 --> 30
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+
+Symtable:
+a --> (1,int)
+v --> 10
+
+Out:
+10
+30
+
+FileTable:
+
+Heap:
+1 --> 30
+
+
+-------------------------------------------------------------------------
+
+Id: 2
+ExeStack:
+v = 32
+(print(v)|print(ReadHeap(a)))
+
+Symtable:
+a --> (1,int)
+v --> 10
+
+Out:
+10
+30
+
+FileTable:
+
+Heap:
+1 --> 30
+
+
+-------------------------------------------------------------------------
+
+Id: 2
+ExeStack:
+(print(v)|print(ReadHeap(a)))
+
+Symtable:
+a --> (1,int)
+v --> 32
+
+Out:
+10
+30
+
+FileTable:
+
+Heap:
+1 --> 30
+
+
+-------------------------------------------------------------------------
+
+Id: 2
+ExeStack:
+print(v)
+print(ReadHeap(a))
+
+Symtable:
+a --> (1,int)
+v --> 32
+
+Out:
+10
+30
+
+FileTable:
+
+Heap:
+1 --> 30
+
+
+-------------------------------------------------------------------------
+
+Id: 2
+ExeStack:
+print(ReadHeap(a))
+
+Symtable:
+a --> (1,int)
+v --> 32
+
+Out:
+10
+30
+32
+
+FileTable:
+
+Heap:
+1 --> 30
+
+
+-------------------------------------------------------------------------
+
+Id: 2
+ExeStack:
+
+Symtable:
+a --> (1,int)
+v --> 32
+
+Out:
+10
+30
+32
+30
+
+FileTable:
+
+Heap:
+1 --> 30
+

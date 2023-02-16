@@ -1,0 +1,170 @@
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+int v1
+(int v2|(v1 = 2|(v2 = 3|if(v1 != 0){print(MULExpression{expression1=v1, expression2=v2})}else{print(v1)})))
+
+Symtable:
+
+Out:
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+(int v2|(v1 = 2|(v2 = 3|if(v1 != 0){print(MULExpression{expression1=v1, expression2=v2})}else{print(v1)})))
+
+Symtable:
+v1 --> 0
+
+Out:
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+int v2
+(v1 = 2|(v2 = 3|if(v1 != 0){print(MULExpression{expression1=v1, expression2=v2})}else{print(v1)}))
+
+Symtable:
+v1 --> 0
+
+Out:
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+(v1 = 2|(v2 = 3|if(v1 != 0){print(MULExpression{expression1=v1, expression2=v2})}else{print(v1)}))
+
+Symtable:
+v1 --> 0
+v2 --> 0
+
+Out:
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+v1 = 2
+(v2 = 3|if(v1 != 0){print(MULExpression{expression1=v1, expression2=v2})}else{print(v1)})
+
+Symtable:
+v1 --> 0
+v2 --> 0
+
+Out:
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+(v2 = 3|if(v1 != 0){print(MULExpression{expression1=v1, expression2=v2})}else{print(v1)})
+
+Symtable:
+v1 --> 2
+v2 --> 0
+
+Out:
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+v2 = 3
+if(v1 != 0){print(MULExpression{expression1=v1, expression2=v2})}else{print(v1)}
+
+Symtable:
+v1 --> 2
+v2 --> 0
+
+Out:
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+if(v1 != 0){print(MULExpression{expression1=v1, expression2=v2})}else{print(v1)}
+
+Symtable:
+v1 --> 2
+v2 --> 3
+
+Out:
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+print(MULExpression{expression1=v1, expression2=v2})
+
+Symtable:
+v1 --> 2
+v2 --> 3
+
+Out:
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+
+Symtable:
+v1 --> 2
+v2 --> 3
+
+Out:
+1
+
+FileTable:
+
+Heap:
+

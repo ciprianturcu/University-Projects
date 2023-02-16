@@ -1,0 +1,171 @@
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+bool a
+(int v|(a = true|(if(a){v = 2}else{v = 3}|print(v))))
+
+Symtable:
+
+Out:
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+(int v|(a = true|(if(a){v = 2}else{v = 3}|print(v))))
+
+Symtable:
+a --> false
+
+Out:
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+int v
+(a = true|(if(a){v = 2}else{v = 3}|print(v)))
+
+Symtable:
+a --> false
+
+Out:
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+(a = true|(if(a){v = 2}else{v = 3}|print(v)))
+
+Symtable:
+a --> false
+v --> 0
+
+Out:
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+a = true
+(if(a){v = 2}else{v = 3}|print(v))
+
+Symtable:
+a --> false
+v --> 0
+
+Out:
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+(if(a){v = 2}else{v = 3}|print(v))
+
+Symtable:
+a --> true
+v --> 0
+
+Out:
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+if(a){v = 2}else{v = 3}
+print(v)
+
+Symtable:
+a --> true
+v --> 0
+
+Out:
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+v = 2
+print(v)
+
+Symtable:
+a --> true
+v --> 0
+
+Out:
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+print(v)
+
+Symtable:
+a --> true
+v --> 2
+
+Out:
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+
+Symtable:
+a --> true
+v --> 2
+
+Out:
+2
+
+FileTable:
+
+Heap:
+

@@ -1,0 +1,1007 @@
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+Ref int v1
+(int cnt|(new(v1, 1)|(createSemaphore(cnt, ReadHeap(v1))|(Fork((acquire(cnt)|(WriteHeap(v1, ReadHeap(v1) * 10)|(print(ReadHeap(v1))|release(cnt)))))|(Fork((acquire(cnt)|(WriteHeap(v1, ReadHeap(v1) * 10)|(WriteHeap(v1, ReadHeap(v1) * 2)|(print(ReadHeap(v1))|release(cnt))))))|(acquire(cnt)|(print(ReadHeap(v1) - 1)|release(cnt))))))))
+
+Symtable:
+
+Out:
+
+FileTable:
+
+Heap:
+
+SemaphoreTable:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+(int cnt|(new(v1, 1)|(createSemaphore(cnt, ReadHeap(v1))|(Fork((acquire(cnt)|(WriteHeap(v1, ReadHeap(v1) * 10)|(print(ReadHeap(v1))|release(cnt)))))|(Fork((acquire(cnt)|(WriteHeap(v1, ReadHeap(v1) * 10)|(WriteHeap(v1, ReadHeap(v1) * 2)|(print(ReadHeap(v1))|release(cnt))))))|(acquire(cnt)|(print(ReadHeap(v1) - 1)|release(cnt))))))))
+
+Symtable:
+v1 --> (0,int)
+
+Out:
+
+FileTable:
+
+Heap:
+
+SemaphoreTable:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+int cnt
+(new(v1, 1)|(createSemaphore(cnt, ReadHeap(v1))|(Fork((acquire(cnt)|(WriteHeap(v1, ReadHeap(v1) * 10)|(print(ReadHeap(v1))|release(cnt)))))|(Fork((acquire(cnt)|(WriteHeap(v1, ReadHeap(v1) * 10)|(WriteHeap(v1, ReadHeap(v1) * 2)|(print(ReadHeap(v1))|release(cnt))))))|(acquire(cnt)|(print(ReadHeap(v1) - 1)|release(cnt)))))))
+
+Symtable:
+v1 --> (0,int)
+
+Out:
+
+FileTable:
+
+Heap:
+
+SemaphoreTable:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+(new(v1, 1)|(createSemaphore(cnt, ReadHeap(v1))|(Fork((acquire(cnt)|(WriteHeap(v1, ReadHeap(v1) * 10)|(print(ReadHeap(v1))|release(cnt)))))|(Fork((acquire(cnt)|(WriteHeap(v1, ReadHeap(v1) * 10)|(WriteHeap(v1, ReadHeap(v1) * 2)|(print(ReadHeap(v1))|release(cnt))))))|(acquire(cnt)|(print(ReadHeap(v1) - 1)|release(cnt)))))))
+
+Symtable:
+cnt --> 0
+v1 --> (0,int)
+
+Out:
+
+FileTable:
+
+Heap:
+
+SemaphoreTable:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+new(v1, 1)
+(createSemaphore(cnt, ReadHeap(v1))|(Fork((acquire(cnt)|(WriteHeap(v1, ReadHeap(v1) * 10)|(print(ReadHeap(v1))|release(cnt)))))|(Fork((acquire(cnt)|(WriteHeap(v1, ReadHeap(v1) * 10)|(WriteHeap(v1, ReadHeap(v1) * 2)|(print(ReadHeap(v1))|release(cnt))))))|(acquire(cnt)|(print(ReadHeap(v1) - 1)|release(cnt))))))
+
+Symtable:
+cnt --> 0
+v1 --> (0,int)
+
+Out:
+
+FileTable:
+
+Heap:
+
+SemaphoreTable:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+(createSemaphore(cnt, ReadHeap(v1))|(Fork((acquire(cnt)|(WriteHeap(v1, ReadHeap(v1) * 10)|(print(ReadHeap(v1))|release(cnt)))))|(Fork((acquire(cnt)|(WriteHeap(v1, ReadHeap(v1) * 10)|(WriteHeap(v1, ReadHeap(v1) * 2)|(print(ReadHeap(v1))|release(cnt))))))|(acquire(cnt)|(print(ReadHeap(v1) - 1)|release(cnt))))))
+
+Symtable:
+cnt --> 0
+v1 --> (1,int)
+
+Out:
+
+FileTable:
+
+Heap:
+1 --> 1
+
+SemaphoreTable:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+createSemaphore(cnt, ReadHeap(v1))
+(Fork((acquire(cnt)|(WriteHeap(v1, ReadHeap(v1) * 10)|(print(ReadHeap(v1))|release(cnt)))))|(Fork((acquire(cnt)|(WriteHeap(v1, ReadHeap(v1) * 10)|(WriteHeap(v1, ReadHeap(v1) * 2)|(print(ReadHeap(v1))|release(cnt))))))|(acquire(cnt)|(print(ReadHeap(v1) - 1)|release(cnt)))))
+
+Symtable:
+cnt --> 0
+v1 --> (1,int)
+
+Out:
+
+FileTable:
+
+Heap:
+1 --> 1
+
+SemaphoreTable:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+(Fork((acquire(cnt)|(WriteHeap(v1, ReadHeap(v1) * 10)|(print(ReadHeap(v1))|release(cnt)))))|(Fork((acquire(cnt)|(WriteHeap(v1, ReadHeap(v1) * 10)|(WriteHeap(v1, ReadHeap(v1) * 2)|(print(ReadHeap(v1))|release(cnt))))))|(acquire(cnt)|(print(ReadHeap(v1) - 1)|release(cnt)))))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+
+Out:
+
+FileTable:
+
+Heap:
+1 --> 1
+
+SemaphoreTable:
+1 -> (1, [])
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+Fork((acquire(cnt)|(WriteHeap(v1, ReadHeap(v1) * 10)|(print(ReadHeap(v1))|release(cnt)))))
+(Fork((acquire(cnt)|(WriteHeap(v1, ReadHeap(v1) * 10)|(WriteHeap(v1, ReadHeap(v1) * 2)|(print(ReadHeap(v1))|release(cnt))))))|(acquire(cnt)|(print(ReadHeap(v1) - 1)|release(cnt))))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+
+Out:
+
+FileTable:
+
+Heap:
+1 --> 1
+
+SemaphoreTable:
+1 -> (1, [])
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+(Fork((acquire(cnt)|(WriteHeap(v1, ReadHeap(v1) * 10)|(WriteHeap(v1, ReadHeap(v1) * 2)|(print(ReadHeap(v1))|release(cnt))))))|(acquire(cnt)|(print(ReadHeap(v1) - 1)|release(cnt))))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+
+Out:
+
+FileTable:
+
+Heap:
+1 --> 1
+
+SemaphoreTable:
+1 -> (1, [])
+
+
+-------------------------------------------------------------------------
+
+Id: 2
+ExeStack:
+(acquire(cnt)|(WriteHeap(v1, ReadHeap(v1) * 10)|(print(ReadHeap(v1))|release(cnt))))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+
+Out:
+
+FileTable:
+
+Heap:
+1 --> 1
+
+SemaphoreTable:
+1 -> (1, [])
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+Fork((acquire(cnt)|(WriteHeap(v1, ReadHeap(v1) * 10)|(WriteHeap(v1, ReadHeap(v1) * 2)|(print(ReadHeap(v1))|release(cnt))))))
+(acquire(cnt)|(print(ReadHeap(v1) - 1)|release(cnt)))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+
+Out:
+
+FileTable:
+
+Heap:
+1 --> 1
+
+SemaphoreTable:
+1 -> (1, [])
+
+
+-------------------------------------------------------------------------
+
+Id: 2
+ExeStack:
+acquire(cnt)
+(WriteHeap(v1, ReadHeap(v1) * 10)|(print(ReadHeap(v1))|release(cnt)))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+
+Out:
+
+FileTable:
+
+Heap:
+1 --> 1
+
+SemaphoreTable:
+1 -> (1, [])
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+(acquire(cnt)|(print(ReadHeap(v1) - 1)|release(cnt)))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+
+Out:
+
+FileTable:
+
+Heap:
+1 --> 1
+
+SemaphoreTable:
+1 -> (1, [2])
+
+
+-------------------------------------------------------------------------
+
+Id: 2
+ExeStack:
+(WriteHeap(v1, ReadHeap(v1) * 10)|(print(ReadHeap(v1))|release(cnt)))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+
+Out:
+
+FileTable:
+
+Heap:
+1 --> 1
+
+SemaphoreTable:
+1 -> (1, [2])
+
+
+-------------------------------------------------------------------------
+
+Id: 3
+ExeStack:
+(acquire(cnt)|(WriteHeap(v1, ReadHeap(v1) * 10)|(WriteHeap(v1, ReadHeap(v1) * 2)|(print(ReadHeap(v1))|release(cnt)))))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+
+Out:
+
+FileTable:
+
+Heap:
+1 --> 1
+
+SemaphoreTable:
+1 -> (1, [2])
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+acquire(cnt)
+(print(ReadHeap(v1) - 1)|release(cnt))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+
+Out:
+
+FileTable:
+
+Heap:
+1 --> 1
+
+SemaphoreTable:
+1 -> (1, [2])
+
+
+-------------------------------------------------------------------------
+
+Id: 2
+ExeStack:
+WriteHeap(v1, ReadHeap(v1) * 10)
+(print(ReadHeap(v1))|release(cnt))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+
+Out:
+
+FileTable:
+
+Heap:
+1 --> 1
+
+SemaphoreTable:
+1 -> (1, [2])
+
+
+-------------------------------------------------------------------------
+
+Id: 3
+ExeStack:
+acquire(cnt)
+(WriteHeap(v1, ReadHeap(v1) * 10)|(WriteHeap(v1, ReadHeap(v1) * 2)|(print(ReadHeap(v1))|release(cnt))))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+
+Out:
+
+FileTable:
+
+Heap:
+1 --> 1
+
+SemaphoreTable:
+1 -> (1, [2])
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+acquire(cnt)
+(print(ReadHeap(v1) - 1)|release(cnt))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+
+Out:
+
+FileTable:
+
+Heap:
+1 --> 10
+
+SemaphoreTable:
+1 -> (1, [2])
+
+
+-------------------------------------------------------------------------
+
+Id: 2
+ExeStack:
+(print(ReadHeap(v1))|release(cnt))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+
+Out:
+
+FileTable:
+
+Heap:
+1 --> 10
+
+SemaphoreTable:
+1 -> (1, [2])
+
+
+-------------------------------------------------------------------------
+
+Id: 3
+ExeStack:
+acquire(cnt)
+(WriteHeap(v1, ReadHeap(v1) * 10)|(WriteHeap(v1, ReadHeap(v1) * 2)|(print(ReadHeap(v1))|release(cnt))))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+
+Out:
+
+FileTable:
+
+Heap:
+1 --> 10
+
+SemaphoreTable:
+1 -> (1, [2])
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+acquire(cnt)
+(print(ReadHeap(v1) - 1)|release(cnt))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+
+Out:
+
+FileTable:
+
+Heap:
+1 --> 10
+
+SemaphoreTable:
+1 -> (1, [2])
+
+
+-------------------------------------------------------------------------
+
+Id: 2
+ExeStack:
+print(ReadHeap(v1))
+release(cnt)
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+
+Out:
+
+FileTable:
+
+Heap:
+1 --> 10
+
+SemaphoreTable:
+1 -> (1, [2])
+
+
+-------------------------------------------------------------------------
+
+Id: 3
+ExeStack:
+acquire(cnt)
+(WriteHeap(v1, ReadHeap(v1) * 10)|(WriteHeap(v1, ReadHeap(v1) * 2)|(print(ReadHeap(v1))|release(cnt))))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+
+Out:
+
+FileTable:
+
+Heap:
+1 --> 10
+
+SemaphoreTable:
+1 -> (1, [2])
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+acquire(cnt)
+(print(ReadHeap(v1) - 1)|release(cnt))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+
+Out:
+10
+
+FileTable:
+
+Heap:
+1 --> 10
+
+SemaphoreTable:
+1 -> (1, [2])
+
+
+-------------------------------------------------------------------------
+
+Id: 2
+ExeStack:
+release(cnt)
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+
+Out:
+10
+
+FileTable:
+
+Heap:
+1 --> 10
+
+SemaphoreTable:
+1 -> (1, [2])
+
+
+-------------------------------------------------------------------------
+
+Id: 3
+ExeStack:
+acquire(cnt)
+(WriteHeap(v1, ReadHeap(v1) * 10)|(WriteHeap(v1, ReadHeap(v1) * 2)|(print(ReadHeap(v1))|release(cnt))))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+
+Out:
+10
+
+FileTable:
+
+Heap:
+1 --> 10
+
+SemaphoreTable:
+1 -> (1, [2])
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+acquire(cnt)
+(print(ReadHeap(v1) - 1)|release(cnt))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+
+Out:
+10
+
+FileTable:
+
+Heap:
+1 --> 10
+
+SemaphoreTable:
+1 -> (1, [])
+
+
+-------------------------------------------------------------------------
+
+Id: 2
+ExeStack:
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+
+Out:
+10
+
+FileTable:
+
+Heap:
+1 --> 10
+
+SemaphoreTable:
+1 -> (1, [])
+
+
+-------------------------------------------------------------------------
+
+Id: 3
+ExeStack:
+acquire(cnt)
+(WriteHeap(v1, ReadHeap(v1) * 10)|(WriteHeap(v1, ReadHeap(v1) * 2)|(print(ReadHeap(v1))|release(cnt))))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+
+Out:
+10
+
+FileTable:
+
+Heap:
+1 --> 10
+
+SemaphoreTable:
+1 -> (1, [])
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+(print(ReadHeap(v1) - 1)|release(cnt))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+
+Out:
+10
+
+FileTable:
+
+Heap:
+1 --> 10
+
+SemaphoreTable:
+1 -> (1, [1])
+
+
+-------------------------------------------------------------------------
+
+Id: 3
+ExeStack:
+acquire(cnt)
+(WriteHeap(v1, ReadHeap(v1) * 10)|(WriteHeap(v1, ReadHeap(v1) * 2)|(print(ReadHeap(v1))|release(cnt))))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+
+Out:
+10
+
+FileTable:
+
+Heap:
+1 --> 10
+
+SemaphoreTable:
+1 -> (1, [1])
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+print(ReadHeap(v1) - 1)
+release(cnt)
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+
+Out:
+10
+
+FileTable:
+
+Heap:
+1 --> 10
+
+SemaphoreTable:
+1 -> (1, [1])
+
+
+-------------------------------------------------------------------------
+
+Id: 3
+ExeStack:
+acquire(cnt)
+(WriteHeap(v1, ReadHeap(v1) * 10)|(WriteHeap(v1, ReadHeap(v1) * 2)|(print(ReadHeap(v1))|release(cnt))))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+
+Out:
+10
+
+FileTable:
+
+Heap:
+1 --> 10
+
+SemaphoreTable:
+1 -> (1, [1])
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+release(cnt)
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+
+Out:
+10
+9
+
+FileTable:
+
+Heap:
+1 --> 10
+
+SemaphoreTable:
+1 -> (1, [1])
+
+
+-------------------------------------------------------------------------
+
+Id: 3
+ExeStack:
+acquire(cnt)
+(WriteHeap(v1, ReadHeap(v1) * 10)|(WriteHeap(v1, ReadHeap(v1) * 2)|(print(ReadHeap(v1))|release(cnt))))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+
+Out:
+10
+9
+
+FileTable:
+
+Heap:
+1 --> 10
+
+SemaphoreTable:
+1 -> (1, [1])
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+
+Out:
+10
+9
+
+FileTable:
+
+Heap:
+1 --> 10
+
+SemaphoreTable:
+1 -> (1, [3])
+
+
+-------------------------------------------------------------------------
+
+Id: 3
+ExeStack:
+(WriteHeap(v1, ReadHeap(v1) * 10)|(WriteHeap(v1, ReadHeap(v1) * 2)|(print(ReadHeap(v1))|release(cnt))))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+
+Out:
+10
+9
+
+FileTable:
+
+Heap:
+1 --> 10
+
+SemaphoreTable:
+1 -> (1, [3])
+
+
+-------------------------------------------------------------------------
+
+Id: 3
+ExeStack:
+WriteHeap(v1, ReadHeap(v1) * 10)
+(WriteHeap(v1, ReadHeap(v1) * 2)|(print(ReadHeap(v1))|release(cnt)))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+
+Out:
+10
+9
+
+FileTable:
+
+Heap:
+1 --> 10
+
+SemaphoreTable:
+1 -> (1, [3])
+
+
+-------------------------------------------------------------------------
+
+Id: 3
+ExeStack:
+(WriteHeap(v1, ReadHeap(v1) * 2)|(print(ReadHeap(v1))|release(cnt)))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+
+Out:
+10
+9
+
+FileTable:
+
+Heap:
+1 --> 100
+
+SemaphoreTable:
+1 -> (1, [3])
+
+
+-------------------------------------------------------------------------
+
+Id: 3
+ExeStack:
+WriteHeap(v1, ReadHeap(v1) * 2)
+(print(ReadHeap(v1))|release(cnt))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+
+Out:
+10
+9
+
+FileTable:
+
+Heap:
+1 --> 100
+
+SemaphoreTable:
+1 -> (1, [3])
+
+
+-------------------------------------------------------------------------
+
+Id: 3
+ExeStack:
+(print(ReadHeap(v1))|release(cnt))
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+
+Out:
+10
+9
+
+FileTable:
+
+Heap:
+1 --> 200
+
+SemaphoreTable:
+1 -> (1, [3])
+
+
+-------------------------------------------------------------------------
+
+Id: 3
+ExeStack:
+print(ReadHeap(v1))
+release(cnt)
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+
+Out:
+10
+9
+
+FileTable:
+
+Heap:
+1 --> 200
+
+SemaphoreTable:
+1 -> (1, [3])
+
+
+-------------------------------------------------------------------------
+
+Id: 3
+ExeStack:
+release(cnt)
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+
+Out:
+10
+9
+200
+
+FileTable:
+
+Heap:
+1 --> 200
+
+SemaphoreTable:
+1 -> (1, [3])
+
+
+-------------------------------------------------------------------------
+
+Id: 3
+ExeStack:
+
+Symtable:
+cnt --> 1
+v1 --> (1,int)
+
+Out:
+10
+9
+200
+
+FileTable:
+
+Heap:
+1 --> 200
+
+SemaphoreTable:
+1 -> (1, [])
+

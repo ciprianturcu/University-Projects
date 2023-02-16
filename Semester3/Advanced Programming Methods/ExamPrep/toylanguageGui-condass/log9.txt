@@ -1,0 +1,442 @@
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+int v
+(v = 4|(while(v > 0){(print(v)|v = v - 1)}|print(v)))
+
+Symtable:
+
+Out:
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+(v = 4|(while(v > 0){(print(v)|v = v - 1)}|print(v)))
+
+Symtable:
+v --> 0
+
+Out:
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+v = 4
+(while(v > 0){(print(v)|v = v - 1)}|print(v))
+
+Symtable:
+v --> 0
+
+Out:
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+(while(v > 0){(print(v)|v = v - 1)}|print(v))
+
+Symtable:
+v --> 4
+
+Out:
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+while(v > 0){(print(v)|v = v - 1)}
+print(v)
+
+Symtable:
+v --> 4
+
+Out:
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+(print(v)|v = v - 1)
+while(v > 0){(print(v)|v = v - 1)}
+print(v)
+
+Symtable:
+v --> 4
+
+Out:
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+print(v)
+v = v - 1
+while(v > 0){(print(v)|v = v - 1)}
+print(v)
+
+Symtable:
+v --> 4
+
+Out:
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+v = v - 1
+while(v > 0){(print(v)|v = v - 1)}
+print(v)
+
+Symtable:
+v --> 4
+
+Out:
+4
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+while(v > 0){(print(v)|v = v - 1)}
+print(v)
+
+Symtable:
+v --> 3
+
+Out:
+4
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+(print(v)|v = v - 1)
+while(v > 0){(print(v)|v = v - 1)}
+print(v)
+
+Symtable:
+v --> 3
+
+Out:
+4
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+print(v)
+v = v - 1
+while(v > 0){(print(v)|v = v - 1)}
+print(v)
+
+Symtable:
+v --> 3
+
+Out:
+4
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+v = v - 1
+while(v > 0){(print(v)|v = v - 1)}
+print(v)
+
+Symtable:
+v --> 3
+
+Out:
+4
+3
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+while(v > 0){(print(v)|v = v - 1)}
+print(v)
+
+Symtable:
+v --> 2
+
+Out:
+4
+3
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+(print(v)|v = v - 1)
+while(v > 0){(print(v)|v = v - 1)}
+print(v)
+
+Symtable:
+v --> 2
+
+Out:
+4
+3
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+print(v)
+v = v - 1
+while(v > 0){(print(v)|v = v - 1)}
+print(v)
+
+Symtable:
+v --> 2
+
+Out:
+4
+3
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+v = v - 1
+while(v > 0){(print(v)|v = v - 1)}
+print(v)
+
+Symtable:
+v --> 2
+
+Out:
+4
+3
+2
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+while(v > 0){(print(v)|v = v - 1)}
+print(v)
+
+Symtable:
+v --> 1
+
+Out:
+4
+3
+2
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+(print(v)|v = v - 1)
+while(v > 0){(print(v)|v = v - 1)}
+print(v)
+
+Symtable:
+v --> 1
+
+Out:
+4
+3
+2
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+print(v)
+v = v - 1
+while(v > 0){(print(v)|v = v - 1)}
+print(v)
+
+Symtable:
+v --> 1
+
+Out:
+4
+3
+2
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+v = v - 1
+while(v > 0){(print(v)|v = v - 1)}
+print(v)
+
+Symtable:
+v --> 1
+
+Out:
+4
+3
+2
+1
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+while(v > 0){(print(v)|v = v - 1)}
+print(v)
+
+Symtable:
+v --> 0
+
+Out:
+4
+3
+2
+1
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+print(v)
+
+Symtable:
+v --> 0
+
+Out:
+4
+3
+2
+1
+
+FileTable:
+
+Heap:
+
+
+-------------------------------------------------------------------------
+
+Id: 1
+ExeStack:
+
+Symtable:
+v --> 0
+
+Out:
+4
+3
+2
+1
+0
+
+FileTable:
+
+Heap:
+
