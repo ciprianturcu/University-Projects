@@ -93,7 +93,7 @@ a view with a SELECT statement that operates on at least 2 different tables and 
 a view with a SELECT statement that has a GROUP BY clause, operates on at least 2 different tables and contains at least one JOIN operator.
 Obs. The way you implement the stored procedures and / or functions is up to you. Results which allow the system to be extended to new tables / views with minimal or no code at all will be more appreciated.
 
-The script for creating the relational structure above can be found here: <a href=""> script </a>
+The script for creating the relational structure above can be found here: <a href="https://github.com/ciprianturcu/University-Projects/blob/main/Semester3/Databases/lawfirmDatabase/script.sql"> script </a>
 
 ### LAB 5
 
