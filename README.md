@@ -66,5 +66,34 @@ Organised list with all my faculty projects, lectures and other resources.
       </li>
     </ul>
   </li>
+  <li>:file_folder: Semester 3
+    <ul>
+      <li>
+        <a href = "https://github.com/ciprianturcu/University-Projects/tree/main/Semester3/Advanced%20Programming%20Methods" >
+          Advanced Programming Methods.
+        </a>
+      </li>
+      <li>
+        <a href = "https://github.com/ciprianturcu/University-Projects/tree/main/Semester3/Computer%20Networks" >
+          Computer Networks.
+        </a>
+      </li>
+      <li>
+      <a href = "https://github.com/ciprianturcu/University-Projects/tree/main/Semester3/Databases">
+        Databases.
+      </a>
+      </li>
+      <li>
+      <a href = "https://github.com/ciprianturcu/University-Projects/tree/main/Semester3/Logical%20and%20Functional%20Programming">
+        Logical and Functional Programming.
+      </a>
+      </li>
+      <li>
+      <a href = "https://github.com/ciprianturcu/University-Projects/tree/main/Semester3/Probabilities%20and%20Statistics">
+        Probabilities and Statistics.
+      </a>
+      </li>
+    </ul>
+  </li>
 </ul>
   
