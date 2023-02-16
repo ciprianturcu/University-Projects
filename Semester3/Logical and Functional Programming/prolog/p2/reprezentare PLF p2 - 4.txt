@@ -1,0 +1,85 @@
+%Write a predicate to determine the sum of two numbers written in list representation.
+
+%carryFlag returns true or false if we have a carry after adding the numbers
+%carryFalg(A:number, B:number, C:number, R:number)
+%carryflag(i,i,i,o)
+
+%carryFlag(a,b,c) = 1 if a+b+c>9
+%		   			0 otherwise
+
+carryFlag(A,B,C,1):-
+	AB is A+B,
+	ABC is AB+C,
+	ABC > 9.
+
+carryFlag(A,B,C,0):-
+	AB is A+B,
+	ABC is AB+C,
+	ABC =< 9.
+
+%--------------------------------------------------------------
+
+%computeDigit(A:nr,B:nr,C:nr,R:nr)
+%fm(i,i,i,o)
+
+%computeDigit(a,b,c) = a+b+c%10
+
+computeDigit(A,B,C,R):-
+	AB is A+B,
+	ABC is AB+C,
+	R is ABC mod 10.
+
+%-------------------------------------------------------------
+
+%sumList(L:list,P:list,C:number,:R:list)
+%fm(i,i,i,i,o)
+
+%sumList(l1,l2,..,ln,p1,p2,..,pm,c, r)   - r if c=0 and n =0 ,m=0
+%					- c if c!=0 and n=0 and m=0
+%					- sumList([],p2,..,pm,carryFlag(0,p1,c), computeDigit(0,p1,c) U r) if n=0;
+%					- sumList(l2,..,ln,[],carryFlag(l1,0,c),computeDigit(l1,0,c) U r) if m=0;
+%					- sumList(l2,..,ln,p2,..pm,carryFlag(l1,p1,c),computeDigit(l1,p1,c)U r) otherwise
+
+sumList([],[],0,[]).
+sumList([],[],1,[1]).
+sumList([],[H|T],C,[RD|R]):-
+	carryFlag(0,H,C,RC),
+	computeDigit(0,H,C,RD),
+	sumList([],T,RC,R).
+sumList([H|T],[],C,[RD|R]):-
+	carryFlag(H,0,C,RC),
+	computeDigit(H,0,C,RD),
+	sumList(T,[],RC,R).
+sumList([H1|T1],[H2|T2],C,[RD|R]):-
+	carryFlag(H1,H2,C,RC),
+	computeDigit(H1,H2,C,RD),
+	sumList(T1,T2,RC,R).
+
+mainListAddition(L,P,RR):-
+    reverse(L,LR),
+    reverse(P,PR),
+    sumList(LR,PR,0,R),
+    reverse(R,RR).
+	
+%trace, mainListAddition([1,2,3,4],[5,4,8],R).
+
+%For a heterogeneous list, formed from integer numbers and list of digits, write a predicate to compute the sum of all numbers represented as sublists.
+
+%heteroList(l1,l2,..,ln) - [] if n=0
+%			 - sumList(reverse(l1),heteroList(l2,..,ln)) if l1 is a list
+%			 - heteroList(l2,..,ln) otherwise
+
+heteroList([],[]).
+heteroList([H|T],RF):-
+	is_list(H),
+	!,
+	heteroList(T,R),
+	reverse(H,HR),
+	sumList(HR,R,0,RF).
+heteroList([_|T], R):-
+	heteroList(T,R).
+
+mainHeteroList(L,R):-
+	heteroList(L,RM),
+	reverse(RM,R).
+%trace, mainHeteroList([1, [2, 3], 4, 5, [6, 7, 9], 10, 11, [1, 2, 0], 6],R).

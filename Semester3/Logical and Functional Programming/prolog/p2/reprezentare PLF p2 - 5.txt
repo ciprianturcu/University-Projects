@@ -1,0 +1,70 @@
+%a. Substitute all occurrences of an element of a list with all the elements of another list.
+%Eg. subst([1,2,1,3,1,4],1,[10,11],X) produces X=[10,11,2,10,11,3,10,11,4].
+%b. For a heterogeneous list, formed from integer numbers and list of numbers, replace in every sublist all
+%occurrences of the first element from sublist it a new given list.
+%Eg.: [1, [4, 1, 4], 3, 6, [7, 10, 1, 3, 9], 5, [1, 1, 1], 7] si [11, 11] =>
+%[1, [11, 11, 1, 11, 11], 3, 6, [11, 11, 10, 1, 3, 9], 5, [11 11 11 11 11 11], 7]
+
+%a 
+
+%insert_list(l1,..,ln,list) - list, n=0
+%							- l1 + insert_list(l2,..ln,list) otherwise
+%insert_list(L:list, LL:list, R:list)
+%flwo model (i,i,o)
+%
+
+insert([],L,L).
+insert([H|T],L,[H|R]):-
+    insert(T,L,R).
+
+%substitute_element(l1,...,ln,e,list) - [] if n=0
+%									  - substitute_element(inserare(list,l2,...,ln), e, list) , l1 = e
+%									  - l1 + substitute_element(l2,..,ln,e,list) otherwise
+%substitute_element(L:list,E:element, List:list, R:list)
+% flow model : substitute_element(i,i,i,o)
+
+substitute_element([],_,_,[]).
+substitute_element([H|T],E,List,R):-
+    H=:=E,
+    insert(List,T,RL),
+    substitute_element(RL,E,List,R).
+substitute_element([H|T],E,List,[H|R]):- 
+    H=\=E,
+    substitute_element(T,E,List,R).
+
+%b
+
+%heteroList(l1,l2,...ln, r1,...,rm) - [] n=0
+%									- substitute_element(ll1,ll2....lln,ll1,r1,...rm),heterList(l2..ln), if is_list(l1) = true 
+%									-  l1 + heterList(l2,...,ln,r1,..,rm) otherwise 
+%heterList(L:list,R:list)
+%flow model : heterList(i,o)
+
+heterList([],_,[]).
+heterList([[H|HT]|T],L,[RH|R]):-
+    substitute_element([H|HT],H,L,RH),
+    heterList(T,L,R).
+heterList([H|T],L,[H|R]):-
+    number(H),
+    heterList(T,L,R).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

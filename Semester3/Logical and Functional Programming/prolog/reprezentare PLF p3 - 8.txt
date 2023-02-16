@@ -1,0 +1,48 @@
+%8.generate all strings of n paranthesis correctly closed.
+
+paranthesis('(').
+paranthesis(')').
+
+%check(l1,l2,..,ln, c)  - check(l2,l3,..,ln,c+1) if l1=='('
+%			- check(l2,l3,...,ln,c-1) if l1==')'
+
+%check(L:list,C:number)
+%check(i,i)
+
+check([],0).
+check([H|T],C):-
+	H == '(',
+	NC is C+1,
+	check(T,NC).
+check([H|T],C):-
+	H==')',
+	C > 0,
+	NC is C-1,
+	check(T,NC).
+
+
+%generateall(n,i,c) - c,i=n
+%		    - generateall(n,i+1,paranthesis(x)+c), otherwise
+
+%generateall(N:number, I:number, C:list, R:list)
+%generateall(i,i,i,o)
+
+generateall(N,N,C,C):- !.
+generateall(N,I,C,R):-
+	paranthesis(X),
+	NI is I+1,
+	generateall(N,NI,[X|C],R).
+
+
+%onesolution(N:number, R:list)
+%onesolution(i,o)
+
+onesolution(N,R):-
+	generateall(N,0,[],R),
+	check(R,0).
+
+%allsolution(N:number,R:list)
+%allsolution(i,o)
+
+allsolution(N,R):-
+	findall(RPartial, onesolution(N,RPartial),R).

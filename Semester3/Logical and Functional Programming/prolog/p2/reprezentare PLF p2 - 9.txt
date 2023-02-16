@@ -1,0 +1,23 @@
+insert_pos([], _ , _ , _ , _ ,[]).
+insert_pos([H|T],E,P,I,PI,[H,E|R]):-
+   	P =< 15,
+    PI=:=I,
+    !,
+    NP is P*2,
+    NPI is I+NP,
+    NI is I+1,
+    insert_pos(T,E,NP,NI,NPI,R).
+insert_pos([H|T],E,P,I,PI,[H|R]):-
+    PI=\=I,
+    NI is I+1,
+    insert_pos(T,E,P,NI,PI,R).
+
+
+heterList([],[]).
+heterList([H1,H2|T],[H1,H2R|R]):-
+            is_list(H2),
+            !,
+            insert_pos(H2,H1,1,1,1,H2R),
+            heterList(T,R).
+heterList([H1,H2|T],[H1,H2|R]):-
+            heterList(T,R).

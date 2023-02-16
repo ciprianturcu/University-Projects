@@ -1,0 +1,41 @@
+p1 - 10
+
+%alternatesum(L-list, sum - sum of the numbers)
+%(i,i)
+
+b. alternatesum (l,sum)  - 0, l1==NULL
+			 - l1 , if l2==NULL
+			   - l1-l2 + alternatesum(l3,..,ln,sum) otherwise
+
+alternatesum([],0).
+alternatesum([H1],S):-
+	S is H1.
+alternatesum([H1,H2|T],S0):-
+	alternatesum(T,S1),
+	S0 is H1-H2+S1.
+
+%valleyaspect(L-list, C- check number)
+%(i,i)
+a.
+
+valleyaspect([_],0):-!.
+
+valleyaspect([H1,H2|T],C):-
+	H1>H2,
+	C=:=1,
+	valleyaspect([H2|T],C).
+
+valleyaspect([H1,H2|T],_):-
+	H1<H2,
+	valleyaspect([H2|T],0).
+
+main(L):-
+	L=[H1,H2|_],
+	H1>H2,
+	valleyaspect(L,1).
+
+
+a.modificat
+
+alternatesum(l1,l2,..,ln, c) - 0, l1==NULL
+			     - l1*c + alternatesum(l2,..,ln,c*(-1)), otherwise

@@ -1,0 +1,26 @@
+r1-2
+p1-10
+
+v,poz,[l1,l2,l3,l4,....,ln]
+i=1->n
+
+substiutie - [],l1 == NULL
+	   - v U substitutie(l2,..,ln,poz,i+1,v), i=poz 
+	   - l1 U substitutie(l2,..,ln,poz,i+1,v), i!=poz
+
+n [x1,x2,x3,..,xn]
+m [y1,y2,y3,..,ym]
+
+difference - [], x1==NULL && y1==NULL
+	   - [], x1==NULL 
+	   - x1 U difference([x2,x3,..,xn],[y1,y2,y3,..,ym]), y1 == Null
+	   - x1 U difference([x2,x3,..,xn],[y1,y2,y3,..,ym]), x1 not in [y1,y2,y3,..,ym]
+	   - difference([x2,x3,..,xn],[y1,y2,y3,..,ym]), x1 in [y1,y2,y3,..,ym]
+	
+1 2 3 4 5 6 7
+4 2 3 8 7 9 0
+8 9 0 6 5 1
+A\B
+
+
+

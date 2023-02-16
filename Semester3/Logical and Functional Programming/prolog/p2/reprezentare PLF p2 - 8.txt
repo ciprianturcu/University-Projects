@@ -1,0 +1,91 @@
+%a. Determine the successorof a number represented as digits in a list.
+% Eg.: [1 9 3 5 9 9] --> [1 9 3 6 0 0]
+% b. For a heterogeneous list, formed from integer numbers and list of numbers, determine the successor of a 
+% sublist considered as a number.
+% [1, [2, 3], 4, 5, [6, 7, 9], 10, 11, [1, 2, 0], 6] => [1, [2, 4], 4, 5, [6, 8, 0], 10, 11, [1, 2, 1], 6]
+
+%a
+
+%my_append(l1,..,ln,elem) - [elem] n=0
+% 						  - l1 + my_append(l2,..,ln,elem) otherwise
+%my-append(L:list,E:number,R:List)
+%flow model(i,i,o)
+
+my_append([],E,[E]).
+my_append([H|T],E,[H|R]):-
+    my_append(T,E,R).
+
+%my_reverse(l1,..,ln) - [] n=0
+% 					  - my_append(my_reverse(l2,..,ln),l1)
+%my_reverse(L:list,R:list)
+%flow model (i,o)
+
+my_reverse([],[]).
+my_reverse([H|T],R):-
+    my_reverse(T,RI),
+    my_append(RI,H,R).
+
+%carryFalg(A:number, B:number, C:number, R:number)
+%carryflag(i,i,i,o)
+
+%carryFlag(a,c) - 1 if a+c>9
+%		   		- 0 otherwise
+
+carry_flag(A,C,1):-
+    AC is A+C,
+    AC>9.
+carry_flag(A,C,0):-
+    AC is A+C,
+    AC=<9.
+
+%computeDigit(A:nr,C:nr,R:nr)
+%fm(i,i,i,o)
+
+%computeDigit(a,b,c) = a+c%10
+
+computeDigit(A,C,R):-
+	AC is A+C,
+	R is AC mod 10.
+
+%successor(l1,..,ln,c) - [] if n=0
+% 					 - l1 U successor(l2,...,ln,carry_flag(l1,c))
+%fm(i,i,o)
+
+successor([],0,[]).
+successor([],1,[1]).
+successor([H|T],C,[HR|R]):-
+    carry_flag(H,C,NC),
+    computeDigit(H,C,HR),
+    successor(T,NC,R).
+
+get_successor(L,R):-
+    my_reverse(L,RL),
+    successor(RL,1,RR),
+    my_reverse(RR,R).
+
+
+%b
+
+% heterList(l1...ln, list) = 
+% 	[], n = 0
+% 	get_successor(l1) + heterList(l2...ln), is_list(l1) = True
+% 	l1 + heterList(l2...ln), otherwise
+
+% heterList(L:list, R:list)
+% flow model: heterList(i, o)
+
+heterList([],[]).
+heterList([H|T],[HR|R]):-
+            is_list(H),
+            !,
+            get_successor(H,HR),
+            heterList(T,R).
+heterList([H|T],[H|R]):-
+            heterList(T,R).
+
+
+
+
+    
+
+

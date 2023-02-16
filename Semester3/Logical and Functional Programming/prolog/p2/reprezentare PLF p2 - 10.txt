@@ -1,0 +1,23 @@
+prim(N,N).
+prim(N,D)-
+    DN,
+    N mod D == 0,
+    ND is D+1,
+    prim(N,ND).
+
+double_prime([],[]).
+double_prime([HT],[H,HR])-
+    prim(H,2),
+    !,
+    double_prime(T,R).
+double_prime([HT],[HR])-
+    double_prime(T,R).
+
+heterList([],[]).
+heterList([HT],[HRR])-
+    is_list(H),
+    !,
+    double_prime(H,HR),
+    heterList(T,R).
+heterList([HT],[HR])-
+    heterList(T,R).
