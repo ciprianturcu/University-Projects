@@ -1,0 +1,112 @@
+/*
+1.The woman wearing the Red shirt is somewhere between the Engineer and the woman wearing the Blue shirt, in that order.
+2.Valerie's favorite dessert is Cheesecake.
+3.The Veterinarian is at the second position.
+4.The woman who likes Gingerbread is exactly to the left of the 35 years old woman.
+5.The youngest woman is at one of the ends.
+6.The woman that likes Painting is next to the woman that likes Reading.
+7.Molly is wearing the Green shirt.
+8.At one of the ends is the woman who likes Drawing.
+9.Elizabeth is next to the woman that likes Banana split.
+10.The Teacher is at the fifth position.
+11.The woman who likes Painting is somewhere between the 45 years old woman and the woman who likes Reading, in that order.
+12.Valerie is a Programmer.
+13.The Engineer is at one of the ends.
+14.At the third position is the woman wearing the Yellow shirt.
+15.Valerie is exactly to the left of the woman that likes Cupcake.
+16.Stacey is at one of the ends.
+17.The 40 years old woman is at the fourth position.
+18.The woman whose hobby is Sewing is exactly to the right of the oldest woman.
+19.The Biologist is wearing the Orange shirt.
+20.The woman who likes Gardening is exactly to the right of the woman that likes Gingerbread.
+21.Danielle is next to the Programmer.
+22.The 30 years old woman likes Banana split.
+ */
+
+:- use_rendering(table,
+		 [header(woman('Shirt','Name','Dessert','Age','Profession','Hobby'))]).
+
+nextToLeft(A, B, Ls) :- append(_, [A,B|_], Ls).
+
+nextTo(A,B, Ls):-append(_,[B,A|_], Ls).
+nextTo(A,B, Ls):-append(_,[A,B|_], Ls).
+
+atAnyEnd(A, Ls):- Ls=[A|_].
+atAnyEnd(A, Ls):- Ls=[_,_,_,_,A].
+    
+somewhereLeft(A,B, Ls):- append(_, [A, B|_], Ls).
+somewhereLeft(A,B, Ls):- append(_, [A,_, B|_], Ls).
+somewhereLeft(A,B, Ls):- append(_, [A,_,_, B|_], Ls).
+somewhereLeft(A,B, Ls):- append(_, [A,_,_,_, B|_], Ls).
+
+somewhereBetween(A, B, C, Ls):- somewhereLeft(A, B, Ls), somewhereLeft(B,C, Ls).
+
+womenn(Women):-
+    % each woman in the group is represented as:
+	%      woman('Shirt','Name','Dessert','Age','Profession','Hobby')
+    length(Women,5),
+    somewhereBetween(woman(_,_,_,_,engineer,_),woman(red,_,_,_,_,_),woman(blue,_,_,_,_,_),Women), 	%1
+    member(woman(_,valerie,cheesecake,_,_,_),Women),												%2
+    Women=[_,woman(_,_,_,_,veterinarian,_),_,_,_],													%3
+    nextToLeft(woman(_,_,gingerbread,_,_,_),woman(_,_,_,35,_,_),Women),								%4
+    atAnyEnd(woman(_,_,_,30,_,_),Women),															%5
+    nextTo(woman(_,_,_,_,_,painting),woman(_,_,_,_,_,reading),Women),								%6
+    member(woman(green,molly,_,_,_,_),Women),														%7
+    atAnyEnd(woman(_,_,_,_,_,drawing),Women),														%8
+    nextTo(woman(_,elizabeth,_,_,_,_),woman(_,_,bananasplit,_,_,_),Women),							%9
+    Women=[_,_,_,_,woman(_,_,_,_,teacher,_)],														%10
+    somewhereBetween(woman(_,_,_,45,_,_),woman(_,_,_,_,_,painting),woman(_,_,_,_,_,reading),Women),	%11
+    member(woman(_,valerie,_,_,programmer,_),Women),												%12
+    atAnyEnd(woman(_,_,_,_,engineer,_),Women),														%13
+    Women=[_,_,woman(yellow,_,_,_,_,_),_,_],														%14
+    nextToLeft(woman(_,valerie,_,_,_,_),woman(_,_,cupcake,_,_,_),Women),							%15
+    atAnyEnd(woman(_,stacey,_,_,_,_),Women),														%16
+    Women=[_,_,_,woman(_,_,_,40,_,_),_],															%17
+    Oldest=woman(_,_,_,50,_,_),																		%oldest woman has age of 50
+    nextToLeft(Oldest,woman(_,_,_,_,_,sewing),Women),												%18
+    member(woman(orange,_,_,_,biologist,_),Women),													%19
+    nextToLeft(woman(_,_,gingerbread,_,_,_),woman(_,_,_,_,_,gardening),Women),						%20
+    nextTo(woman(_,danielle,_,_,_,_),woman(_,_,_,_,programmer,_),Women),							%21
+    member(woman(_,_,bananasplit,30,_,_),Women),													%22
+    member(woman(_,_,sundae,_,_,_),Women).															%one women likes sundae
+    
+    
+woman_sundae(Wm):-
+    womenn(WmList),
+    member(woman(_,Wm,sundae,_,_,_),WmList),!.
+
+/*
+Examples:
+	womenn(G).
+G = [woman(green,	molly,		sundae,			50,		engineer,		drawing), 
+     woman(red,		danielle,	gingerbread,	45,		veterinarian,	sewing), 
+     woman(yellow,	valerie,	cheesecake,		35,		programmer,		gardening), 
+     woman(orange,	elizabeth,	cupcake,		40,		biologist,		painting), 
+     woman(blue,	stacey,		banansplit,		30,		teacher,		reading)]
+
+woman_sundae(Wm).
+Wm = molly
+ 
+ 
+ 
+ */
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
