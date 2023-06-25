@@ -1,0 +1,22 @@
+D:\Faculty materials\2nd year\2nd sem\DBMS\LAB\practicalExam\practicalExam\bin\Debug\practicalExam.exe.config
+D:\Faculty materials\2nd year\2nd sem\DBMS\LAB\practicalExam\practicalExam\bin\Debug\practicalExam.exe
+D:\Faculty materials\2nd year\2nd sem\DBMS\LAB\practicalExam\practicalExam\bin\Debug\practicalExam.pdb
+D:\Faculty materials\2nd year\2nd sem\DBMS\LAB\practicalExam\practicalExam\obj\Debug\practicalExam.csproj.AssemblyReference.cache
+D:\Faculty materials\2nd year\2nd sem\DBMS\LAB\practicalExam\practicalExam\obj\Debug\practicalExam.csproj.SuggestedBindingRedirects.cache
+D:\Faculty materials\2nd year\2nd sem\DBMS\LAB\practicalExam\practicalExam\obj\Debug\practicalExam.Form1.resources
+D:\Faculty materials\2nd year\2nd sem\DBMS\LAB\practicalExam\practicalExam\obj\Debug\practicalExam.Properties.Resources.resources
+D:\Faculty materials\2nd year\2nd sem\DBMS\LAB\practicalExam\practicalExam\obj\Debug\practicalExam.csproj.GenerateResource.cache
+D:\Faculty materials\2nd year\2nd sem\DBMS\LAB\practicalExam\practicalExam\obj\Debug\practicalExam.csproj.CoreCompileInputs.cache
+D:\Faculty materials\2nd year\2nd sem\DBMS\LAB\practicalExam\practicalExam\obj\Debug\practicalExam.exe
+D:\Faculty materials\2nd year\2nd sem\DBMS\LAB\practicalExam\practicalExam\obj\Debug\practicalExam.pdb
+D:\DBMS\practicalExam\practicalExam\bin\Debug\practicalExam.exe.config
+D:\DBMS\practicalExam\practicalExam\bin\Debug\practicalExam.exe
+D:\DBMS\practicalExam\practicalExam\bin\Debug\practicalExam.pdb
+D:\DBMS\practicalExam\practicalExam\obj\Debug\practicalExam.csproj.AssemblyReference.cache
+D:\DBMS\practicalExam\practicalExam\obj\Debug\practicalExam.csproj.SuggestedBindingRedirects.cache
+D:\DBMS\practicalExam\practicalExam\obj\Debug\practicalExam.Form1.resources
+D:\DBMS\practicalExam\practicalExam\obj\Debug\practicalExam.Properties.Resources.resources
+D:\DBMS\practicalExam\practicalExam\obj\Debug\practicalExam.csproj.GenerateResource.cache
+D:\DBMS\practicalExam\practicalExam\obj\Debug\practicalExam.csproj.CoreCompileInputs.cache
+D:\DBMS\practicalExam\practicalExam\obj\Debug\practicalExam.exe
+D:\DBMS\practicalExam\practicalExam\obj\Debug\practicalExam.pdb

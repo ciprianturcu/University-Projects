@@ -1,0 +1,8 @@
+D:\DBMS\lab1\lab1\bin\Debug\lab1.exe.config
+D:\DBMS\lab1\lab1\bin\Debug\lab1.exe
+D:\DBMS\lab1\lab1\bin\Debug\lab1.pdb
+D:\DBMS\lab1\lab1\obj\Debug\lab1.csproj.AssemblyReference.cache
+D:\DBMS\lab1\lab1\obj\Debug\lab1.csproj.SuggestedBindingRedirects.cache
+D:\DBMS\lab1\lab1\obj\Debug\lab1.csproj.CoreCompileInputs.cache
+D:\DBMS\lab1\lab1\obj\Debug\lab1.exe
+D:\DBMS\lab1\lab1\obj\Debug\lab1.pdb
