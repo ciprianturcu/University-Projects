@@ -1,0 +1,63 @@
+﻿@using subiect7.Models;
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Update Document</title>
+    <style>
+        .button-container {
+            margin-top: 10px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 8px 16px;
+            text-align: center;
+            text-decoration: none;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+            .button:hover {
+                background-color: #0056b3;
+            }
+    </style>
+</head>
+<body>
+    <h2>All the documents</h2>
+    <div>
+        @{
+            Document document = (Document)ViewData["document"];
+        }
+        <form action="/Main/UpdateKeywordDocument" method="GET">
+            <input type="text" id="documentId" name="documentId" value="@document.id" readonly style="display: none;"/>
+            Name : <input type="text" id="documentName" name="documentName" value="@document.name" readonly /> <br />
+            WebSiteID : <input type="text" id="documentWebSite" name="documentWebSite" value="@document.idWebSite" readonly /> <br />
+            Keyword1 : <input type="text" id="documentKeyWord1" name="documentKeyWord1" value="@document.keyword1" /> <br />
+            Keyword2 : <input type="text" id="documentKeyWord2" name="documentKeyWord2" value="@document.keyword2" /> <br />
+            Keyword3 : <input type="text" id="documentKeyWord3" name="documentKeyWord3" value="@document.keyword3" /> <br />
+            Keyword4 : <input type="text" id="documentKeyWord4" name="documentKeyWord4" value="@document.keyword4" /> <br />
+            Keyword5 : <input type="text" id="documentKeyWord5" name="documentKeyWord5" value="@document.keyword5" /> <br />
+            <input type="submit" value="Update keywords" />
+        </form>
+
+    </div>
+
+
+    <div class="button-container">
+        <a href="/Main/RedirectToWebsites" class="button">See websites</a>
+        <a href="/Main/RedirectToDocuments" class="button">See documents</a>
+        @*<a href="/Main/RedirectToKeyWordDocuments" class="button">Filter Documents</a>*@
+    </div>
+
+</body>
+</html>

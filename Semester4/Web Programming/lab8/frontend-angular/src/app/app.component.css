@@ -1,0 +1,125 @@
+/* Reset default browser styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Apply styles to the entire page */
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    color: #333;
+  }
+  
+  /* Apply styles to the main section of the page */
+  main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Apply styles to the navigation bar */
+#nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+  }
+  
+#nav-bar li {
+    list-style: none;
+  }
+  
+#nav-bar button {
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  #nav-bar button:hover {
+    text-decoration: underline;
+  }
+  
+  /* Apply styles to the page title */
+  .title {
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Apply styles to the search form */
+  .details {
+    margin-bottom: 20px;
+  }
+  
+  .details label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .details input[type="text"] {
+    font-size: 16px;
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .details #info {
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  
+  .form {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .car-buttons {
+    display: flex;
+    margin-right: 20px;
+  }
+  
+  .car-buttons button {
+    font-size: 16px;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  .car-buttons button:hover {
+    background-color: #555;
+  }
+  
+  /* Apply styles to the car list table */
+  #car-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  #car-table th,
+  #car-table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  #car-table th {
+    background-color: #333;
+    color: #fff;
+  }
+  
+  #car-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  

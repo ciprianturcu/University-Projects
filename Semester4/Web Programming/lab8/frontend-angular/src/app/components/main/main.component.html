@@ -1,0 +1,58 @@
+<div class="details">
+    <br>
+    <label for="product-category">Searching by:</label>
+    <input #modelInput (input)="changeModelInput(modelInput); getCars();" placeholder="Model" id="model"/>
+    <p id="info"></p>
+    <br>
+    <form class="form" action="">
+        <div class="car-buttons">
+            <button (click)="redirectToUpdateComponent()" id="car-update" type="button">Update</button>
+            <button (click)="deleteSelectedCar()" id="car-delete" t ype="button">Delete</button>
+        </div>  
+    </form>
+</div>
+
+<div id="main-car-list">
+    <table id="car-table">
+    <tr>
+        <thead>
+            <th> Model</th>
+            <th> Engine</th>
+            <th> Power</th>
+            <th> Fuel</th>
+            <th> Price</th>
+            <th> Color</th>
+            <th> Age</th>
+            <th> History</th>
+        </thead>
+        <tbody id="cols">
+            <tr *ngFor="let car of cars; let i = index" (click)="changeSelected(car)" [class.selected]="indexCar===car.id">
+                <td>
+                    {{car.model}}
+                </td>
+                <td>
+                    {{car.engine}}
+                </td>
+                <td>
+                    {{car.power}}
+                </td>
+                <td>
+                    {{car.fuel}}
+                </td>
+                <td>
+                    {{car.price}}
+                </td>
+                <td>
+                    {{car.color}}
+                </td>
+                <td>
+                    {{car.age}}
+                </td>
+                <td>
+                    {{car.history}}
+                </td>
+            </tr>
+        </tbody>
+    </tr>
+</table>
+</div>

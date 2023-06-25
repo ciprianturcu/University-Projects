@@ -1,0 +1,45 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Add Content</title>
+    <style>
+        .button-container {
+            margin-top: 10px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 8px 16px;
+            text-align: center;
+            text-decoration: none;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+            .button:hover {
+                background-color: #0056b3;
+            }
+    </style>
+</head>
+<body>
+    <div>
+        <form action="/Main/AddEntity" method="GET">
+            All fields are separated by ; (do not put after the last one) all fields must have the same number of values!!! <br />
+            Titles : <input type="text" id="titlesList" name="titlesList" /> <br />
+            Descriptions : <input type="text" id="descriptionsList" name="descriptionsList" /> <br />
+            Urls : <input type="text" id="urlsList" name="urlsList" /> <br />
+            <input type="submit" value="Add Contents" />
+        </form>
+    </div>
+</body>
+</html>

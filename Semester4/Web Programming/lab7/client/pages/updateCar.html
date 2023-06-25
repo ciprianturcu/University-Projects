@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="E-Commerce Store">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Car Shop</title>
+
+        <script src="../scripts/updateCar.js"></script>
+        <link rel="stylesheet" href="../style/updateCar.css">
+    </head>
+    <body>
+        <main>
+            <ul id="nav-bar">
+                <li>
+                    <button id="home-page" type="button">HOME</button>
+                </li>
+                <li>
+                    <button id="db-insert" type="button">ADD CAR</button>
+                </li>
+            </ul>
+
+            <h1 class="title">Update Car</h1>
+            <hr>
+
+            <form id="update-form">
+                <!-- <input type="hidden" name="id" value="<?php echo trim($_GET['carId']); ?>" id="id"> -->
+                <input type="text" name="model" placeholder="Model:" id="model"> <br>
+                <input type="text" name="engine" placeholder="Engine:" id="engine"> <br>
+                <input type="number" name="power" placeholder="Power:" id="power"> <br>
+                <input type="text" name="fuel" placeholder="Fuel:" id="fuel"> <br>
+                <input type="number" name="price" placeholder="Price:" id="price" > <br>
+                <input type="text" name="color" placeholder="Color:" id="color"> <br>
+                <input type="text" name="age" placeholder="Age:" id="age"> <br>
+                <input type="text" name="history" placeholder="History:" id="history"> <br>
+               <div class="button_container">
+                    <button type="button" id="update-button">Update Car</button>
+                </div>
+            </form>
+
+            <script language="javascript" type="text/javascript">
+                var eventHandler = new EventHandling();
+            </script>
+        </main>
+    </body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Puzzle</title>
+    <script>
+        $(document).ready(function() {
+            var emptyPiece = $('#piece16');
+            
+            $('.piece').click(function() {
+                var clickedPiece = $(this);
+                
+                if (canMove(clickedPiece, emptyPiece)) {
+                swapPieces(clickedPiece, emptyPiece);
+                emptyPiece = clickedPiece;
+                
+                if (isSolved()) {
+                    alert("Congratulations, you solved the puzzle!");
+                }
+                }
+            });
+            
+            // shuffle the puzzle pieces
+            shuffle();
+        });
+
+        function canMove(piece, emptyPiece) {
+        var pieceRow = parseInt(piece.css('top')) / 100;
+        var pieceCol = parseInt(piece.css('left')) / 100;
+        var emptyRow = parseInt(emptyPiece.css('top')) / 100;
+        var emptyCol = parseInt(emptyPiece.css('left')) / 100;
+        
+        if (pieceRow == emptyRow && Math.abs(pieceCol - emptyCol) == 1) {
+            return true;
+        }
+        
+        if (pieceCol == emptyCol && Math.abs(pieceRow - emptyRow) == 1) {
+            return true;
+        }
+        
+        return false;
+        }
+
+        function swapPieces(piece1, piece2) {
+        var tempTop = piece1.css('top');
+        var tempLeft = piece1.css('left');
+        
+        piece1.css('top', piece2.css('top'));
+        piece1.css('left', piece2.css('left'));
+        
+        piece2.css('top', tempTop);
+        piece2.css('left', tempLeft);
+        }
+
+        function isSolved() {
+            var solved = true;
+            
+            $('.piece').each(function(index) {
+                var pieceRow = parseInt($(this).css('top')) / 100;
+                var pieceCol = parseInt($(this).css('left')) / 100;
+                
+                if (pieceRow != Math.floor(index / 4) || pieceCol != index % 4) {
+                solved = false;
+                return false;
+                }
+            });
+            
+            return solved;
+        }
+
+        shuffle();
+
+    </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="puzzle">
+        <div class="piece" id="piece1"></div>
+        <div class="piece" id="piece2"></div>
+        <div class="piece" id="piece3"></div>
+        <div class="piece" id="piece4"></div>
+        <div class="piece" id="piece5"></div>
+        <div class="piece" id="piece6"></div>
+        <div class="piece" id="piece7"></div>
+        <div class="piece" id="piece8"></div>
+        <div class="piece" id="piece9"></div>
+        <div class="piece" id="piece10"></div>
+        <div class="piece" id="piece11"></div>
+        <div class="piece" id="piece12"></div>
+        <div class="piece" id="piece13"></div>
+        <div class="piece" id="piece14"></div>
+        <div class="piece" id="piece15"></div>
+        <div class="piece" id="piece16"></div>
+      </div>
+      
+</body>
+</html>

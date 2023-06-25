@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Image Slideshow</title>
+  <script>
+    var index = 0; // start with first image
+    var images = ["image1.png", "image2.png", "image3.png"]; // array of image file names
+    var timer = null; // global timer variable
+
+    function playSlideshow() {
+      var speed = document.getElementById("speed").value; // get selected speed from combo box
+      timer = setInterval(nextImage, speed); // set timer to change image at selected speed
+    }
+
+    function pauseSlideshow() {
+      clearInterval(timer); // stop timer to pause slideshow
+    }
+
+    function nextImage() {
+      var checkbox = document.getElementById("repeat"); // get repeat checkbox
+      var img = document.getElementById("slideshow"); // get image element
+      index++; // increment index
+      if (index >= images.length) { // if end of images array
+        if (checkbox.checked) { // if repeat checkbox is checked
+          index = 0; // reset index to start slideshow over
+        } else { // if repeat checkbox is unchecked
+          pauseSlideshow(); // pause slideshow
+          return; // exit function
+        }
+      }
+      img.src = images[index]; // set image src to next image in array
+    }
+  </script>
+</head>
+<body>
+  <img id="slideshow" src="image1.png">
+  <br>
+  <button onclick="playSlideshow()">Play</button> 
+  <button onclick="pauseSlideshow()">Pause</button>
+  <br>
+  <label for="repeat">Repeat</label>
+  <input type="checkbox" id="repeat" name="repeat"><br>
+  <label for="speed">Speed:</label>
+  <select id="speed" name="speed">
+    <option value="1000">1 second</option>
+    <option value="2000">2 seconds</option>
+    <option value="3000">3 seconds</option>
+  </select>
+</body>
+</html>

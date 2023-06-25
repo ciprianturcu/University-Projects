@@ -1,0 +1,78 @@
+﻿@using subiect7.Models;
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Get Documents</title>
+    <style>
+        .button-container {
+            margin-top: 10px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 8px 16px;
+            text-align: center;
+            text-decoration: none;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+            .button:hover {
+                background-color: #0056b3;
+            }
+    </style>
+</head>
+<body>
+    <h2>All the documents</h2>
+    <div>
+        @{
+            List<Document> documentList = (List<Document>)ViewData["documents"];
+        }
+        <table>
+            <tr>
+                <th>id</th>
+                <th>idWebSite</th>
+                <th>name</th>
+                <th>keyword1</th>
+                <th>keyword2</th>
+                <th>keyword3</th>
+                <th>keyword4</th>
+                <th>keyword5</th>
+                <th>Update</th>
+            </tr>
+            @foreach (Document d in documentList)
+            {
+                <tr>
+                    <td>@d.id</td>
+                    <td>@d.idWebSite</td>
+                    <td>@d.name</td>
+                    <td>@d.keyword1</td>
+                    <td>@d.keyword2</td>
+                    <td>@d.keyword3</td>
+                    <td>@d.keyword4</td>
+                    <td>@d.keyword5</td>
+                    <td><a href="@Url.Action("RedirectToUpdateDocument", "Main", new { id = d.id})">Update</a></td>
+                </tr>
+            }
+        </table>
+
+    </div>
+
+    
+    <div class="button-container">
+        <a href="/Main/RedirectToWebsites" class="button">See websites</a>
+        @*<a href="/Main/RedirectToKeyWordDocuments" class="button">Filter Documents</a>*@
+    </div>
+
+</body>
+</html>

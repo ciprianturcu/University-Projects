@@ -1,0 +1,66 @@
+﻿@using subiect7.Models;
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Get Websites</title>
+    <style>
+        .button-container {
+            margin-top: 10px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 8px 16px;
+            text-align: center;
+            text-decoration: none;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+            .button:hover {
+                background-color: #0056b3;
+            }
+    </style>
+</head>
+<body>
+    <h2>All the documents</h2>
+    <div>
+        @{
+            List<Website> websiteList = (List<Website>)ViewData["websites"];
+        }
+        <table>
+            <tr>
+                <th>id</th>
+                <th>url</th>
+                <th>document number</th>
+            </tr>
+            @foreach (Website w in websiteList)
+            {
+                <tr>
+                    <td>@w.id</td>
+                    <td>@w.url</td>
+                    <td>@w.documents</td>
+                </tr>
+            }
+        </table>
+
+    </div>
+
+
+    <div class="button-container">
+        <a href="/Main/RedirectToDocuments" class="button">See documents</a>
+        @*<a href="/Main/RedirectToKeyWordDocuments" class="button">Filter Documents</a>*@
+    </div>
+
+</body>
+</html>

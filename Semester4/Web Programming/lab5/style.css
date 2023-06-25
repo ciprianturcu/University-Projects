@@ -1,0 +1,80 @@
+#puzzle {
+    width: 400px;
+    height: 400px;
+    margin: 0 auto;
+    border: 1px solid black;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .piece {
+    width: 98px;
+    height: 98px;
+    border: 1px solid black;
+    background-color: white;
+  }
+  
+  #piece1 {
+    background-color: red;
+  }
+  
+  #piece2 {
+    background-color: blue;
+  }
+  
+  #piece3 {
+    background-color: green;
+  }
+  
+  #piece4 {
+    background-color: yellow;
+  }
+  
+  #piece5 {
+    background-color: orange;
+  }
+  
+  #piece6 {
+    background-color: purple;
+  }
+  
+  #piece7 {
+    background-color: pink;
+  }
+  
+  #piece8 {
+    background-color: brown;
+  }
+  
+  #piece9 {
+    background-color: aqua;
+  }
+  
+  #piece10 {
+    background-color: gray;
+  }
+  
+  #piece11 {
+    background-color: olive;
+  }
+  
+  #piece12 {
+    background-color: navy;
+  }
+  
+  #piece13 {
+    background-color: teal;
+  }
+  
+  #piece14 {
+    background-color: fuchsia;
+  }
+  
+  #piece15 {
+    background-color: silver;
+  }
+  
+  #piece16 {
+    background-color: maroon;
+  }
+  

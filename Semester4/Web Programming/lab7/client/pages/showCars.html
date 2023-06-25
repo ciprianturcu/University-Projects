@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="E-Commerce Store">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Car Shop</title>
+
+        <script src="../scripts/showCar.js"></script>
+        <link rel="stylesheet" href="../style/showCar.css">
+    </head>
+    <body>
+        <main>
+            <ul id="nav-bar">
+                <li>
+                    <button id="home-page" type="button">HOME</button>
+                </li>
+                <li>
+                    <button id="db-insert" type="button">ADD CAR</button>
+                </li>
+            </ul>
+
+            <h1 class="title">Car Shop</h1>
+            <hr>
+
+            <div class="details">
+                <br>
+                <label for="product-category">Searching by:</label>
+                <input type="text" placeholder="model" id="model"/>
+                <p id="info"></p>
+                <br>
+                <form class="form" action="">
+                    <div class="car-buttons">
+                        <button id="car-update" type="button">Update</button>
+                        <button id="car-delete" type="button">Delete</button>
+                    </div>  
+                </form>
+            </div>
+
+            <div id="main-car-list">
+                <table id="car-table">
+                <tr>
+                    <thead>
+                        <th> Model</th>
+                        <th> Engine</th>
+                        <th> Power</th>
+                        <th> Fuel</th>
+                        <th> Price</th>
+                        <th> Color</th>
+                        <th> Age</th>
+                        <th> History</th>
+                    </thead>
+                    <tbody id="cols">
+                    </tbody>
+                </tr>
+            </table>
+            </div>
+        </main>
+
+        <script language="javascript" type="text/javascript">
+            var eventHandler = new EventHandling();
+        </script>
+    </body>
+</html>

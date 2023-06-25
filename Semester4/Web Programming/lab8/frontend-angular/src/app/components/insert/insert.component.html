@@ -1,0 +1,13 @@
+<form id="add-form" method="post">
+    <input [(ngModel)]="model" type="text" name="model" placeholder="Model:" id="model"> <br>
+    <input [(ngModel)]="engine" type="text" name="engine" placeholder="Engine:" id="engine"> <br>
+    <input [(ngModel)]="power" type="number" name="power" placeholder="Power:" id="power"> <br>
+    <input [(ngModel)]="fuel" type="text" name="fuel" placeholder="Fuel:" id="fuel"> <br>
+    <input [(ngModel)]="price" type="number" name="price" placeholder="Price:" id="price" > <br>
+    <input [(ngModel)]="color" type="text" name="color" placeholder="Color:" id="color"> <br>
+    <input [(ngModel)]="age" type="text" name="age" placeholder="Age:" id="age"> <br>
+    <input [(ngModel)]="history" type="text" name="history" placeholder="History:" id="history"> <br>
+    <div class="button_container">
+        <button type="submit" id="submit-update" (click)="onSubmitInsertButton()">Add Car</button>
+    </div>
+</form>

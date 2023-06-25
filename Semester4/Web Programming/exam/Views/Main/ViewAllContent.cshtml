@@ -1,0 +1,69 @@
+﻿@using exam.Models;
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Get Content</title>
+    <style>
+        .button-container {
+            margin-top: 10px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 8px 16px;
+            text-align: center;
+            text-decoration: none;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+            .button:hover {
+                background-color: #0056b3;
+            }
+    </style>
+</head>
+<body>
+    <h2>All the available content</h2>
+    <div>
+        @{
+            List<ContentUser> contentList = (List<ContentUser>)ViewData["content"];
+        }
+        <table>
+            <tr>
+                <th>id</th>
+                <th>date</th>
+                <th>title</th>
+                <th>description</th>
+                <th>url</th>
+                <th>userid</th>
+            </tr>
+            @foreach (ContentUser cu in contentList)
+            {
+                <tr>
+                    <td>@cu.id</td>
+                    <td>@cu.date.Split(' ')[0]</td>
+                    <td>@cu.title</td>
+                    <td>@cu.description</td>
+                    <td>@cu.url</td>
+                    <td>@cu.userid</td>
+                </tr>
+            }
+        </table>
+
+    </div>
+    <div class="button-container">
+        <a href="/Main/Refresh" class="button">Get new content</a>
+    </div>
+
+</body>
+</html>

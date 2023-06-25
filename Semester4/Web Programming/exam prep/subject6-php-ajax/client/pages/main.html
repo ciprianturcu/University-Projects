@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="exam">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>exam</title>
+
+        <script src="../scripts/main.js"></script>
+    </head>
+
+    <body>
+        <main>
+            
+            <h1 class="title">Exam 6</h1><hr>
+
+            <form class="form" action="">
+                <label for="owner-name">Owner Name:</label>
+                <input type="text" id="owner-name" name="owner-name"><br>
+
+                <button type="button" id="filter-channels-btn">
+                    FILTER
+                </button>
+            </form>
+
+            <form class="form" action="">
+                <label for="channel-name">Channel Name:</label>
+                <input type="text" id="channel-name" name="channel-name"><br>
+
+                <button type="button" id="subscribe-btn">
+                    SUBSCRIBE
+                </button>
+            </form>
+
+            <div class="tables" id="tables">
+                <div id="channels-div">
+                    <table id="channels-table">
+                        <thead>
+                            <th>ID</th>
+                            <th>Owner ID</th>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Subscribers</th>
+                        </thead>
+                        <tbody id="cols">
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="channels-subscribed-div">
+                    <table id="channels-subscribed-table">
+                        <thead>
+                            <th>Name</th>
+                            <th>Description</th>
+                        </thead>
+                        <tbody id="cols2">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </main>
+    </body>
+
+    <script language="javascript" type="text/javascript">
+        var eventHandler = new EventHandling();
+    </script>
+</html>

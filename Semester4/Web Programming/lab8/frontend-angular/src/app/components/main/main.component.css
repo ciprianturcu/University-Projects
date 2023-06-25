@@ -1,0 +1,78 @@
+
+
+/* Details section */
+.details {
+  margin-bottom: 20px;
+}
+
+.details label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.details input[type="text"] {
+  font-size: 16px;
+  padding: 10px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.details #info {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.form {
+  display: flex;
+  justify-content: left;
+}
+
+.car-buttons {
+  display: flex;
+  margin-right: 20px;
+}
+
+.car-buttons button {
+  font-size: 16px;
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.car-buttons button:hover {
+  background-color: #555;
+}
+
+/* Car table */
+#main-car-list {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+#car-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#car-table th,
+#car-table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
+
+#car-table th {
+  background-color: #333;
+  color: #fff;
+}
+
+#car-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
