@@ -1,13 +1,5 @@
 ## Lab 7 assignment
 
-**Points**: 0.4
-
-**Deadline**: Week 8
-
-**Last chance deadline and penalties**: Week 10, -0.1 points / week delayed
-
-For this and all future assignments, unless otherwise specified, we are no longer treating the backend and the frontend separately when talking about features: implementing most features will require you to work on both the backend and the frontend, even if this is not explicitly stated.
-
 You will need to:
 - Implement all functionalities on the frontend. Implement pagination on the backend and navigation through it on the frontend. You are **not allowed** to **only** use built-in pagination classes and pagination libraries. You must implement the pagination class or functionality yourself either on the frontend or on the backend. Do it in a way that allows for changes. For example, you may use built-in classes on the backend and no built-in classes on the frontend. Your live coding task during the lab will involve the pagination aspect. Recall that you should have at least the following from previous assignments and live tasks:  
     - 3 entities.
@@ -32,14 +24,6 @@ You will need to:
 
 ## Lab 6 assignment
 
-**Points**: 0.3, 0.3 Bonus
-
-**Deadline**: Week 7
-
-**Last chance deadline and penalties**: Week 9, -0.1 points / week delayed
-
-This assignment, as well as all future ones, must be completed on your deployed applications.
-
 You will need to:
 - Use an actual database server: I recommend PostgreSQL (and MS SQL for .NET projects), but MySQL or NoSQL databases are also accepted. No embedded databases are accepted. Please **do not** attempt this assignment with SQLite, embedded H2 or anything similar as it will not be accepted.
 - Populate your database with at least `1 000 000` (one million) records for each entity. Add `10 000 000` (ten million) records for the entity acting as an intermediary in the many to many relation. This should be done through SQL scripts (one or more files) that you execute outside of your application. The data should be realistic looking: don't add complete gibberish, don't add exclusively the same value for any of the attributes, don't add sequential data where it doesn't make sense etc. It's ok if there is some repetition in the data, outside of unique fields. You can use a service such as https://www.onlinedatagenerator.com/ to help you out, but you might need some manual fine-tuning. The script should execute in a reasonable amount of time. Some ideas and suggestions below:  
@@ -60,12 +44,6 @@ Just like the previous assignments, this one will also have a live coding part d
 
 ## Lab 5 assignment
 
-**Points**: 0.3
-
-**Deadline**: Week 6
-
-**Last chance deadline and penalties**: Week 8, -0.1 points / week delayed
-
 You will need to:
 - Add a frontend to your REST API. It should be a Single Page Application (SPA). You can choose any frontend framework or library that lets you create SPAs: React, Angular, Vue etc. It should be something that is under active development.
 - Add Swagger to your REST API. It should be publicly accessible.
@@ -78,16 +56,6 @@ You will need to:
 ----
 
 - # Lab 4 assignment
-
-**Points**: 1
-
-**Deadline**: Week 5
-
-**Last chance deadline and penalties**: Week 7, -0.3 points / week delayed
-
-----
-
-Continue working on the application from the previous assignment. Push your project to this repository.
 
 You will need to:
 - Add unit tests for the two non-CRUD functionalities from the previous assignments. You might want to google for a "mocking library" in your language and framework of choice. This is usually how it's done, but if you can't find anything relevant, then search for how to do unit testing in your framework.  
@@ -106,16 +74,6 @@ Recall that raw SQL queries are still not allowed.
 
 # Lab 3 assignment
 
-**Points**: 2
-
-**Deadline**: Week 4
-
-**Last chance deadline and penalties**: Week 6, -0.5 points / week delayed
-
-----
-
-Continue working on the application from the previous assignment. Push your project to this repository.
-
 You will need to:
 - Add a **many to many** relation between `2` entities. This should be added as a separate entity containing the two related entities or their IDs and at least 2 additional attributes. For example: `Transaction` with `Product` and `Client` as the related entities and `Date` and `Volume` as the additional attributes.
 - Make sure all of your entities are part of at least one `1 to 1`, `1 to many` or `many to many` relation.
@@ -133,14 +91,6 @@ For this and all future assignments, unless otherwise specified, you are not all
 
 # Lab 2 assignment
 
-**Points**: 1
-
-**Deadline**: Week 3
-
-**Last chance deadline and penalties**: Week 5, -0.3 points / week delayed
-
-----
-
 Continue working on the application from the previous assignment. Push your project to this repository.
 
 You will need to:
@@ -154,14 +104,6 @@ You will need to:
 ----
 
 # Lab 1 assignment
-
-**Points**: 1
-
-**Deadline**: Week 2
-
-**Last chance deadline and penalties**: Week 4, -0.3 points / week delayed
-
-----
 
 Choose any programming language and a **backend** framework and setup a development environment in it. Create an application with CRUD functionalities for a single entity of your choice. The entity should have at least 5 attributes, not counting the ID. You do not need any validations.
 
