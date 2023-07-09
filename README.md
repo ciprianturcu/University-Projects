@@ -95,5 +95,34 @@ Organised list with all my faculty projects, lectures and other resources.
       </li>
     </ul>
   </li>
+  <li>:file_folder: Semester 4
+    <ul>
+      <li>
+        <a href = "https://github.com/ciprianturcu/University-Projects/tree/main/Semester4/Artificial%20Intelligence" >
+          Artificial Intelligence.
+        </a>
+      </li>
+      <li>
+        <a href = "https://github.com/ciprianturcu/University-Projects/tree/main/Semester4/Database%20Management%20Systems" >
+          Database Management Systems.
+        </a>
+      </li>
+      <li>
+      <a href = "https://github.com/ciprianturcu/University-Projects/tree/main/Semester4/Systems%20for%20Design%20and%20Implementation">
+        Systems for Design and Implementation.
+      </a>
+      </li>
+      <li>
+      <a href = "https://github.com/ciprianturcu/University-Projects/tree/main/Semester4/Web%20Programming">
+        Web Programming.
+      </a>
+      </li>
+      <li>
+      <a href = "https://github.com/ciprianturcu/ISS">
+        Software Engineering.
+      </a>
+      </li>
+    </ul>
+  </li>
 </ul>
   
