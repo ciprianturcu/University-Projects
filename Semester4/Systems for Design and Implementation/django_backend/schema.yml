@@ -1,0 +1,934 @@
+openapi: 3.0.3
+info:
+  title: Your Project API
+  version: 1.0.0
+  description: Your project description
+paths:
+  /api/aol/:
+    get:
+      operationId: api_aol_list
+      tags:
+      - api
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AttorneyOnLawsuit'
+          description: ''
+    post:
+      operationId: api_aol_create
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AttorneyOnLawsuit'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/AttorneyOnLawsuit'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/AttorneyOnLawsuit'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AttorneyOnLawsuit'
+          description: ''
+  /api/aol/{id}/:
+    get:
+      operationId: api_aol_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - api
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AttorneyOnLawsuit'
+          description: ''
+    put:
+      operationId: api_aol_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AttorneyOnLawsuit'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/AttorneyOnLawsuit'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/AttorneyOnLawsuit'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AttorneyOnLawsuit'
+          description: ''
+    patch:
+      operationId: api_aol_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedAttorneyOnLawsuit'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedAttorneyOnLawsuit'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedAttorneyOnLawsuit'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AttorneyOnLawsuit'
+          description: ''
+    delete:
+      operationId: api_aol_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - api
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '204':
+          description: No response body
+  /api/attorney/:
+    get:
+      operationId: api_attorney_list
+      tags:
+      - api
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Attorney'
+          description: ''
+    post:
+      operationId: api_attorney_create
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Attorney'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Attorney'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Attorney'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Attorney'
+          description: ''
+  /api/attorney/{id}/:
+    get:
+      operationId: api_attorney_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - api
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Attorney'
+          description: ''
+    put:
+      operationId: api_attorney_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Attorney'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Attorney'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Attorney'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Attorney'
+          description: ''
+    patch:
+      operationId: api_attorney_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedAttorney'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedAttorney'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedAttorney'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Attorney'
+          description: ''
+    delete:
+      operationId: api_attorney_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - api
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '204':
+          description: No response body
+  /api/client/:
+    get:
+      operationId: api_client_list
+      tags:
+      - api
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Client'
+          description: ''
+    post:
+      operationId: api_client_create
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Client'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Client'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Client'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Client'
+          description: ''
+  /api/client/{id}/lawsuit/:
+    post:
+      operationId: api_client_lawsuit_create
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - api
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /api/client/{id}/:
+    get:
+      operationId: api_client_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - api
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Client'
+          description: ''
+    put:
+      operationId: api_client_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Client'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Client'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Client'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Client'
+          description: ''
+    patch:
+      operationId: api_client_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedClient'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedClient'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedClient'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Client'
+          description: ''
+    delete:
+      operationId: api_client_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - api
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '204':
+          description: No response body
+  /api/lawsuit/:
+    get:
+      operationId: api_lawsuit_list
+      tags:
+      - api
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Lawsuit'
+          description: ''
+    post:
+      operationId: api_lawsuit_create
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Lawsuit'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Lawsuit'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Lawsuit'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Lawsuit'
+          description: ''
+  /api/lawsuit/{id}/:
+    get:
+      operationId: api_lawsuit_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - api
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Lawsuit'
+          description: ''
+    put:
+      operationId: api_lawsuit_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Lawsuit'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Lawsuit'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Lawsuit'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Lawsuit'
+          description: ''
+    patch:
+      operationId: api_lawsuit_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedLawsuit'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedLawsuit'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedLawsuit'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Lawsuit'
+          description: ''
+    delete:
+      operationId: api_lawsuit_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - api
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '204':
+          description: No response body
+  /api/profits/:
+    get:
+      operationId: api_profits_list
+      tags:
+      - api
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LawsuitProfitReportDTO'
+          description: ''
+  /api/travel_sheet/:
+    get:
+      operationId: api_travel_sheet_list
+      tags:
+      - api
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AttorneyTravelDTO'
+          description: ''
+components:
+  schemas:
+    AttRoleEnum:
+      enum:
+      - Primary
+      - Secondary
+      type: string
+      description: |-
+        * `Primary` - Primary
+        * `Secondary` - Secondary
+    Attorney:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 100
+        specialization:
+          $ref: '#/components/schemas/SpecializationEnum'
+        date_of_birth:
+          type: string
+          format: date
+        experience:
+          $ref: '#/components/schemas/ExperienceEnum'
+        city:
+          type: string
+          maxLength: 100
+        fee:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+      required:
+      - city
+      - date_of_birth
+      - experience
+      - fee
+      - id
+      - name
+      - specialization
+    AttorneyOnLawsuit:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        attRole:
+          $ref: '#/components/schemas/AttRoleEnum'
+        workType:
+          $ref: '#/components/schemas/WorkTypeEnum'
+        attorney:
+          type: integer
+        lawsuit:
+          type: integer
+      required:
+      - attRole
+      - attorney
+      - id
+      - lawsuit
+      - workType
+    AttorneyTravelDTO:
+      type: object
+      properties:
+        name:
+          type: string
+        city:
+          type: string
+        lawsuit_state:
+          type: string
+      required:
+      - city
+      - lawsuit_state
+      - name
+    Client:
+      type: object
+      properties:
+        name:
+          type: string
+          maxLength: 100
+        phoneNumber:
+          type: string
+          maxLength: 10
+        city:
+          type: string
+          maxLength: 50
+        date_of_birth:
+          type: string
+          format: date
+        type:
+          $ref: '#/components/schemas/ClientTypeEnum'
+        lawsuits:
+          type: array
+          items:
+            $ref: '#/components/schemas/Lawsuit'
+          readOnly: true
+      required:
+      - city
+      - date_of_birth
+      - lawsuits
+      - name
+      - phoneNumber
+      - type
+    ClientTypeEnum:
+      enum:
+      - Physical Person
+      - Juridical Person
+      type: string
+      description: |-
+        * `Physical Person` - Physical Person
+        * `Juridical Person` - Juridical Person
+    ExperienceEnum:
+      enum:
+      - Junior
+      - Mid
+      - Senior
+      type: string
+      description: |-
+        * `Junior` - Junior
+        * `Mid` - Mid
+        * `Senior` - Senior
+    Lawsuit:
+      type: object
+      properties:
+        description:
+          type: string
+          maxLength: 100
+        type:
+          $ref: '#/components/schemas/Type519Enum'
+        state:
+          type: string
+          maxLength: 50
+        courtDate:
+          type: string
+          format: date
+        client:
+          type: integer
+      required:
+      - client
+      - courtDate
+      - description
+      - state
+      - type
+    LawsuitProfitReportDTO:
+      type: object
+      properties:
+        description:
+          type: string
+        profit:
+          type: integer
+          default: 0
+      required:
+      - description
+    PatchedAttorney:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 100
+        specialization:
+          $ref: '#/components/schemas/SpecializationEnum'
+        date_of_birth:
+          type: string
+          format: date
+        experience:
+          $ref: '#/components/schemas/ExperienceEnum'
+        city:
+          type: string
+          maxLength: 100
+        fee:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+    PatchedAttorneyOnLawsuit:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        attRole:
+          $ref: '#/components/schemas/AttRoleEnum'
+        workType:
+          $ref: '#/components/schemas/WorkTypeEnum'
+        attorney:
+          type: integer
+        lawsuit:
+          type: integer
+    PatchedClient:
+      type: object
+      properties:
+        name:
+          type: string
+          maxLength: 100
+        phoneNumber:
+          type: string
+          maxLength: 10
+        city:
+          type: string
+          maxLength: 50
+        date_of_birth:
+          type: string
+          format: date
+        type:
+          $ref: '#/components/schemas/ClientTypeEnum'
+        lawsuits:
+          type: array
+          items:
+            $ref: '#/components/schemas/Lawsuit'
+          readOnly: true
+    PatchedLawsuit:
+      type: object
+      properties:
+        description:
+          type: string
+          maxLength: 100
+        type:
+          $ref: '#/components/schemas/Type519Enum'
+        state:
+          type: string
+          maxLength: 50
+        courtDate:
+          type: string
+          format: date
+        client:
+          type: integer
+    SpecializationEnum:
+      enum:
+      - Civil
+      - Commercial
+      - Criminal
+      - Family
+      - Juvenile
+      - Tax
+      type: string
+      description: |-
+        * `Civil` - Civil
+        * `Commercial` - Commercial
+        * `Criminal` - Criminal
+        * `Family` - Family
+        * `Juvenile` - Juvenile
+        * `Tax` - Tax
+    Type519Enum:
+      enum:
+      - Civil
+      - Commercial
+      - Criminal
+      - Family
+      - Juvenile
+      - Tax
+      type: string
+      description: |-
+        * `Civil` - Civil
+        * `Commercial` - Commercial
+        * `Criminal` - Criminal
+        * `Family` - Family
+        * `Juvenile` - Juvenile
+        * `Tax` - Tax
+    WorkTypeEnum:
+      enum:
+      - Documents
+      - Statement preparation
+      - Evidence collection
+      type: string
+      description: |-
+        * `Documents` - Documents
+        * `Statement preparation` - Statement preparation
+        * `Evidence collection` - Evidence collection
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: sessionid
