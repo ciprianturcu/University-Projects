@@ -1,0 +1,17 @@
+$
+	
+Integer a, b, c, rez;
+in(a);
+in(b);
+in(c);
+if (a>b && a>c)
+	out(a);
+elif (b>a && b>c)
+	out(b);
+else
+	out(c);
+
+$
+
+
+
