@@ -1,16 +1,17 @@
 $
 
-ArrayList l;
-Integer x, sum;
+ArrayList[Integer] l;
+Integer x, sum, i;
 Integer n;
 in(n);
+sum=0;
 while (n>0) {
 	in(x);
 	l.add(x);
 }
 
-for (elem : l) {
-	sum+=elem;
+for (i=1;i<l.len;i=i+1) {
+	sum = sum + l[i];
 }
 
 out(sum);
