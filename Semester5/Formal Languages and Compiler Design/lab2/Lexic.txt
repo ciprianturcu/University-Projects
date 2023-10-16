@@ -8,13 +8,13 @@ Lexic:
 
 	a. Special symbols
 		-operators +, -, *, /, ==, <, >, <=, >=, =, !=
-		-separators [], {}, (), ;, space, "",
+		-separators [], {}, (), ;, space, "", $
 		-reserved words: Integer, String, Char, for, return, in, out, if, elif, else, ArrayList, while
 	
 	b. Identifiers
 		Sequence of letters, digits or "_", with the condition the first character is a letter.
 		
-		<identifier> ::= <letter> | <identifier><letter> | <identifier>_<identifier> | <identifier><digit>
+		<identifier> ::= <letter> | <identifier><letter> | <identifier>_ | <identifier><digit>
 		<letter> ::= A | B | ... | Z | a | b | ... | z
 		<digit> ::= 0 | 1 | ... | 9
 	

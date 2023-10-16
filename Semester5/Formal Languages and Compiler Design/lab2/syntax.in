@@ -14,7 +14,7 @@
 <type> ::= <simpletype> | <arraytype>
 <simpletype> ::= Integer | String | Char
 <arraytype> ::= ArrayList[<simpletype>]
-<iostmt> ::= in(<identifier>) | out(<identifier>) | out("<stringconst>")
+<iostmt> ::= in(<identifier>) | out(<identifier>) | out(<stringconst>)
 <ifstmt> ::= if(<condition>){<compoundstmt>} | if(<condition>){<compoundstmt>}elif(<condition>){<compoundstmt>} | if(<condition>){<compoundstmt>}else{<compoundstmt>} | if(<condition>){<compoundstmt>}elif(<condition>){<compoundstmt>}else{<compoundstmt>}
 <condition> ::= <exp><relation><exp>
 <relation> ::= < | > | == | != | <= | >= 
