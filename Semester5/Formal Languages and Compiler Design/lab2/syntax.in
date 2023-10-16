@@ -1,0 +1,24 @@
+<program> ::= $<compoundstmt>$
+
+<compoundstmt> ::= <stmtlist>
+<stmtlist> ::= <stmt>; | <stmt>;<stmtlist>
+<stmt> ::= <assignstmt> | <declrstmt> | <iostmt> | <ifstmt> | <forstmt> | <whilestmt> | <returnstmt>
+<exp> ::= <exp> + <term> | <exp> - <term> | <term>
+<term> ::= <term> * <factor> | <term> / <factor> | <term> % <factor> | <factor>
+<factor> ::= (<exp>) | <identifier> | <intconst>
+<arrayint> ::= <intconst> | <arrayint>,<intconst>
+<arraystring> ::= <stringconst> | <arraystring>,<stringconst>
+<assignstmt> ::= <identifier>=<exp> | <identifier>={<arrayint>} | <identifier>={<arraystring>}
+<declrstmt> ::= <type> <identifierlist>
+<identifierlist> ::= <identifier> | <identifier>, <identifierlist>
+<type> ::= <simpletype> | <arraytype>
+<simpletype> ::= Integer | String | Char
+<arraytype> ::= ArrayList[<simpletype>]
+<iostmt> ::= in(<identifier>) | out(<identifier>) | out(<stringconst>)
+<ifstmt> ::= if(<condition>){<compoundstmt>} | if(<condition>){<compoundstmt>}elif(<condition>){<compoundstmt>} | if(<condition>){<compoundstmt>}else{<compoundstmt>} | if(<condition>){<compoundstmt>}elif(<condition>){<compoundstmt>}else{<compoundstmt>}
+<condition> ::= <exp><relation><exp>
+<relation> ::= < | > | == | != | <= | >= 
+<forstmt> ::= for<fordeclr>{<compoundstmt>}
+<fordeclr> ::= (<assignmentstmt>; <condition>; <assignmentstmt>)
+<whilestmt> ::= while(<condition>){<compoundstmt>}
+<returnstmt> ::= return <exp>
