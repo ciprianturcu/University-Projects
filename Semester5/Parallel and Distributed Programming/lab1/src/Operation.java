@@ -8,20 +8,19 @@ public class Operation {
         this.destination = destination;
     }
 
-    public Account getSource() {
-        return source;
-    }
+    public void transfer(final int sum) {
 
-    public Account getDestination() {
-        return destination;
-    }
-
-    public void transfer(final Long sum) {
-        source.subtractBalance(sum);
-        destination.addBalance(sum);
+        source.balanceLock.lock();
+        if (source.getBalance() - sum < 0) {
+            source.balanceLock.unlock();
+            return;
+        }
+        source.balanceLock.unlock();
+        source.withdraw(sum);
+        destination.deposit(sum);
+        System.out.println("withdrew :" + sum + ", from " + source.getAccountId() + ", deposited :" + sum + ", to" + destination.getAccountId());
         OperationRecord record = new OperationRecord(source, destination, sum);
         source.addLog(record);
         destination.addLog(record);
     }
-
 }
