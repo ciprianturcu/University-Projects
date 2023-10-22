@@ -1,63 +1,54 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class Account {
+
+    private static final AtomicInteger count = new AtomicInteger(0);
+    private Integer accountId;
     private List<OperationRecord> logs;
+    private Integer balance;
+    public ReentrantLock balanceLock;
+    public ReentrantLock logLock;
+    private final Integer initialBalance;
 
-    private Long balance;
-
-    public Account(List<OperationRecord> logs, Long balance) {
-        this.logs = new ArrayList<>(logs);
-        this.balance = balance;
+    public Account(Integer initialBalance) {
+        this.initialBalance = initialBalance;
+        this.accountId = count.incrementAndGet();
+        this.logs = new ArrayList<>();
+        this.balance = initialBalance;
+        this.balanceLock = new ReentrantLock();
+        this.logLock = new ReentrantLock();
     }
 
-    public void addLog(OperationRecord record)
-    {
+    public void addLog(OperationRecord record) {
+        this.logLock.lock();
         this.logs.add(record);
+        this.logLock.unlock();
+    }
+
+    public int getAccountId() {
+        return accountId;
     }
 
     public List<OperationRecord> getLogs() {
         return logs;
     }
 
-    public Long getBalance() {
+    public int getBalance() {
         return balance;
     }
 
-    public void setLogs(List<OperationRecord> logs) {
-        this.logs = logs;
+    public void deposit(final int sum) {
+        this.balanceLock.lock();
+        this.balance += sum;
+        this.balanceLock.unlock();
     }
 
-    public void setBalance(Long balance) {
-        this.balance = balance;
+    public void withdraw(final int sum) {
+        this.balanceLock.lock();
+        this.balance -= sum;
+        this.balanceLock.unlock();
     }
-
-    public void addBalance(final Long sum)
-    {
-        this.balance+=sum;
-    }
-
-    public void subtractBalance(final Long sum) {
-        this.balance-=sum;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Account account = (Account) o;
-
-        if (!logs.equals(account.logs)) return false;
-        return balance.equals(account.balance);
-    }
-
-    @Override
-    public int hashCode() {
-        int result = logs.hashCode();
-        result = 31 * result + balance.hashCode();
-        return result;
-    }
-
-
 }
