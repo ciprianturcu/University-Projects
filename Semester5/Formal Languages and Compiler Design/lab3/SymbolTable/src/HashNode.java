@@ -1,8 +1,6 @@
-public class HashNode {
-    int key;
-    int value;
-    public HashNode(int key, int value) {
+public class HashNode<K> {
+    K key;
+    public HashNode(K key) {
         this.key = key;
-        this.value = value;
     }
 }
