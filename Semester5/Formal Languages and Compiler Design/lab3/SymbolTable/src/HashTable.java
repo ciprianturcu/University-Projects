@@ -35,7 +35,7 @@ public class HashTable<K> {
     }
 
     public void insertNode(K key) {
-        if (size > capacity / 2)
+        if (size+1 > capacity / 2)
             rehashTable();
         HashNode<K> temp = new HashNode<>(key);
         int hashIndex = hashFunction(key);
@@ -59,5 +59,9 @@ public class HashTable<K> {
 
     public K getByPosition(int position) {
         return this.table.get(position).key;
+    }
+
+    public int getCapacity() {
+        return capacity;
     }
 }

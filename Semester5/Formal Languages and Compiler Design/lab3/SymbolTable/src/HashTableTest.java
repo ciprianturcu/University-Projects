@@ -21,11 +21,13 @@ public class HashTableTest {
     @Test
     public void testInsertExceedingCapacity() {
         HashTable<Integer> hashTable = new HashTable<>(100);
-        for(int i=0;i<100;i++) {
+        for(int i=0;i<50;i++) {
             hashTable.insertNode(i);
         }
-        hashTable.insertNode(100);
-        assert hashTable.getPosition(100) == 100;
+        assert hashTable.getCapacity() == 100;
+        hashTable.insertNode(51);
+        assert hashTable.getCapacity() == 200;
+        assert hashTable.getPosition(51) == 51;
     }
 
     @Test
@@ -36,5 +38,7 @@ public class HashTableTest {
 
         assert hashTable.getPosition("ab") != hashTable.getPosition("ba");
     }
+
+
 
 }

@@ -4,17 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b72b766f-ed7c-4fe4-bc2e-a094c7e634fd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/HashTable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/HashTableTest.java" afterDir="false" />
+    <list default="true" id="b72b766f-ed7c-4fe4-bc2e-a094c7e634fd" name="Changes" comment="lab 3">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymbolTable.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SymbolTable.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SymbolTable/HashNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SymbolTable/HashNode.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SymbolTable/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SymbolTable/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SymbolTable/SymbolTable.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SymbolTable/SymbolTable.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HashNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HashNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SymbolTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SymbolTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SymbolTable/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SymbolTable/SymbolTable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/HashTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HashTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/HashTableTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HashTableTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +53,7 @@
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "create.test.in.the.same.root": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "flcd",
     "last_opened_file_path": "D:/University-Projects/Semester5/Formal Languages and Compiler Design/lab3/SymbolTable",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -77,7 +72,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.HashTableTest">
+  <component name="RunManager" selected="JUnit.HashTableTest.testInsertExceedingCapacity">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="SymbolTable" />
@@ -126,9 +121,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.HashTableTest.testInsertExceedingCapacity" />
         <item itemvalue="JUnit.HashTableTest" />
         <item itemvalue="JUnit.HashTableTest.testInsertNormalBehaviour" />
-        <item itemvalue="JUnit.HashTableTest.testInsertExceedingCapacity" />
         <item itemvalue="JUnit.HashTableTest.testInsertNormalBehaviour2" />
         <item itemvalue="Application.Main" />
       </list>
@@ -146,20 +141,33 @@
       <workItem from="1697731790515" duration="107000" />
       <workItem from="1698064726496" duration="143000" />
       <workItem from="1698064878353" duration="163000" />
-      <workItem from="1698065052005" duration="12960000" />
+      <workItem from="1698065052005" duration="13659000" />
     </task>
+    <task id="LOCAL-00001" summary="lab 3">
+      <option name="closed" value="true" />
+      <created>1698079227847</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1698079227847</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="lab 3" />
+    <option name="LAST_COMMIT_MESSAGE" value="lab 3" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/HashTableTest.java</url>
-          <line>14</line>
-          <option name="timeStamp" value="7" />
+          <line>26</line>
+          <option name="timeStamp" value="12" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
