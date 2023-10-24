@@ -6,10 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="b72b766f-ed7c-4fe4-bc2e-a094c7e634fd" name="Changes" comment="lab 3">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SymbolTable/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SymbolTable/SymbolTable.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/HashTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HashTable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/HashTableTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HashTableTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SymbolTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SymbolTable.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,31 +38,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "create.test.in.the.same.root": "true",
-    "git-widget-placeholder": "flcd",
-    "last_opened_file_path": "D:/University-Projects/Semester5/Formal Languages and Compiler Design/lab3/SymbolTable",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "D:/University-Projects/Semester5/Formal Languages and Compiler Design/lab3/SymbolTable/src/Main.java",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;create.test.in.the.same.root&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/University-Projects/Semester5/Formal Languages and Compiler Design/lab3/SymbolTable&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;D:/University-Projects/Semester5/Formal Languages and Compiler Design/lab3/SymbolTable/src/Main.java&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -72,14 +71,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.HashTableTest.testInsertExceedingCapacity">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="SymbolTable" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.HashTableTest.testInsertNormalBehaviourWithCloseKeysAndInsertSameElement">
     <configuration name="HashTableTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SymbolTable" />
       <option name="PACKAGE_NAME" value="" />
@@ -109,11 +101,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="HashTableTest.testInsertNormalBehaviour2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="HashTableTest.testInsertNormalBehaviourWithCloseKeys" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SymbolTable" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="HashTableTest" />
-      <option name="METHOD_NAME" value="testInsertNormalBehaviour2" />
+      <option name="METHOD_NAME" value="testInsertNormalBehaviourWithCloseKeys" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HashTableTest.testInsertNormalBehaviourWithCloseKeysAndInsertSameElement" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SymbolTable" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="HashTableTest" />
+      <option name="METHOD_NAME" value="testInsertNormalBehaviourWithCloseKeysAndInsertSameElement" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -121,11 +123,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.HashTableTest.testInsertNormalBehaviourWithCloseKeysAndInsertSameElement" />
+        <item itemvalue="JUnit.HashTableTest.testInsertNormalBehaviourWithCloseKeys" />
         <item itemvalue="JUnit.HashTableTest.testInsertExceedingCapacity" />
         <item itemvalue="JUnit.HashTableTest" />
         <item itemvalue="JUnit.HashTableTest.testInsertNormalBehaviour" />
-        <item itemvalue="JUnit.HashTableTest.testInsertNormalBehaviour2" />
-        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -142,6 +144,7 @@
       <workItem from="1698064726496" duration="143000" />
       <workItem from="1698064878353" duration="163000" />
       <workItem from="1698065052005" duration="13659000" />
+      <workItem from="1698138305654" duration="546000" />
     </task>
     <task id="LOCAL-00001" summary="lab 3">
       <option name="closed" value="true" />
@@ -160,16 +163,5 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="lab 3" />
     <option name="LAST_COMMIT_MESSAGE" value="lab 3" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/HashTableTest.java</url>
-          <line>26</line>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
