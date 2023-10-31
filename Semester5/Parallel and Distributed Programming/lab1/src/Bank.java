@@ -8,12 +8,10 @@ public class Bank {
 
     public static final int NUM_ACCOUNTS = 80;
     public static final int INITIAL_BALANCE = 1000;
-    public static final int NUM_THREADS = 10;
-    public static final int NUM_OPERATIONS = 100;
+    public static final int NUM_OPERATIONS = 50;
     public static List<Account> accounts = new ArrayList<>();
 
     public static void main(String[] args) {
-
         createAccounts();
         scheduleOperations();
         scheduleCheckerTask();
@@ -27,14 +25,14 @@ public class Bank {
 
     private static void scheduleCheckerTask() {
         var timer = new Timer();
-        timer.schedule(new CheckerTask(), 5, 5 * 1000);
+        timer.schedule(new CheckerTask(), 10, 1000);
     }
 
     private static void scheduleOperations() {
         for(int i=0;i<NUM_OPERATIONS;i++)
         {
             var timer = new Timer();
-            timer.schedule(new OperationTask(), 0, 1000);
+            timer.schedule(new OperationTask(), 0, 500);
         }
     }
 }
