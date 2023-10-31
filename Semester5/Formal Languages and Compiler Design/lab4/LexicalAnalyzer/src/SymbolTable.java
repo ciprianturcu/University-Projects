@@ -6,17 +6,15 @@ public class SymbolTable<K> {
         this.hashTable = new HashTable<>(100);
     }
 
-    public HashTable<K> getHashTable() {
+    public HashTable<K> getTable() {
         return hashTable;
     }
-
     public int add(K symbol) {
         return this.hashTable.insertNode(symbol);
     }
     public int getPosition(K symbol) {
         return this.hashTable.getPosition(symbol);
     }
-
     public K getByPosition(int position){
         return this.hashTable.getByPosition(position);
     }
