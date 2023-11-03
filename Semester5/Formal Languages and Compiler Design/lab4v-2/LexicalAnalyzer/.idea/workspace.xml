@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="708c5c0c-1a92-47d1-9d87-9978720a9d2d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/p1.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/p1err.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lab2/Lexic.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../lab2/Lexic.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LexicalAnalyzer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/LexicalAnalyzer.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HashTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HashTable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HashTableTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HashTableTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProgramInternalForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProgramInternalForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SymbolTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SymbolTable.java" afterDir="false" />
-    </list>
+    <list default="true" id="708c5c0c-1a92-47d1-9d87-9978720a9d2d" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -46,6 +37,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
     "last_opened_file_path": "D:/University-Projects/Semester5/Formal Languages and Compiler Design/lab4v-2/LexicalAnalyzer/src",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -84,11 +76,23 @@
       <workItem from="1698864042659" duration="15367000" />
       <workItem from="1698947536339" duration="7794000" />
       <workItem from="1698990698090" duration="4773000" />
+      <workItem from="1699013101086" duration="510000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
