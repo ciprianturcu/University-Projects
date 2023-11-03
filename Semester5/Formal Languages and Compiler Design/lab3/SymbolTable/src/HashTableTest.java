@@ -1,7 +1,5 @@
 import org.junit.Test;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-
 public class HashTableTest {
 
     @Test
@@ -31,12 +29,14 @@ public class HashTableTest {
     }
 
     @Test
-    public void testInsertNormalBehaviourWithCloseKeys() {
+    public void testInsertNormalBehaviourWithCloseKeysAndInsertSameElement() {
         HashTable<String> hashTable = new HashTable<>(100);
         hashTable.insertNode("ab");
         hashTable.insertNode("ba");
+        hashTable.insertNode("ab");
 
         assert hashTable.getPosition("ab") != hashTable.getPosition("ba");
+        assert hashTable.getSize() == 2;
     }
 
 

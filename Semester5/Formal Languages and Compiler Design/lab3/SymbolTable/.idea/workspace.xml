@@ -5,11 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b72b766f-ed7c-4fe4-bc2e-a094c7e634fd" name="Changes" comment="lab 3">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SymbolTable/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SymbolTable/SymbolTable.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HashTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HashTable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HashTableTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HashTableTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Computer Vision and Deep Learning/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Mobile Development/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Parallel and Distributed Programming/.gitignore" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,8 +53,8 @@
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "create.test.in.the.same.root": "true",
-    "git-widget-placeholder": "flcd",
-    "last_opened_file_path": "D:/University-Projects/Semester5/Formal Languages and Compiler Design/lab3/SymbolTable",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "D:/University-Projects/Semester5/Formal Languages and Compiler Design/lab4/LexicalAnalyzer",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -72,14 +72,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.HashTableTest.testInsertExceedingCapacity">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="SymbolTable" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.HashTableTest.testInsertNormalBehaviourWithCloseKeysAndInsertSameElement">
     <configuration name="HashTableTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SymbolTable" />
       <option name="PACKAGE_NAME" value="" />
@@ -109,11 +102,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="HashTableTest.testInsertNormalBehaviour2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="HashTableTest.testInsertNormalBehaviourWithCloseKeys" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SymbolTable" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="HashTableTest" />
-      <option name="METHOD_NAME" value="testInsertNormalBehaviour2" />
+      <option name="METHOD_NAME" value="testInsertNormalBehaviourWithCloseKeys" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HashTableTest.testInsertNormalBehaviourWithCloseKeysAndInsertSameElement" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SymbolTable" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="HashTableTest" />
+      <option name="METHOD_NAME" value="testInsertNormalBehaviourWithCloseKeysAndInsertSameElement" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -121,11 +124,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.HashTableTest.testInsertNormalBehaviourWithCloseKeysAndInsertSameElement" />
+        <item itemvalue="JUnit.HashTableTest.testInsertNormalBehaviourWithCloseKeys" />
         <item itemvalue="JUnit.HashTableTest.testInsertExceedingCapacity" />
         <item itemvalue="JUnit.HashTableTest" />
         <item itemvalue="JUnit.HashTableTest.testInsertNormalBehaviour" />
-        <item itemvalue="JUnit.HashTableTest.testInsertNormalBehaviour2" />
-        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -142,6 +145,8 @@
       <workItem from="1698064726496" duration="143000" />
       <workItem from="1698064878353" duration="163000" />
       <workItem from="1698065052005" duration="13659000" />
+      <workItem from="1698138305654" duration="546000" />
+      <workItem from="1698863714554" duration="9000" />
     </task>
     <task id="LOCAL-00001" summary="lab 3">
       <option name="closed" value="true" />
@@ -160,16 +165,5 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="lab 3" />
     <option name="LAST_COMMIT_MESSAGE" value="lab 3" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/HashTableTest.java</url>
-          <line>26</line>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

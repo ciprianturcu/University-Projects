@@ -65,4 +65,8 @@ public class HashTable<K> {
     public int getCapacity() {
         return capacity;
     }
+
+    public int getSize() {
+        return size;
+    }
 }

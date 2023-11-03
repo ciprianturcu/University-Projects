@@ -6,14 +6,15 @@ public class OperationRecord {
     private final int jobID;
     private final Account source;
     private final Account destination;
-    private final Long sum;
+    private final int sum;
 
 
-    public OperationRecord(Account source, Account destination, Long sum) {
+    public OperationRecord(Account source, Account destination, int sum) {
         this.jobID = count.incrementAndGet();
         this.source = source;
         this.destination = destination;
         this.sum = sum;
+        //System.out.println("operation with jobId: " + this.jobID + ", from account: " + this.source.getAccountId() + ", to account: " + this.destination.getAccountId());
     }
 
     public int getJobID() {
@@ -28,7 +29,7 @@ public class OperationRecord {
         return destination;
     }
 
-    public Long getSum() {
+    public int getSum() {
         return sum;
     }
 }
