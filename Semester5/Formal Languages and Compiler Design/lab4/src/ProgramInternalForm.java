@@ -8,7 +8,7 @@ public class ProgramInternalForm {
         this.array = new ArrayList<>();
     }
 
-    public void addToPIF(String token, Integer position) {
+    public void add(String token, Integer position) {
         array.add(new Pair<>(token, position));
     }
 

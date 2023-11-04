@@ -16,26 +16,25 @@ public class HashTable<K> {
     }
 
     public int hashFunction(K key) {
-        return key.hashCode() % this.capacity;
+        return Math.abs(key.hashCode() % this.capacity);
     }
 
     private void rehashTable() {
         ArrayList<HashNode<K>> oldTable = table;
-        table = new ArrayList<>(capacity*2);
-        for(int i=0;i<capacity*2;i++)
-        {
+        table = new ArrayList<>(capacity * 2);
+        for (int i = 0; i < capacity * 2; i++) {
             table.add(null);
         }
-        this.size=0;
-        this.capacity*=2;
-        for(HashNode<K> hashNode : oldTable) {
-            if(hashNode!=null)
+        this.size = 0;
+        this.capacity *= 2;
+        for (HashNode<K> hashNode : oldTable) {
+            if (hashNode != null)
                 insertNode(hashNode.key);
         }
     }
 
     public int insertNode(K key) {
-        if (size+1 > capacity / 2)
+        if (size + 1 > capacity / 2)
             rehashTable();
         HashNode<K> temp = new HashNode<>(key);
         int hashIndex = hashFunction(key);
@@ -43,9 +42,10 @@ public class HashTable<K> {
             hashIndex++;
             hashIndex %= capacity;
         }
-        if (this.table.get(hashIndex) == null)
+        if (this.table.get(hashIndex) == null) {
             this.size++;
-        this.table.set(hashIndex, temp);
+            this.table.set(hashIndex, temp);
+        }
         return hashIndex;
     }
 
