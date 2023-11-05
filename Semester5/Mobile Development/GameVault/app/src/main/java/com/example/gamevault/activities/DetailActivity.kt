@@ -1,12 +1,6 @@
 package com.example.gamevault.activities
 
 import android.annotation.SuppressLint
-import android.hardware.camera2.params.ColorSpaceTransform
-import android.provider.CalendarContract.Colors
-import androidx.compose.animation.core.animateFloat
-import androidx.compose.animation.core.infiniteRepeatable
-import androidx.compose.animation.core.rememberInfiniteTransition
-import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
@@ -15,21 +9,16 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.rounded.ArrowBack
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
-import androidx.compose.material3.CardColors
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -37,8 +26,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
-import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarColors
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -48,7 +35,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.gamevault.model.Game
@@ -69,12 +55,12 @@ fun GameDetailScreen(
     Scaffold(
         topBar = {
             IconButton(onClick = { navController.popBackStack() },
-                modifier = Modifier.padding(12.dp),) {
+                modifier = Modifier.padding(12.dp)) {
                 Icon(imageVector = Icons.Rounded.ArrowBack, contentDescription = "Back", modifier = Modifier
                     .background(
                         Color(0xFF333437)
                     )
-                    .size(25.dp), tint = Color(0xFFFFD232))
+                    .size(50.dp), tint = Color(0xFFFFD232))
             }
         },
         containerColor = Color(0xFF333437),
@@ -329,21 +315,29 @@ private fun DeleteConfirmationDialog(
 ) {
     AlertDialog(
         onDismissRequest = onDismiss,
-        title = { Text("Confirm delete") },
-        text = { Text("Are you sure you want to delete this game?") },
+        title = { Text("Confirm delete", color = Color(0xFFE0E0E2)) },
+        text = { Text("Are you sure you want to delete this game?", color = Color(0xFFE0E0E2)) },
         confirmButton = {
             TextButton(
-                onClick = onConfirmDelete
+                onClick = onConfirmDelete,
+                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF333437)),
+                shape = CircleShape,
+                modifier = Modifier.border(1.dp, Color(0xFFB00000), shape = CircleShape)
             ) {
-                Text("Yes")
+                Text("Yes", color = Color(0xFFFF1A1A))
             }
         },
         dismissButton = {
             TextButton(
-                onClick = onDismiss
+                onClick = onDismiss,
+                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF333437)),
+                shape = CircleShape,
+                modifier = Modifier.border(1.dp, Color(0xFFFFD232), shape = CircleShape)
             ) {
-                Text("No")
+                Text("No", color = Color(0xFFFFD232))
             }
-        }
+        },
+        modifier = Modifier.border(10.dp, Color(0xFF212223)),
+        containerColor = Color(0xFF333437)
     )
 }

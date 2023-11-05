@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -19,6 +20,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.rounded.Add
@@ -27,6 +29,7 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -37,6 +40,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -163,12 +167,12 @@ private fun GameCardContent(game: Game) {
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 // Left-aligned Genre
-                Text(text = game.genre, color = Color(0xFFE0E0E2))
+                Text(text = game.genre, color = Color(0xFFE0E0E2), modifier = Modifier.weight(1f).fillMaxWidth(0.25f))
 
                 // Right-aligned Hours Played
-                Text(text = "${game.hoursPlayed} hours", color = Color(0xFFE0E0E2))
+                Text(text = "${game.hoursPlayed} hours", color = Color(0xFFE0E0E2), modifier = Modifier.fillMaxWidth(0.45f))
 
-                Text(text = "${game.progress} %", color = Color(0xFFE0E0E2))
+                Text(text = "${game.progress} %", color = Color(0xFFE0E0E2), modifier = Modifier.fillMaxWidth(0.25f))
             }
             Box(modifier = Modifier.fillMaxWidth()) {
                 CustomProgressBar(
@@ -188,4 +192,16 @@ private fun GameCardContent(game: Game) {
             }
         }
     }
+}
+
+@Composable
+fun TextInRow(text: String, modifier: Modifier = Modifier) {
+    BasicTextField(
+        value = TextFieldValue(text),
+        onValueChange = { /* Handle text changes here */ },
+        textStyle = MaterialTheme.typography.bodySmall.copy(fontSize = 16.sp),
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(8.dp)
+    )
 }
