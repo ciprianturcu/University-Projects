@@ -1,11 +1,6 @@
 package com.example.gamevault.activities
 
 import android.annotation.SuppressLint
-import android.media.Rating
-import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.activity.viewModels
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -34,22 +29,21 @@ import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.gamevault.model.Game
-import com.example.gamevault.ui.theme.GameVaultTheme
 import com.example.gamevault.viewmodels.GameViewModel
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun AddGameScreen(navController: NavController, gameViewModel: GameViewModel) {
-    var title by remember { mutableStateOf("") }
-    var description by remember { mutableStateOf("") }
-    var genre by remember { mutableStateOf("") }
-    var progress by remember { mutableFloatStateOf(0f) }
-    var rating by remember { mutableFloatStateOf(0f) }
-    var hoursPlayed by remember { mutableIntStateOf(0) }
+fun UpdateGameScreen(navController: NavController,gameIndex : Int, gameViewModel: GameViewModel) {
+    val game = gameViewModel.getGameByIndex(gameIndex)
+    var title by remember { mutableStateOf(game.title) }
+    var description by remember { mutableStateOf(game.description) }
+    var genre by remember { mutableStateOf(game.genre) }
+    var progress by remember { mutableFloatStateOf(game.progress) }
+    var rating by remember { mutableFloatStateOf(game.rating) }
+    var hoursPlayed by remember { mutableIntStateOf(game.hoursPlayed) }
 
     // Define error states for each input field
     var titleError by remember { mutableStateOf("") }
@@ -62,7 +56,7 @@ fun AddGameScreen(navController: NavController, gameViewModel: GameViewModel) {
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text(text = "Add Game") },
+                title = { Text(text = "Update Game") },
                 navigationIcon = {
                     IconButton(onClick = { navController.popBackStack() }) {
                         Icon(imageVector = Icons.Default.ArrowBack, contentDescription = "Back")
@@ -77,30 +71,28 @@ fun AddGameScreen(navController: NavController, gameViewModel: GameViewModel) {
                     style = MaterialTheme.typography.headlineMedium,
                     modifier = Modifier.padding(bottom = 16.dp)
                 )
-                AddGameInputField("Title", title) { title = it }
+                UpdateGameInputField("Title", title) { title = it }
                 if (titleError.isNotEmpty()) {
                     Text(text = titleError, color = Color.Red)
                 }
-                AddGameInputField("Description", description) { description = it }
+                UpdateGameInputField("Description", description) { description = it }
                 if (descriptionError.isNotEmpty()) {
                     Text(text = descriptionError, color = Color.Red)
                 }
-                AddGameInputField("Genre", genre) { genre = it }
+                UpdateGameInputField("Genre", genre) { genre = it }
                 if (genreError.isNotEmpty()) {
                     Text(text = genreError, color = Color.Red)
                 }
-                AddGameInputField("Progress", progress.toString()) {
-                    progress = it.toFloatOrNull() ?: 0f
-                }
+                UpdateGameInputField("Progress", progress.toString()) { progress = it.toFloat() }
                 if (progressError.isNotEmpty()) {
                     Text(text = progressError, color = Color.Red)
                 }
-                AddGameInputField("Rating", rating.toString()) { rating = it.toFloatOrNull() ?: 0f }
+                UpdateGameInputField("Rating", rating.toString()) { rating = it.toFloat() }
                 if (ratingError.isNotEmpty()) {
                     Text(text = ratingError, color = Color.Red)
                 }
-                AddGameInputField("Hours Played", hoursPlayed.toString()) {
-                    hoursPlayed = it.toIntOrNull() ?: 0
+                UpdateGameInputField("Hours Played", hoursPlayed.toString()) {
+                    hoursPlayed = it.toInt()
                 }
                 if (hoursPlayedError.isNotEmpty()) {
                     Text(text = hoursPlayedError, color = Color.Red)
@@ -123,7 +115,7 @@ fun AddGameScreen(navController: NavController, gameViewModel: GameViewModel) {
                                 rating,
                                 hoursPlayed
                             )
-                            gameViewModel.addGame(game)
+                            gameViewModel.updateGame(gameIndex, game)
                             navController.popBackStack()
                         } else {
                             titleError = if (!isTitleValid) "Title is required" else ""
@@ -136,7 +128,7 @@ fun AddGameScreen(navController: NavController, gameViewModel: GameViewModel) {
                     },
                     modifier = Modifier.fillMaxWidth()
                 ) {
-                    Text(text = "Add Game")
+                    Text(text = "Update Game")
                 }
             }
         }
@@ -145,7 +137,7 @@ fun AddGameScreen(navController: NavController, gameViewModel: GameViewModel) {
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalComposeUiApi::class)
 @Composable
-fun AddGameInputField(
+fun UpdateGameInputField(
     label: String,
     value: String,
     onValueChange: (String) -> Unit,
@@ -154,19 +146,16 @@ fun AddGameInputField(
         mutableStateOf(false)
     }
 
-    OutlinedTextField(
-        value = value,
-        onValueChange = { newValue ->
-            onValueChange(newValue)
-        },
+    OutlinedTextField(value = value, onValueChange = { newValue ->
+        onValueChange(newValue)
+    },
         label = { Text(text = label) },
         modifier = Modifier
             .onFocusChanged { focusState ->
                 isFocused = focusState.isFocused
             }
-            .padding(bottom = 16.dp),
+            .padding(bottom = 16.dp)
     )
-
 
     if (!isFocused) {
         LocalSoftwareKeyboardController.current?.hide()
