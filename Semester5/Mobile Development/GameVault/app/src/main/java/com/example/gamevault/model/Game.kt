@@ -7,6 +7,6 @@ data class Game(
     val description: String,
     val genre: String,
     val progress: Float,
-    val rating: Rating,
+    val rating: Float,
     val hoursPlayed: Int,
 )

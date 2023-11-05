@@ -16,7 +16,7 @@ class GameRepository {
             "Lorem Ipsum",
             "Open World",
             50F,
-            Rating.newStarRating(Rating.RATING_5_STARS, 4.5F),
+            4.5F,
             358
         ))
         addGame(Game(
@@ -24,7 +24,7 @@ class GameRepository {
             "Lorem Ipsum",
             "Horror",
             75F,
-            Rating.newStarRating(Rating.RATING_5_STARS, 4.5F),
+            4.5F,
             26
         ))
         addGame(Game(
@@ -32,7 +32,7 @@ class GameRepository {
             "Lorem Ipsum",
             "FPS",
             78.6F,
-            Rating.newStarRating(Rating.RATING_5_STARS, 4.5F),
+            4.5F,
             2453
         ))
         addGame(Game(
@@ -40,7 +40,7 @@ class GameRepository {
             "Lorem Ipsum",
             "Action",
             25F,
-            Rating.newStarRating(Rating.RATING_5_STARS, 4.5F),
+            4.5F,
             372
         ))
         addGame(Game(
@@ -48,7 +48,7 @@ class GameRepository {
             "Lorem Ipsum",
             "Open World",
             80F,
-            Rating.newStarRating(Rating.RATING_5_STARS, 4.5F),
+            4.5F,
             1000
         ))
         addGame(Game(
@@ -56,7 +56,7 @@ class GameRepository {
             "Lorem Ipsum",
             "FPS",
             64F,
-            Rating.newStarRating(Rating.RATING_5_STARS, 4.5F),
+            4.5F,
             927
         ))
         addGame(Game(
@@ -64,7 +64,7 @@ class GameRepository {
             "Lorem Ipsum",
             "FPS",
             64F,
-            Rating.newStarRating(Rating.RATING_5_STARS, 4.5F),
+            4.5F,
             927
         ))
         addGame(Game(
@@ -72,7 +72,7 @@ class GameRepository {
             "Lorem Ipsum",
             "FPS",
             64F,
-            Rating.newStarRating(Rating.RATING_5_STARS, 4.5F),
+            4.5F,
             927
         ))
         addGame(Game(
@@ -80,7 +80,7 @@ class GameRepository {
             "Lorem Ipsum",
             "FPS",
             64F,
-            Rating.newStarRating(Rating.RATING_5_STARS, 4.5F),
+            4.5F,
             927
         ))
     }

@@ -6,18 +6,38 @@ import androidx.lifecycle.ViewModel
 import com.example.gamevault.model.Game
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.filter
+import kotlinx.coroutines.flow.update
 
 class GameViewModel : ViewModel() {
     private val _gameList = MutableStateFlow(listOf<Game>())
     val gameList = _gameList.asStateFlow()
 
     fun addGame(game: Game) {
-        Log.d("gamelist-before", _gameList.value.toString())
         _gameList.value = _gameList.value + game
-        Log.d("gamelist-after", _gameList.value.toString())
     }
-    fun deleteGame(gameId:Int) {
-        _gameList.value[gameId]
+
+    fun updateGame(index: Int, newGame: Game) {
+        val updatedList = gameList.value.toMutableList()
+        updatedList[index] = newGame
+        _gameList.value = updatedList
+    }
+
+    fun deleteGame(index: Int) {
+        val gameList = gameList.value.toMutableList()
+        gameList.removeAt(index)
+        _gameList.value = gameList
+    }
+
+    fun getGameByIndex(index: Int): Game {
+        return gameList.value.getOrNull(index) ?: Game(
+            title = "",
+            description = "",
+            genre = "",
+            progress = 0F,
+            rating = 0F,
+            hoursPlayed = 0
+        )
     }
 
     init {
@@ -26,7 +46,7 @@ class GameViewModel : ViewModel() {
             "Lorem Ipsum",
             "Open World",
             50F,
-            Rating.newStarRating(Rating.RATING_5_STARS, 4.5F),
+            4.5F,
             358
         ))
         addGame(Game(
@@ -34,7 +54,7 @@ class GameViewModel : ViewModel() {
             "Lorem Ipsum",
             "Horror",
             75F,
-            Rating.newStarRating(Rating.RATING_5_STARS, 4.5F),
+            4.5F,
             26
         ))
         addGame(Game(
@@ -42,7 +62,7 @@ class GameViewModel : ViewModel() {
             "Lorem Ipsum",
             "FPS",
             78.6F,
-            Rating.newStarRating(Rating.RATING_5_STARS, 4.5F),
+            4.5F,
             2453
         ))
         addGame(Game(
@@ -50,7 +70,7 @@ class GameViewModel : ViewModel() {
             "Lorem Ipsum",
             "Action",
             25F,
-            Rating.newStarRating(Rating.RATING_5_STARS, 4.5F),
+            4.5F,
             372
         ))
         addGame(Game(
@@ -58,7 +78,7 @@ class GameViewModel : ViewModel() {
             "Lorem Ipsum",
             "Open World",
             80F,
-            Rating.newStarRating(Rating.RATING_5_STARS, 4.5F),
+            4.5F,
             1000
         ))
         addGame(Game(
@@ -66,7 +86,7 @@ class GameViewModel : ViewModel() {
             "Lorem Ipsum",
             "FPS",
             64F,
-            Rating.newStarRating(Rating.RATING_5_STARS, 4.5F),
+            4.5F,
             927
         ))
         addGame(Game(
@@ -74,7 +94,7 @@ class GameViewModel : ViewModel() {
             "Lorem Ipsum",
             "FPS",
             64F,
-            Rating.newStarRating(Rating.RATING_5_STARS, 4.5F),
+            4.5F,
             927
         ))
         addGame(Game(
@@ -82,7 +102,7 @@ class GameViewModel : ViewModel() {
             "Lorem Ipsum",
             "FPS",
             64F,
-            Rating.newStarRating(Rating.RATING_5_STARS, 4.5F),
+            4.5F,
             927
         ))
         addGame(Game(
@@ -90,7 +110,7 @@ class GameViewModel : ViewModel() {
             "Lorem Ipsum",
             "FPS",
             64F,
-            Rating.newStarRating(Rating.RATING_5_STARS, 4.5F),
+            4.5F,
             927
         ))
     }
