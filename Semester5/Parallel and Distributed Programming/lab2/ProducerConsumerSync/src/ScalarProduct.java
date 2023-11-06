@@ -139,8 +139,8 @@ public class ScalarProduct {
 
     public void execute() {
         initVectors();
-        computeScalarProductMethod1();
-        //computeScalarProductMethod2();
+        //computeScalarProductMethod1();
+        computeScalarProductMethod2();
     }
 
     private void initVectors() {
