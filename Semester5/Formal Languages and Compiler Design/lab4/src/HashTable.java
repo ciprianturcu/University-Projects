@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class HashTable<K> {
 
@@ -38,7 +39,9 @@ public class HashTable<K> {
             rehashTable();
         HashNode<K> temp = new HashNode<>(key);
         int hashIndex = hashFunction(key);
-        while (this.table.get(hashIndex) != null && this.table.get(hashIndex).key != key) {
+        while (this.table.get(hashIndex) != null) {
+            if(this.table.get(hashIndex).key.equals(key))
+                return hashIndex;
             hashIndex++;
             hashIndex %= capacity;
         }
@@ -68,5 +71,17 @@ public class HashTable<K> {
 
     public int getSize() {
         return size;
+    }
+
+    public List<Pair<K, Integer>> getElementsWithPositions() {
+        List<Pair<K, Integer>> elementsWithPositions = new ArrayList<>();
+
+        for (int i = 0; i < capacity; i++) {
+            HashNode<K> hashNode = table.get(i);
+            if (hashNode != null) {
+                elementsWithPositions.add(new Pair<>(hashNode.key, i));
+            }
+        }
+        return elementsWithPositions;
     }
 }
