@@ -7,9 +7,9 @@ Alphabet:
 Lexic:
 
 	a. Special symbols
-		-operators +, -, *, /, ==, <, >, <=, >=, =, !=
+		-operators +, -, *, /, ==, <, >, <=, >=, =, !=, &&, ||
 		-separators [], {}, (), ;, space, "", $
-		-reserved words: Integer, String, Char, for, return, in, out, if, elif, else, ArrayList, while
+		-reserved words: Integer, String, Char, for, return, in, out, if, elif, else, ArrayList, while, and, or
 	
 	b. Identifiers
 		Sequence of letters, digits or "_", with the condition the first character is a letter.
