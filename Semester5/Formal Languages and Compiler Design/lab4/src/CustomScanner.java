@@ -10,9 +10,9 @@ public class CustomScanner {
     private SymbolTable<String> symbolTableIdentifiers;
     private SymbolTable<String> symbolTableConstants;
     private ProgramInternalForm programInternalForm;
-    private final ArrayList<String> operators = new ArrayList<>(List.of("+", "-", "*", "/", "=", ">", ">=", "<", "<=", "!=", "$", "%", "=="));
+    private final ArrayList<String> operators = new ArrayList<>(List.of( "&&","||","==", ">=", "<=", "!=", "+", "-", "*", "/", "=", ">", "<",  "$", "%"));
     private final ArrayList<String> separators = new ArrayList<>(List.of("{", "}", "(", ")", "[", "]", ",", ";", ".", "\""));
-    private final ArrayList<String> reservedWords = new ArrayList<>(List.of("Integer", "String", "Char", "ArrayList", "else", "if", "elif", "while", "for", "return", "out", "in", "add", "len"));
+    private final ArrayList<String> reservedWords = new ArrayList<>(List.of("Integer", "String", "Char", "ArrayList", "else", "if", "elif", "while", "for", "return", "out", "in", "add", "len", "and", "or"));
     private int linePosition;
     private int lineCounter;
     private String line;
