@@ -48,7 +48,7 @@ public class Main {
         rows1 = scanner.nextInt();
         System.out.print("columns1AndRows2: ");
         columns1AndRows2 = scanner.nextInt();
-        System.out.print("c: ");
+        System.out.print("columns2: ");
         columns2 = scanner.nextInt();
         System.out.print("function type (0-thread4task ; 1-threadPool): ");
         functionType = scanner.nextInt();
@@ -74,15 +74,16 @@ public class Main {
         int iterationsPerTask = rows1 * columns2 / taskNumber;
         for (int i = 0; i < taskNumber; i++) {
             int start = i * iterationsPerTask;
-            int end = Math.min((i + 1) * iterationsPerTask, rows1 * columns2);
+            int end = i==(taskNumber-1) ? rows1*columns2 : Math.min((i + 1) * iterationsPerTask, rows1 * columns2) ;
             if (scanType == 0)
                 tasks.add(new Thread(new RowTask(answerMatrix, start, end)));
             else if (scanType == 1)
                 tasks.add(new Thread(new ColumnTask(answerMatrix, start, end)));
-            else tasks.add(new Thread(new KthTask(answerMatrix, start, taskNumber)));
+            else tasks.add(new Thread(new KthTask(answerMatrix, i, taskNumber)));
         }
-
-        tasks.forEach(Thread::start);
+        for (Thread task : tasks) {
+            task.start();
+        }
         for (Thread thread : tasks) {
             thread.join();
         }
@@ -96,15 +97,20 @@ public class Main {
         int iterationsPerTask = rows1 * columns2 / taskNumber;
         for (int i = 0; i < taskNumber; i++) {
             int start = i * iterationsPerTask;
-            int end = Math.min((i + 1) * iterationsPerTask, rows1 * columns2);
-            if (functionType == 0)
-                tasks.add(new Thread(new RowTask(answerMatrix, start, end)));
-            else if (functionType == 1)
-                tasks.add(new Thread(new ColumnTask(answerMatrix, start, end)));
-            else tasks.add(new Thread(new KthTask(answerMatrix, start, taskNumber)));
+            int end = i==(taskNumber-1) ? rows1*columns2 : Math.min((i + 1) * iterationsPerTask, rows1 * columns2) ;
+            if (scanType == 0)
+                tasks.add(new RowTask(answerMatrix, start, end));
+            else if (scanType == 1)
+                tasks.add(new ColumnTask(answerMatrix, start, end));
+            else tasks.add(new KthTask(answerMatrix, i, taskNumber));
         }
-        tasks.forEach(threadPoolExecutor::execute);
+        for (Runnable task : tasks) {
+            threadPoolExecutor.execute(task);
+        }
         threadPoolExecutor.shutdown();
+        while (!threadPoolExecutor.awaitTermination(1, TimeUnit.DAYS)) {
+            System.out.println("Not yet. Still waiting for termination");
+        }
         return new CustomMatrix(answerMatrix);
     }
 }

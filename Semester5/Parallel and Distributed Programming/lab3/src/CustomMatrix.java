@@ -7,9 +7,9 @@ public class CustomMatrix {
     private Integer rows, columns;
 
     public CustomMatrix(Integer[][] matrix) {
-        this.matrix = matrix;
         this.rows = matrix.length;
         this.columns = matrix[0].length;
+        this.matrix = matrix;
     }
 
     public CustomMatrix(Integer rows, Integer columns) {
@@ -52,16 +52,49 @@ public class CustomMatrix {
 
     @Override
     public boolean equals(Object o) {
-        if (!(o instanceof CustomMatrix objectCustomMatrix))
+        if (!(o instanceof CustomMatrix objectCustomMatrix)) {
+            System.out.println("primu if");
             return false;
-        if (!rows.equals(objectCustomMatrix.rows) || !columns.equals(objectCustomMatrix.columns))
+        }
+        if (!rows.equals(objectCustomMatrix.rows) || !columns.equals(objectCustomMatrix.columns)) {
+            System.out.println("al doilea if");
             return false;
+        }
         for (int i = 0; i < rows; i++)
             for (int j = 0; j < columns; j++)
-                if (!matrix[i][j].equals(objectCustomMatrix.matrix[i][j]))
+                if (!(Objects.equals(matrix[i][j], objectCustomMatrix.matrix[i][j]))) {
+                    System.out.println("trei if");
+                    System.out.println(this.matrix[i][j] + " " + objectCustomMatrix.matrix[i][j]);
                     return false;
+                }
         return true;
 
     }
 
+
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) {
+//            System.out.println("primu if");
+//            return true;
+//        }
+//        if (o == null || getClass() != o.getClass()) {
+//            System.out.println("al doilea if");
+//            return false;
+//        }
+//        CustomMatrix that = (CustomMatrix) o;
+//        if (Arrays.deepEquals(matrix, that.matrix) && Objects.equals(rows, that.rows) && Objects.equals(columns, that.columns)) {
+//            System.out.println("trei if");
+//            return true;
+//        }
+//        System.out.println("afaara if");
+//        return false;
+//    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hash(rows, columns);
+        result = 31 * result + Arrays.hashCode(matrix);
+        return result;
+    }
 }
