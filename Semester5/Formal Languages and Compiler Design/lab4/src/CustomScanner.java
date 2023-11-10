@@ -169,7 +169,7 @@ public class CustomScanner {
     }
 
     private void createOutputOfScan(final String filename) throws IOException {
-        FileWriter fileWriter = new FileWriter(new File("src/out", "ST-"+filename.split("\\.")[0]+".out"));
+        FileWriter fileWriter = new FileWriter(new File("src/outpifst", "ST-"+filename.split("\\.")[0]+".out"));
         fileWriter.write("------------------------------------------------------------\n");
         fileWriter.write("Symbol Table - constants\n");
         fileWriter.write("------------------------------------------------------------\n");
@@ -186,7 +186,7 @@ public class CustomScanner {
         }
         fileWriter.close();
 
-        fileWriter = new FileWriter(new File("src/out", "PIF-"+filename.split("\\.")[0]+".out"));
+        fileWriter = new FileWriter(new File("src/outpifst", "PIF-"+filename.split("\\.")[0]+".out"));
         fileWriter.write("------------------------------------------------------------\n");
         fileWriter.write("Program Internal Form\n");
         fileWriter.write("------------------------------------------------------------\n");

@@ -113,8 +113,7 @@ if                                    -1
 identifier                            10
 %                                     -1
 identifier                             5
-=                                     -1
-=                                     -1
+==                                    -1
 intconst                              48
 )                                     -1
 {                                     -1
