@@ -12,6 +12,6 @@ public final class Constants {
             '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '_'
     ));
     public static final ArrayList<Character> INTCONST_ALLOWED_CHARACTERS = new ArrayList<>(List.of(
-            '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'
+            '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '-'
     ));
 }

@@ -27,8 +27,7 @@ identifier                            10
 identifier                             5
 =                                     -1
 identifier                             5
-+                                     -1
-intconst                              49
+intconst                              44
 )                                     -1
 {                                     -1
 if                                    -1
