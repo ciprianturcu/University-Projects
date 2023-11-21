@@ -1,0 +1,14 @@
+$
+
+Integer n, i;
+in(n);
+for (i=2;i*i<n;i=i+1) {
+	if (n%i==0) {
+		out("true");
+		return 0;
+	}
+}
+out("false");
+return 1;
+
+$
