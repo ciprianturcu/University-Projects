@@ -1,0 +1,12 @@
+~states
+S A E
+~initialState
+S
+~alphabet
+a e
+~finalStates
+E
+~transitions
+S a A
+A e E
+E e E

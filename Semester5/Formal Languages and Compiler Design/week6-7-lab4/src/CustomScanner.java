@@ -10,12 +10,14 @@ public class CustomScanner {
     private SymbolTable<String> symbolTableIdentifiers;
     private SymbolTable<String> symbolTableConstants;
     private ProgramInternalForm programInternalForm;
-    private final ArrayList<String> operators = new ArrayList<>(List.of( "&&","||","==", ">=", "<=", "!=", "+", "-", "*", "/", "=", ">", "<",  "$", "%"));
+    private final ArrayList<String> operators = new ArrayList<>(List.of("&&", "||", "==", ">=", "<=", "!=", "+", "-", "*", "/", "=", ">", "<", "$", "%"));
     private final ArrayList<String> separators = new ArrayList<>(List.of("{", "}", "(", ")", "[", "]", ",", ";", ".", "\""));
     private final ArrayList<String> reservedWords = new ArrayList<>(List.of("Integer", "String", "Char", "ArrayList", "else", "if", "elif", "while", "for", "return", "out", "in", "add", "len", "and", "or"));
     private int linePosition;
     private int lineCounter;
     private String line;
+    private FiniteAutomata intConstFA;
+    private FiniteAutomata identifierFA;
 
 
     public CustomScanner() {
@@ -24,6 +26,10 @@ public class CustomScanner {
         this.programInternalForm = new ProgramInternalForm();
         this.linePosition = 0;
         this.lineCounter = 0;
+        this.intConstFA = new FiniteAutomata();
+        this.identifierFA = new FiniteAutomata();
+        intConstFA.scanFa("src/intConst.txt");
+        identifierFA.scanFa("src/identifiers.txt");
     }
 
     public void scanProgram(String filename) {
@@ -70,16 +76,23 @@ public class CustomScanner {
     }
 
     private boolean intConstClassifier() {
-        var intConstRegex = Pattern.compile("^((-?[1-9][0-9]*)|0)");
-        var matcherToFind = intConstRegex.matcher(line.substring(linePosition));
-        if (!matcherToFind.find())
-            return false;
+//        var intConstRegex = Pattern.compile("^((-?[1-9][0-9]*)|0)");
+//        var matcherToFind = intConstRegex.matcher(line.substring(linePosition));
+//        if (!matcherToFind.find())
+//            return false;
+//
+//        var intConst = matcherToFind.group(0);
 
-        var intConst = matcherToFind.group(0);
-        linePosition += intConst.length();
-        int position = symbolTableConstants.add(intConst);
-        programInternalForm.add("intconst", position);
-        return true;
+        String intConst = extractGroupAsToken(Constants.INTCONST_ALLOWED_CHARACTERS);
+        if (intConst.isEmpty())
+            return false;
+        if (intConstFA.isSequenceAccepted(intConst)) {
+            linePosition += intConst.length();
+            int position = symbolTableConstants.add(intConst);
+            programInternalForm.add("intconst", position);
+            return true;
+        }
+        return false;
     }
 
     private boolean stringConstClassifier() {
@@ -110,19 +123,25 @@ public class CustomScanner {
     }
 
     private boolean identifierClassifier() {
-        var identifierRegex = Pattern.compile("^([a-zA-Z][a-zA-Z_0-9]*)");
-        var matcherToFind = identifierRegex.matcher(line.substring(linePosition));
-        if (!matcherToFind.find())
+//        var identifierRegex = Pattern.compile("^([a-zA-Z][a-zA-Z_0-9]*)");
+//        var matcherToFind = identifierRegex.matcher(line.substring(linePosition));
+//        if (!matcherToFind.find())
+//            return false;
+//
+//        var identifier = matcherToFind.group(0);
+        String identifier = extractGroupAsToken(Constants.IDENTIFIER_ALLOWED_CHARACTERS);
+        if (identifier.isEmpty())
             return false;
-
-        var identifier = matcherToFind.group(0);
         if (reservedWords.contains(identifier))
             return false;
 
-        linePosition += identifier.length();
-        var position = symbolTableIdentifiers.add(identifier);
-        programInternalForm.add("identifier", position);
-        return true;
+        if (identifierFA.isSequenceAccepted(identifier)) {
+            linePosition += identifier.length();
+            var position = symbolTableIdentifiers.add(identifier);
+            programInternalForm.add("identifier", position);
+            return true;
+        }
+        return false;
     }
 
 
@@ -169,32 +188,33 @@ public class CustomScanner {
     }
 
     private void createOutputOfScan(final String filename) throws IOException {
-        FileWriter fileWriter = new FileWriter(new File("src/outpifst", "ST-"+filename.split("\\.")[0]+".out"));
+        FileWriter fileWriter = new FileWriter(new File("src/outpifst", "ST-" + filename.split("\\.")[0] + ".out"));
         fileWriter.write("------------------------------------------------------------\n");
         fileWriter.write("Symbol Table - constants\n");
         fileWriter.write("------------------------------------------------------------\n");
         var symbolTableConstantsElementsWithPositions = symbolTableConstants.getTable().getElementsWithPositions();
         for (Pair<String, Integer> pair : symbolTableConstantsElementsWithPositions) {
-            fileWriter.write(createPaddedString(pair.getFirst(), pair.getSecond().toString())+"\n");
+            fileWriter.write(createPaddedString(pair.getFirst(), pair.getSecond().toString()) + "\n");
         }
         fileWriter.write("\n\n\n------------------------------------------------------------\n");
         fileWriter.write("Symbol Table - identifiers\n");
         fileWriter.write("------------------------------------------------------------\n");
         var symbolTableIdentifiersElementsWithPositions = symbolTableIdentifiers.getTable().getElementsWithPositions();
         for (Pair<String, Integer> pair : symbolTableIdentifiersElementsWithPositions) {
-            fileWriter.write(createPaddedString(pair.getFirst(), pair.getSecond().toString())+"\n");
+            fileWriter.write(createPaddedString(pair.getFirst(), pair.getSecond().toString()) + "\n");
         }
         fileWriter.close();
 
-        fileWriter = new FileWriter(new File("src/outpifst", "PIF-"+filename.split("\\.")[0]+".out"));
+        fileWriter = new FileWriter(new File("src/outpifst", "PIF-" + filename.split("\\.")[0] + ".out"));
         fileWriter.write("------------------------------------------------------------\n");
         fileWriter.write("Program Internal Form\n");
         fileWriter.write("------------------------------------------------------------\n");
         for (Pair<String, Integer> pair : programInternalForm.getArray()) {
-            fileWriter.write(createPaddedString(pair.getFirst(), pair.getSecond().toString())+"\n");
+            fileWriter.write(createPaddedString(pair.getFirst(), pair.getSecond().toString()) + "\n");
         }
         fileWriter.close();
     }
+
     private static String createPaddedString(String firstString, String secondString) {
         StringBuilder paddedString = new StringBuilder();
 
@@ -215,5 +235,16 @@ public class CustomScanner {
         paddedString.append(secondString);
 
         return paddedString.toString();
+    }
+
+    //match partial function of regex group, get the whole token check in fa if it's ok.
+    private String extractGroupAsToken(final List<Character> allowedCharacters) {
+        StringBuilder resultToken = new StringBuilder();
+        int localLinePosition = linePosition;
+        while (allowedCharacters.contains(line.charAt(localLinePosition))) {
+            resultToken.append(line.charAt(localLinePosition));
+            localLinePosition++;
+        }
+        return resultToken.toString();
     }
 }
