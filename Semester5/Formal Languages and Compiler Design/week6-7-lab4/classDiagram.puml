@@ -1,0 +1,123 @@
+@startuml
+
+class CustomScanner {
+  - symbolTableIdentifiers: SymbolTable<String>
+  - symbolTableConstants: SymbolTable<String>
+  - programInternalForm: ProgramInternalForm
+  - operators: ArrayList<String>
+  - separators: ArrayList<String>
+  - reservedWords: ArrayList<String>
+  - linePosition: int
+  - lineCounter: int
+  - line: String
+  - intConstFA : FiniteAutomata
+  - identifierFA : FiniteAutomata
+  + CustomScanner()
+  + scanProgram(filename: String)
+  - processLine()
+  - findNextToken()
+  - treatSpaces()
+  - intConstClassifier(): boolean
+  - stringConstClassifier(): boolean
+  - charConstClassifier(): boolean
+  - identifierClassifier(): boolean
+  - tokenClassifier(): boolean
+  - checkTokenForOperators(token: String): boolean
+  - checkTokenForSeparators(token: String): boolean
+  - checkTokenForReservedWords(token: String): boolean
+  - createOutputOfScan(filename: String)
+  + createPaddedString(firstString: String, secondString: String): String
+}
+
+class HashNode<K> {
+  - key: K
+  + HashNode(key: K)
+}
+
+class HashTable<K> {
+  - table: ArrayList<HashNode<K>>
+  - size: int
+  - capacity: int
+  + HashTable(initialSize: int)
+  + hashFunction(key: K): int
+  - rehashTable()
+  + insertNode(key: K): int
+  + getPosition(key: K): int
+  + getByPosition(position: int): K
+  + getCapacity(): int
+  + getSize(): int
+  + getElementsWithPositions(): List<Pair<K, Integer>>
+}
+
+class Main {
+  + main(args: String[])
+}
+
+class FiniteAutomata {
+    - stateSet: List<String>
+    - alphabet: List<String>
+    - transitions: Map<Pair<String, String>, Set<String>>
+    - finalStates: List<String>
+    - initialState: String
+
+    + FiniteAutomata()
+    + scanFa(String filename): void
+    + readTransitions(BufferedReader bufferedReader): void
+    + getStateSet(): List<String>
+    + getAlphabet(): List<String>
+    + getFinalStates(): List<String>
+    + getInitialState(): String
+    + getTransitions(): Map<Pair<String, String>, Set<String>>
+    + isDeterministic(): boolean
+    + isSequenceAccepted(String sequence): boolean
+}
+
+class Pair<K, V> {
+  - first: K
+  - second: V
+  + Pair(first: K, second: V)
+  + getFirst(): K
+  + getSecond(): V
+  + setFirst(first: K)
+  + setSecond(second: V)
+  + toString(): String
+  + equals(o: Object): boolean
+  + hashCode(): int
+}
+
+class ProgramInternalForm {
+  - array: List<Pair<String, Integer>>
+  + ProgramInternalForm()
+  + getArray(): List<Pair<String, Integer>>
+  + add(token: String, position: Integer)
+  + toString(): String
+}
+
+class ScannerException {
+  + ScannerException(message: String)
+}
+
+class SymbolTable<K> {
+  - hashTable: HashTable<K>
+  + SymbolTable()
+  + getTable(): HashTable<K>
+  + add(symbol: K): int
+  + getPosition(symbol: K): int
+  + getByPosition(position: int): K
+}
+
+CustomScanner --> SymbolTable
+CustomScanner --> ProgramInternalForm
+CustomScanner --> ScannerException
+CustomScanner --> FiniteAutomata
+
+
+HashTable --> HashNode
+
+Main --> CustomScanner
+
+ProgramInternalForm --> Pair
+
+SymbolTable --> HashTable
+
+@enduml

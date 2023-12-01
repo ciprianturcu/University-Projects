@@ -5,3 +5,6 @@
 /Semester5/Parallel and Distributed Programming/lab4/.vs
 /Semester5/Parallel and Distributed Programming/lab4/lab4/bin/Debug/net8.0
 /Semester5/Parallel and Distributed Programming/lab4/lab4/obj
+*.csproj
+*.jpg
+*.PNG
