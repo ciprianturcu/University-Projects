@@ -1,0 +1,7 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/Semester5/Parallel and Distributed Programming/lab4/.vs
+/Semester5/Parallel and Distributed Programming/lab4/lab4/bin/Debug/net8.0
+/Semester5/Parallel and Distributed Programming/lab4/lab4/obj
