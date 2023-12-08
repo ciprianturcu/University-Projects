@@ -1,17 +1,20 @@
-import 'package:gamevault_flutter/game.dart';
+import 'package:logger/logger.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 
 class DatabaseHelper {
-  static final DatabaseHelper _databaseHelper = DatabaseHelper._();
+  static Database? _database;
+  static final _log = Logger();
 
-  DatabaseHelper._();
-
-  factory DatabaseHelper() {
-    return _databaseHelper;
+  Future<Database> get database async {
+    if (_database != null) return _database!;
+    _database = await databaseInit();
+    return _database!;
   }
 
   Future<void> createTables(Database database) async {
-    await database.execute("""CREATE TABLE games (
+    try {
+      _log.d('creating table for database');
+      await database.execute("""CREATE TABLE games (
           id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
           title TEXT NOT NULL,
           description TEXT NOT NULL,
@@ -20,20 +23,32 @@ class DatabaseHelper {
           rating REAL NOT NULL,
           hoursPlayed INTEGER NOT NULL
       )""");
+    } catch (e) {
+      _log.e('error creating table : $e');
+      rethrow;
+    }
   }
 
   Future<void> dropTable(Database database) async {
-    await database.execute("""DROP TABLE games""");
+    try {
+      _log.d('deleteing table from database');
+      await database.execute("""DROP TABLE games""");
+    } catch (e) {
+      _log.e('error deleting table : $e');
+      rethrow;
+    }
   }
 
   Future<Database> databaseInit() async {
-    // // Initialize sqflite_ffi databaseFactory
-    // sqfliteFfiInit();
+    try {
+      // // Initialize sqflite_ffi databaseFactory
+      // sqfliteFfiInit();
 
-    // // Set the databaseFactory to databaseFactoryFfi
-    // databaseFactory = databaseFactoryFfi;
+      // // Set the databaseFactory to databaseFactoryFfi
+      // databaseFactory = databaseFactoryFfi;
 
-    return await openDatabase("game_vault.db", version: 1,
+      return await openDatabase(
+        "game_vault.db", version: 1,
         onCreate: (Database database, int version) async {
           await createTables(database);
         },
@@ -41,38 +56,20 @@ class DatabaseHelper {
         //   await dropTable(database);
         //   await createTables(database);
         // } ,
-    );
+      );
+    } catch (e) {
+      _log.e('error initializing database : $e');
+      rethrow;
+    }
   }
 
-  Future<int> createGame(Game game) async {
-    final database = await _databaseHelper.databaseInit();
-    int result = await database.insert('games', game.toMap());
-    return result;
-  }
-
-  Future<int> updateGame(Game game) async {
-    final database = await _databaseHelper.databaseInit();
-    print(game.id);
-    int result = await database
-        .update('games', game.toMap(), where: "id = ?", whereArgs: [game.id]);
-    print(result);
-    return result;
-  }
-
-  Future<List<Game>> retrieveGames() async {
-    final database = await _databaseHelper.databaseInit();
-    final List<Map<String, dynamic>> map = await database.query('games', orderBy: 'id');
-    return List.generate(map.length, (index) => Game.fromMap(map[index]));
-  }
-
-  Future<void> deleteGame(int id) async {
-    final database = await _databaseHelper.databaseInit();
-    await database.delete('games', where: "id = ?", whereArgs: [id]);
-  }
-
-  Future<Game?> getGameById(int id) async {
-    final database = await _databaseHelper.databaseInit();
-    List<Map<String, dynamic>> result = await database.query('games', where: "id = ?", whereArgs: [id]);
-    return result.isNotEmpty ? Game(id: result[0]['id'],title: result[0]['title'], description: result[0]['description'], genre: result[0]['genre'], progress: result[0]['progress'], rating: result[0]['rating'], hoursPlayed: result[0]['hoursPlayed']) : null;
+  Future<void> close() async {
+    try {
+      final db = await database;
+      _log.d('closing database');
+      await db.close();
+    } catch (e) {
+      _log.e('error closing database: $e');
+    }
   }
 }

@@ -1,14 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:gamevault_flutter/add_screen.dart';
 import 'package:gamevault_flutter/db_helper.dart';
 import 'package:gamevault_flutter/game.dart';
+import 'package:gamevault_flutter/game_viewmodel.dart';
+import 'package:gamevault_flutter/validator_functions.dart';
+import 'package:logger/logger.dart';
+import 'package:provider/provider.dart';
+
+final Logger _log = Logger();
 
 class UpdateScreen extends StatefulWidget {
-  final Game game;
-
-  UpdateScreen({required this.game});
+  const UpdateScreen({super.key});
 
   @override
   State<UpdateScreen> createState() => _UpdateScreenState();
+
+  static int getGameById(BuildContext context) {
+    return (ModalRoute.of(context)!.settings.arguments
+        as Map<String, dynamic>)['gameId'];
+  }
 }
 
 class _UpdateScreenState extends State<UpdateScreen> {
@@ -21,20 +31,19 @@ class _UpdateScreenState extends State<UpdateScreen> {
   final TextEditingController _hoursPlayedController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-  @override
-  void initState() {
-    super.initState();
-    databaseHelper = DatabaseHelper();
-    _fetchAndUpdateFields();
-  }
+  late Game _game;
 
-  Future<void> _fetchAndUpdateFields() async {
-    _titleController.text = widget.game.title;
-    _descriptionController.text = widget.game.description;
-    _genreController.text = widget.game.genre;
-    _progressController.text = widget.game.progress.toString();
-    _ratingController.text = widget.game.rating.toString();
-    _hoursPlayedController.text = widget.game.hoursPlayed.toString();
+  @override
+  Future<void> didChangeDependencies() async {
+    super.didChangeDependencies();
+    final int gameId = UpdateScreen.getGameById(context);
+    _game = (await Provider.of<GameViewModel>(context).getGameById(gameId))!;
+    _titleController.text = _game.title;
+    _descriptionController.text = _game.description;
+    _genreController.text = _game.genre;
+    _progressController.text = _game.progress.toString();
+    _ratingController.text = _game.rating.toString();
+    _hoursPlayedController.text = _game.hoursPlayed.toString();
   }
 
   @override
@@ -57,183 +66,55 @@ class _UpdateScreenState extends State<UpdateScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  TextFormField(
-                    controller: _titleController,
-                    cursorColor: const Color(0xFFFFD232),
-                    style: const TextStyle(color: Color(0xFFE0E0E2)),
-                    decoration: const InputDecoration(
-                      labelText: 'Title',
-                      labelStyle: TextStyle(color: Color(0xFFFFD232)),
-                      focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Color(0xFFFFD232))),
-                      enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Color(0xFFFFD232))),
-                    ),
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Please enter a title';
-                      }
-                      return null;
-                    },
-                  ),
+                  InputFormItem(
+                      fieldController: _titleController,
+                      validatorFunction: (value) {return Validator.validateStringFieldInput(value);},
+                      fieldLabel: 'Title',
+                      inputType: TextInputType.text),
                   const SizedBox(
                     height: 16,
                   ),
-                  TextFormField(
-                    cursorColor: const Color(0xFFFFD232),
-                    controller: _descriptionController,
-                    style: const TextStyle(color: Color(0xFFE0E0E2)),
-                    decoration: const InputDecoration(
-                        labelText: 'Description',
-                        labelStyle: TextStyle(color: Color(0xFFFFD232)),
-                        focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Color(0xFFFFD232))),
-                        enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Color(0xFFFFD232)))),
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Please enter a description';
-                      }
-                      return null;
-                    },
-                  ),
+                  InputFormItem(
+                      fieldController: _descriptionController,
+                      validatorFunction: (value) {return Validator.validateStringFieldInput(value);},
+                      fieldLabel: 'Description',
+                      inputType: TextInputType.text),
                   const SizedBox(
                     height: 16,
                   ),
-                  TextFormField(
-                    cursorColor: const Color(0xFFFFD232),
-                    controller: _genreController,
-                    style: const TextStyle(color: Color(0xFFE0E0E2)),
-                    decoration: const InputDecoration(
-                        labelText: 'Genre',
-                        labelStyle: TextStyle(color: Color(0xFFFFD232)),
-                        focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Color(0xFFFFD232))),
-                        enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Color(0xFFFFD232)))),
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Please enter a genre';
-                      }
-                      return null;
-                    },
-                  ),
+                  InputFormItem(
+                      fieldController: _genreController,
+                      validatorFunction: (value) {return Validator.validateStringFieldInput(value);},
+                      fieldLabel: 'Genre',
+                      inputType: TextInputType.text),
                   const SizedBox(
                     height: 16,
                   ),
-                  TextFormField(
-                    cursorColor: const Color(0xFFFFD232),
-                    controller: _progressController,
-                    style: const TextStyle(color: Color(0xFFE0E0E2)),
-                    decoration: const InputDecoration(
-                        labelText: 'Progress',
-                        labelStyle: TextStyle(color: Color(0xFFFFD232)),
-                        focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Color(0xFFFFD232))),
-                        enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Color(0xFFFFD232)))),
-                    keyboardType: TextInputType.number,
-                    validator: (value) {
-                      if (value == null || double.tryParse(value) == null) {
-                        return 'Please enter the progress (between 0-100)';
-                      }
-                      if (double.tryParse(value)! < 0 ||
-                          double.tryParse(value)! > 100) {
-                        return 'Not in the range of (0-100)';
-                      }
-                      return null;
-                    },
-                  ),
+                  InputFormItem(
+                      fieldController: _progressController,
+                      validatorFunction: (value) {return Validator.validateProgressInput(value);},
+                      fieldLabel: 'Progress',
+                      inputType: TextInputType.number),
                   const SizedBox(
                     height: 16,
                   ),
-                  TextFormField(
-                    cursorColor: const Color(0xFFFFD232),
-                    controller: _ratingController,
-                    style: const TextStyle(color: Color(0xFFE0E0E2)),
-                    decoration: const InputDecoration(
-                        labelText: 'Rating',
-                        labelStyle: TextStyle(color: Color(0xFFFFD232)),
-                        focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Color(0xFFFFD232))),
-                        enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Color(0xFFFFD232)))),
-                    keyboardType: TextInputType.number,
-                    validator: (value) {
-                      if (value == null || double.tryParse(value) == null) {
-                        return 'Please enter the rating (between 0-5)';
-                      }
-                      if (double.tryParse(value)! < 0 ||
-                          double.tryParse(value)! > 5) {
-                        return 'Not in the range of (0-5)';
-                      }
-                      return null;
-                    },
-                  ),
+                  InputFormItem(
+                      fieldController: _ratingController,
+                      validatorFunction: (value) {return Validator.validateRatingInput(value);},
+                      fieldLabel: 'Rating',
+                      inputType: TextInputType.number),
                   const SizedBox(
                     height: 16,
                   ),
-                  TextFormField(
-                    cursorColor: const Color(0xFFFFD232),
-                    controller: _hoursPlayedController,
-                    style: const TextStyle(color: Color(0xFFE0E0E2)),
-                    decoration: const InputDecoration(
-                        labelText: 'Hours Played',
-                        labelStyle: TextStyle(color: Color(0xFFFFD232)),
-                        focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Color(0xFFFFD232))),
-                        enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Color(0xFFFFD232)))),
-                    keyboardType: TextInputType.number,
-                    validator: (value) {
-                      if (value == null || double.tryParse(value) == null) {
-                        return 'Please enter the number of hours played';
-                      }
-                      if (int.tryParse(value)! < 0) {
-                        return 'Should be greater than 0';
-                      }
-                      return null;
-                    },
-                  ),
+                  InputFormItem(
+                      fieldController: _hoursPlayedController,
+                      validatorFunction: (value) {return Validator.validateHoursPlayedInput(value);},
+                      fieldLabel: 'Hours Played',
+                      inputType: TextInputType.number),
                   const SizedBox(
                     height: 16,
                   ),
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFF35363A),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                        side: const BorderSide(color: Color(0xFFFFD232)),
-                      ),
-                    ),
-                    onPressed: () {
-                      if (_formKey.currentState!.validate()) {
-                        String title = _titleController.text;
-                        String description = _descriptionController.text;
-                        String genre = _genreController.text;
-                        double progress =
-                            double.parse(_progressController.text);
-                        double rating = double.parse(_ratingController.text);
-                        int hoursPlayed =
-                            int.parse(_hoursPlayedController.text);
-                        Game game = Game(
-                          id: widget.game.id,
-                          title: title,
-                          description: description,
-                          genre: genre,
-                          progress: progress,
-                          rating: rating,
-                          hoursPlayed: hoursPlayed,
-                        );
-
-                        _updateGameInDatabase(game);
-                      }
-                    },
-                    child: const Text(
-                      'Update Game',
-                      style: TextStyle(color: Color(0xFFFFD232)),
-                    ),
-                  ),
+                  ConfirmFormAddButton(validateFunction: validateInput)
                 ],
               ),
             ),
@@ -241,12 +122,33 @@ class _UpdateScreenState extends State<UpdateScreen> {
     );
   }
 
-  void _updateGameInDatabase(Game game) async {
-    int result = await databaseHelper.updateGame(game);
+  void validateInput() {
+    if (_formKey.currentState!.validate()) {
+      String title = _titleController.text;
+      String description = _descriptionController.text;
+      String genre = _genreController.text;
+      double progress = double.parse(_progressController.text);
+      double rating = double.parse(_ratingController.text);
+      int hoursPlayed = int.parse(_hoursPlayedController.text);
+      Game game = Game(
+        id: _game.id,
+        title: title,
+        description: description,
+        genre: genre,
+        progress: progress,
+        rating: rating,
+        hoursPlayed: hoursPlayed,
+      );
+      _updateGameInDatabase(game);
+    }
+  }
 
-    if (result != 0) {
+  void _updateGameInDatabase(Game game) async {
+    final gameViewModel = Provider.of<GameViewModel>(context, listen: false);
+    try {
+      await gameViewModel.updateGame(game);
       _showSuccessDialog('Game updated successfully!');
-    } else {
+    } catch (e) {
       _showErrorDialog('Failed to update the game. Please try again.');
     }
   }
@@ -290,5 +192,31 @@ class _UpdateScreenState extends State<UpdateScreen> {
         );
       },
     );
+  }
+}
+
+class ConfirmFormUpdateButton extends StatelessWidget {
+  final VoidCallback validateFunction;
+
+  const ConfirmFormUpdateButton({super.key, required this.validateFunction});
+
+  @override
+  Widget build (BuildContext context) {
+    return ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xFF35363A),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                        side: const BorderSide(color: Color(0xFFFFD232)),
+                      ),
+                    ),
+                    onPressed: () {
+                      validateFunction;
+                    },
+                    child: const Text(
+                      'Update Game',
+                      style: TextStyle(color: Color(0xFFFFD232)),
+                    ),
+                  );
   }
 }

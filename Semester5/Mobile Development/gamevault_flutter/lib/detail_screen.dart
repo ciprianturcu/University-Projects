@@ -1,126 +1,114 @@
 import 'package:flutter/material.dart';
-import 'package:gamevault_flutter/db_helper.dart';
 import 'package:gamevault_flutter/game.dart';
-import 'package:gamevault_flutter/update_screen.dart';
+import 'package:gamevault_flutter/game_viewmodel.dart';
+import 'package:logger/logger.dart';
+import 'package:provider/provider.dart';
 
-class GameDetailScreen extends StatefulWidget {
-  final int gameIndex;
-
-  const GameDetailScreen({
-    super.key,
-    required this.gameIndex,
-  });
-
-  @override
-  _GameDetailScreenState createState() => _GameDetailScreenState();
-}
-
-class _GameDetailScreenState extends State<GameDetailScreen> {
-  late Future<Game?> _game;
-  late DatabaseHelper databaseHelper;
-
-  @override
-  void initState() {
-    super.initState();
-    databaseHelper = DatabaseHelper();
-    databaseHelper.databaseInit().whenComplete(() async {});
-    if (widget.gameIndex != -1) {
-      _game = databaseHelper.getGameById(widget.gameIndex);
-    }
-  }
+class GameDetailScreen extends StatelessWidget {
+  const GameDetailScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text(
-          '',
-          style: TextStyle(fontWeight: FontWeight.w700, fontSize: 34.0),
-        ),
-        backgroundColor: const Color(0xFF212223),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () => Navigator.pop(context),
-        ),
-      ),
-      backgroundColor: const Color(0xFF333437),
-      body: FutureBuilder(
-          future: _game,
-          builder: (context, AsyncSnapshot<Game?> snapshot) {
-            if (snapshot.connectionState == ConnectionState.waiting) {
-              return const CircularProgressIndicator();
-            } else if (snapshot.hasError) {
-              return Text('Error: ${snapshot.error}');
-            } else if (snapshot.data == null) {
-              return const Text('Game not found');
-            } else {
-              Game game = snapshot.data!;
-              return Padding(padding: const EdgeInsets.all(8), child: Column(
-                children: [
-                  const SizedBox(height: 20),
-                  TitleAndGenreColumn(
-                    gameTitle: game.title,
-                    gameGenre: game.genre,
-                  ),
-                  const SizedBox(
-                    height: 5,
-                  ),
-                  Expanded(
-                    child: Card(
-                      color: const Color(0xFF212223),
-                      elevation: 4,
-                      child: Padding(padding: const EdgeInsets.all(8),child: Column(
-                        children: [
-                          DescriptionRow(gameDescription: game.description),
-                          ProgressAndRatingRow(
-                            gameProgress: game.progress.toString(),
-                            gameRating: game.rating.toString(),
-                          ),
-                          HoursPlayedRow(
-                              hoursPlayed: game.hoursPlayed.toString()),
-                        ],
-                      ),)
+    final Map<String, dynamic> args =
+        ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
+    final int gameId = args['gameId'];
+    return GameDetailScreenContent(gameId: gameId);
+  }
+}
+
+class GameDetailScreenContent extends StatelessWidget {
+  final int gameId;
+  final Logger _log = Logger();
+
+  GameDetailScreenContent({super.key, required this.gameId});
+
+  @override
+  Widget build(BuildContext context) {
+    final gameViewModel = Provider.of<GameViewModel>(context);
+    return FutureBuilder(
+      future: gameViewModel.getGameById(gameId),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const CircularProgressIndicator();
+        } else if (snapshot.hasError || snapshot.data == null) {
+          _log.e('error loading game : ${snapshot.error}');
+          return const Text('Game not found');
+        } else {
+          Game game = snapshot.data!;
+          return Scaffold(
+            appBar: AppBar(
+              centerTitle: true,
+              title: const Text(
+                '',
+                style: TextStyle(fontWeight: FontWeight.w700, fontSize: 34.0),
+              ),
+              backgroundColor: const Color(0xFF212223),
+              leading: IconButton(
+                icon: const Icon(Icons.arrow_back),
+                onPressed: () => Navigator.pop(context),
+              ),
+            ),
+            backgroundColor: const Color(0xFF333437),
+            body: Padding(
+                padding: const EdgeInsets.all(8),
+                child: Column(
+                  children: [
+                    const SizedBox(height: 20),
+                    TitleAndGenreColumn(
+                      gameTitle: game.title,
+                      gameGenre: game.genre,
                     ),
-                  ),
-                  ActionButtons(
-                    onDeleteClick: () {
-                      setState(() {
-                      });
-                      _showDeleteConfirmationDialog();
-                    },
-                    onUpdateClick: () async {
-                      await Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => UpdateScreen(game: game)));
-                      setState(() {
-                        _game = databaseHelper.getGameById(widget.gameIndex);
-                      });
-                    },
-                  ),
-                ],
-              ),);
-            }
-          }),
+                    const SizedBox(
+                      height: 5,
+                    ),
+                    Expanded(
+                      child: Card(
+                          color: const Color(0xFF212223),
+                          elevation: 4,
+                          child: Padding(
+                            padding: const EdgeInsets.all(8),
+                            child: Column(
+                              children: [
+                                DescriptionRow(
+                                    gameDescription: game.description),
+                                ProgressAndRatingRow(
+                                  gameProgress: game.progress.toString(),
+                                  gameRating: game.rating.toString(),
+                                ),
+                                HoursPlayedRow(
+                                    hoursPlayed: game.hoursPlayed.toString()),
+                              ],
+                            ),
+                          )),
+                    ),
+                    ActionButtons(
+                      onDeleteClick: () {
+                        _showDeleteConfirmationDialog(context, gameViewModel);
+                      },
+                      onUpdateClick: () async {
+                        Navigator.pushNamed(context, '/updateGame', arguments: {'gameId' : gameId});
+                      },
+                    ),
+                  ],
+                ),
+              ),
+          );
+        }
+      },
     );
   }
 
-    Future<void> _showDeleteConfirmationDialog() async {
+  Future<void> _showDeleteConfirmationDialog(BuildContext context, GameViewModel gameViewModel) async {
     return showDialog<void>(
       context: context,
       builder: (BuildContext context) {
         return DeleteConfirmationDialog(
           onConfirmDelete: () {
-            databaseHelper.deleteGame(widget.gameIndex);
-            setState(() {
-            });
+            gameViewModel.deleteGame(gameId);
             Navigator.pop(context); // Close the dialog
             Navigator.pop(context); // Close the GameDetailScreen
           },
           onDismiss: () {
-            setState(() {
-            });
             Navigator.pop(context); // Close the dialog
           },
         );
@@ -176,31 +164,30 @@ class DescriptionRow extends StatelessWidget {
       child: Card(
         color: const Color(0xFF333437),
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: SizedBox(
-            width: double.infinity,
-            child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              const Text(
-                'Description',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20,
-                  color: Color(0xFFE0E0E2),
-                ),
+            padding: const EdgeInsets.all(8.0),
+            child: SizedBox(
+              width: double.infinity,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const Text(
+                    'Description',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                      color: Color(0xFFE0E0E2),
+                    ),
+                  ),
+                  Text(
+                    gameDescription,
+                    style: const TextStyle(
+                      fontSize: 16,
+                      color: Color(0xFFE0E0E2),
+                    ),
+                  ),
+                ],
               ),
-              Text(
-                gameDescription,
-                style: const TextStyle(
-                  fontSize: 16,
-                  color: Color(0xFFE0E0E2),
-                ),
-              ),
-            ],
-          ),
-          )
-        ),
+            )),
       ),
     );
   }
@@ -285,18 +272,17 @@ class HoursPlayedRow extends StatelessWidget {
     return Card(
       color: const Color(0xFF333437),
       child: Padding(
-        padding: const EdgeInsets.all(12.0),
-        child: SizedBox(
-          width: double.infinity,
-          child: Text(
-          'Hours Played: $hoursPlayed',
-          style: const TextStyle(
-            fontSize: 16,
-            color: Color(0xFFE0E0E2),
-          ),
-        ),
-        )
-      ),
+          padding: const EdgeInsets.all(12.0),
+          child: SizedBox(
+            width: double.infinity,
+            child: Text(
+              'Hours Played: $hoursPlayed',
+              style: const TextStyle(
+                fontSize: 16,
+                color: Color(0xFFE0E0E2),
+              ),
+            ),
+          )),
     );
   }
 }
@@ -386,4 +372,3 @@ class DeleteConfirmationDialog extends StatelessWidget {
     );
   }
 }
-

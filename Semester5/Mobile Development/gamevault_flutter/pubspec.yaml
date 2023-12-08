@@ -38,6 +38,10 @@ dependencies:
   sqflite: ^2.3.0
   progress_indicator: ^0.2.2
   sqflite_common_ffi: ^2.3.0+3
+  logger: ^2.0.2+1
+  provider: ^6.1.1
+  flutter_form_builder: ^9.1.1
+  form_builder_validators: ^9.1.0
 
 dev_dependencies:
   flutter_test:

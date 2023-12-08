@@ -1,14 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:gamevault_flutter/db_helper.dart';
 import 'package:gamevault_flutter/game.dart';
+import 'package:gamevault_flutter/game_viewmodel.dart';
+import 'package:gamevault_flutter/validator_functions.dart';
+import 'package:logger/logger.dart';
+import 'package:provider/provider.dart';
+
+final Logger _log = Logger();
 
 class AddScreen extends StatefulWidget {
+  const AddScreen({super.key});
+
   @override
   State<AddScreen> createState() => _AddScreenState();
 }
 
 class _AddScreenState extends State<AddScreen> {
-  late DatabaseHelper databaseHelper;
+  
   final TextEditingController _titleController = TextEditingController();
   final TextEditingController _descriptionController = TextEditingController();
   final TextEditingController _genreController = TextEditingController();
@@ -16,13 +23,6 @@ class _AddScreenState extends State<AddScreen> {
   final TextEditingController _ratingController = TextEditingController();
   final TextEditingController _hoursPlayedController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-
-  @override
-  void initState() {
-    super.initState();
-    databaseHelper = DatabaseHelper();
-    databaseHelper.databaseInit().whenComplete(() async {});
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,179 +44,69 @@ class _AddScreenState extends State<AddScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  TextFormField(
-                    controller: _titleController,
-                    cursorColor: const Color(0xFFFFD232),
-                    style: const TextStyle(color: Color(0xFFE0E0E2)),
-                    decoration: const InputDecoration(
-                        labelText: 'Title',
-                        labelStyle: TextStyle(color: Color(0xFFFFD232)),
-                        focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Color(0xFFFFD232))),
-                        enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Color(0xFFFFD232)))),
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Please enter a title';
-                      }
-                      return null;
-                    },
-                  ),
-                  const SizedBox(
-                    height: 16,
-                  ),
-                  TextFormField(
-                    cursorColor: const Color(0xFFFFD232),
-                    style: const TextStyle(color: Color(0xFFE0E0E2)),
-                    controller: _descriptionController,
-                    decoration: const InputDecoration(
-                        labelText: 'Description',
-                        labelStyle: TextStyle(color: Color(0xFFFFD232)),
-                        focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Color(0xFFFFD232))),
-                        enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Color(0xFFFFD232)))),
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Please enter a description';
-                      }
-                      return null;
-                    },
-                  ),
-                  const SizedBox(
-                    height: 16,
-                  ),
-                  TextFormField(
-                    cursorColor: const Color(0xFFFFD232),
-                    style: const TextStyle(color: Color(0xFFE0E0E2)),
-                    controller: _genreController,
-                    decoration: const InputDecoration(
-                        labelText: 'Genre',
-                        labelStyle: TextStyle(color: Color(0xFFFFD232)),
-                        focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Color(0xFFFFD232))),
-                        enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Color(0xFFFFD232)))),
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Please enter a genre';
-                      }
-                      return null;
-                    },
-                  ),
-                  const SizedBox(
-                    height: 16,
-                  ),
-                  TextFormField(
-                    cursorColor: const Color(0xFFFFD232),
-                    style: const TextStyle(color: Color(0xFFE0E0E2)),
-                    controller: _progressController,
-                    decoration: const InputDecoration(
-                        labelText: 'Progress',
-                        labelStyle: TextStyle(color: Color(0xFFFFD232)),
-                        focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Color(0xFFFFD232))),
-                        enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Color(0xFFFFD232)))),
-                    keyboardType: TextInputType.number,
-                    validator: (value) {
-                      if (value == null || double.tryParse(value) == null) {
-                        return 'Please enter the progress (between 0-100)';
-                      }
-                      if (double.tryParse(value)! < 0 ||
-                          double.tryParse(value)! > 100) {
-                        return 'Not in the range of (0-100)';
-                      }
-                      return null;
-                    },
-                  ),
-                  const SizedBox(
-                    height: 16,
-                  ),
-                  TextFormField(
-                    cursorColor: const Color(0xFFFFD232),
-                    style: const TextStyle(color: Color(0xFFE0E0E2)),
-                    controller: _ratingController,
-                    decoration: const InputDecoration(
-                        labelText: 'Rating',
-                        labelStyle: TextStyle(color: Color(0xFFFFD232)),
-                        focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Color(0xFFFFD232))),
-                        enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Color(0xFFFFD232)))),
-                    keyboardType: TextInputType.number,
-                    validator: (value) {
-                      if (value == null || double.tryParse(value) == null) {
-                        return 'Please enter the rating (between 0-5)';
-                      }
-                      if (double.tryParse(value)! < 0 ||
-                          double.tryParse(value)! > 5) {
-                        return 'Not in the range of (0-5)';
-                      }
-                      return null;
-                    },
-                  ),
-                  const SizedBox(
-                    height: 16,
-                  ),
-                  TextFormField(
-                    cursorColor: const Color(0xFFFFD232),
-                    style: const TextStyle(color: Color(0xFFE0E0E2)),
-                    controller: _hoursPlayedController,
-                    decoration: const InputDecoration(
-                        labelText: 'Hours Played',
-                        labelStyle: TextStyle(color: Color(0xFFFFD232)),
-                        focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Color(0xFFFFD232))),
-                        enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Color(0xFFFFD232)))),
-                    keyboardType: TextInputType.number,
-                    validator: (value) {
-                      if (value == null || double.tryParse(value) == null) {
-                        return 'Please enter the number of hours played';
-                      }
-                      if (int.tryParse(value)! < 0) {
-                        return 'Should be grater than 0';
-                      }
-                      return null;
-                    },
-                  ),
-                  const SizedBox(
-                    height: 16,
-                  ),
-                  ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFF35363A),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0),
-                          side: const BorderSide(color: Color(0xFFFFD232)),
-                        ),
-                      ),
-                      onPressed: () {
-                        if (_formKey.currentState!.validate()) {
-                          String title = _titleController.text;
-                          String description = _descriptionController.text;
-                          String genre = _genreController.text;
-                          double progress =
-                              double.parse(_progressController.text);
-                          double rating = double.parse(_ratingController.text);
-                          int hoursPlayed =
-                              int.parse(_hoursPlayedController.text);
-                          Game game = Game(
-                            title: title,
-                            description: description,
-                            genre: genre,
-                            progress: progress,
-                            rating: rating,
-                            hoursPlayed: hoursPlayed,
-                          );
-                          _addGameToDatabase(game);
-                        }
+                  InputFormItem(
+                      fieldController: _titleController,
+                      validatorFunction: (value) {
+                        return Validator.validateStringFieldInput(value);
                       },
-                      child: const Text(
-                        'Add Game',
-                        style: TextStyle(color: Color(0xFFFFD232)),
-                      ))
+                      fieldLabel: 'Title',
+                      inputType: TextInputType.text),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  InputFormItem(
+                      fieldController: _descriptionController,
+                      validatorFunction: (value) {
+                        return Validator.validateStringFieldInput(value);
+                      },
+                      fieldLabel: 'Description',
+                      inputType: TextInputType.text),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  InputFormItem(
+                      fieldController: _genreController,
+                      validatorFunction: (value) {
+                        return Validator.validateStringFieldInput(value);
+                      },
+                      fieldLabel: 'Genre',
+                      inputType: TextInputType.text),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  InputFormItem(
+                      fieldController: _progressController,
+                      validatorFunction: (value) {
+                        return Validator.validateProgressInput(value);
+                      },
+                      fieldLabel: 'Progress',
+                      inputType: TextInputType.number),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  InputFormItem(
+                      fieldController: _ratingController,
+                      validatorFunction: (value) {
+                        return Validator.validateRatingInput(value);
+                      },
+                      fieldLabel: 'Rating',
+                      inputType: TextInputType.number),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  InputFormItem(
+                      fieldController: _hoursPlayedController,
+                      validatorFunction: (value) {
+                        return Validator.validateHoursPlayedInput(value);
+                      },
+                      fieldLabel: 'Hours Played',
+                      inputType: TextInputType.number),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  ConfirmFormAddButton(
+                    validateFunction: validateInput,
+                  )
                 ],
               ),
             ),
@@ -224,12 +114,33 @@ class _AddScreenState extends State<AddScreen> {
     );
   }
 
-  void _addGameToDatabase(Game game) async {
-    int result = await databaseHelper.createGame(game);
+  void validateInput() {
+    if (_formKey.currentState!.validate()) {
+      String title = _titleController.text;
+      String description = _descriptionController.text;
+      String genre = _genreController.text;
+      double progress = double.parse(_progressController.text);
+      double rating = double.parse(_ratingController.text);
+      int hoursPlayed = int.parse(_hoursPlayedController.text);
+      Game game = Game(
+        title: title,
+        description: description,
+        genre: genre,
+        progress: progress,
+        rating: rating,
+        hoursPlayed: hoursPlayed,
+      );
+      _addGameToDatabase(game);
+    }
+  }
 
-    if (result != 0) {
+  void _addGameToDatabase(Game game) async {
+    final gameViewModel = Provider.of<GameViewModel>(context, listen: false);
+    try {
+      await gameViewModel.addGame(game);
       _showDialog(true);
-    } else {
+    } catch (e) {
+      _log.e('error adding game in viewmodel : $e');
       _showDialog(false);
     }
   }
@@ -240,7 +151,10 @@ class _AddScreenState extends State<AddScreen> {
       builder: (BuildContext context) {
         return AlertDialog(
           backgroundColor: const Color(0xFF333437),
-          title: Text(isSuccess ? 'Success' : 'Error', style: const TextStyle(color: Color(0xFFE0E0E2)),),
+          title: Text(
+            isSuccess ? 'Success' : 'Error',
+            style: const TextStyle(color: Color(0xFFE0E0E2)),
+          ),
           content: Text(
             isSuccess
                 ? 'Game added successfully!'
@@ -263,6 +177,63 @@ class _AddScreenState extends State<AddScreen> {
           ],
         );
       },
+    );
+  }
+}
+
+class ConfirmFormAddButton extends StatelessWidget {
+  final VoidCallback validateFunction;
+
+  const ConfirmFormAddButton({super.key, required this.validateFunction});
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: const Color(0xFF35363A),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10.0),
+            side: const BorderSide(color: Color(0xFFFFD232)),
+          ),
+        ),
+        onPressed: () {
+          validateFunction();
+        },
+        child: const Text(
+          'Add Game',
+          style: TextStyle(color: Color(0xFFFFD232)),
+        ));
+  }
+}
+
+class InputFormItem extends StatelessWidget {
+  final TextEditingController fieldController;
+  final String fieldLabel;
+  final TextInputType inputType;
+  final String? Function(String?) validatorFunction;
+
+  const InputFormItem(
+      {super.key,
+      required this.fieldController,
+      required this.validatorFunction,
+      required this.fieldLabel,
+      required this.inputType});
+
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      cursorColor: const Color(0xFFFFD232),
+      style: const TextStyle(color: Color(0xFFE0E0E2)),
+      controller: fieldController,
+      decoration: InputDecoration(
+          labelText: fieldLabel,
+          labelStyle: const TextStyle(color: Color(0xFFFFD232)),
+          focusedBorder: const OutlineInputBorder(
+              borderSide: BorderSide(color: Color(0xFFFFD232))),
+          enabledBorder: const OutlineInputBorder(
+              borderSide: BorderSide(color: Color(0xFFFFD232)))),
+      keyboardType: inputType,
+      validator: validatorFunction,
     );
   }
 }
