@@ -1,4 +1,6 @@
 /.idea/
 /venv/
 /data/
-/lfw_dataset/
+*/lfw_dataset/
+*/data/
+*/.idea/
