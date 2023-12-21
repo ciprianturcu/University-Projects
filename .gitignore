@@ -8,3 +8,6 @@
 *.csproj
 *.jpg
 *.PNG
+*.iml
+**/.idea/
+scripted_resnet18.pt
