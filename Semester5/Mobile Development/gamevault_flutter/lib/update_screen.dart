@@ -68,7 +68,9 @@ class _UpdateScreenState extends State<UpdateScreen> {
                 children: [
                   InputFormItem(
                       fieldController: _titleController,
-                      validatorFunction: (value) {return Validator.validateStringFieldInput(value);},
+                      validatorFunction: (value) {
+                        return Validator.validateStringFieldInput(value);
+                      },
                       fieldLabel: 'Title',
                       inputType: TextInputType.text),
                   const SizedBox(
@@ -76,7 +78,9 @@ class _UpdateScreenState extends State<UpdateScreen> {
                   ),
                   InputFormItem(
                       fieldController: _descriptionController,
-                      validatorFunction: (value) {return Validator.validateStringFieldInput(value);},
+                      validatorFunction: (value) {
+                        return Validator.validateStringFieldInput(value);
+                      },
                       fieldLabel: 'Description',
                       inputType: TextInputType.text),
                   const SizedBox(
@@ -84,7 +88,9 @@ class _UpdateScreenState extends State<UpdateScreen> {
                   ),
                   InputFormItem(
                       fieldController: _genreController,
-                      validatorFunction: (value) {return Validator.validateStringFieldInput(value);},
+                      validatorFunction: (value) {
+                        return Validator.validateStringFieldInput(value);
+                      },
                       fieldLabel: 'Genre',
                       inputType: TextInputType.text),
                   const SizedBox(
@@ -92,7 +98,9 @@ class _UpdateScreenState extends State<UpdateScreen> {
                   ),
                   InputFormItem(
                       fieldController: _progressController,
-                      validatorFunction: (value) {return Validator.validateProgressInput(value);},
+                      validatorFunction: (value) {
+                        return Validator.validateProgressInput(value);
+                      },
                       fieldLabel: 'Progress',
                       inputType: TextInputType.number),
                   const SizedBox(
@@ -100,7 +108,9 @@ class _UpdateScreenState extends State<UpdateScreen> {
                   ),
                   InputFormItem(
                       fieldController: _ratingController,
-                      validatorFunction: (value) {return Validator.validateRatingInput(value);},
+                      validatorFunction: (value) {
+                        return Validator.validateRatingInput(value);
+                      },
                       fieldLabel: 'Rating',
                       inputType: TextInputType.number),
                   const SizedBox(
@@ -108,13 +118,15 @@ class _UpdateScreenState extends State<UpdateScreen> {
                   ),
                   InputFormItem(
                       fieldController: _hoursPlayedController,
-                      validatorFunction: (value) {return Validator.validateHoursPlayedInput(value);},
+                      validatorFunction: (value) {
+                        return Validator.validateHoursPlayedInput(value);
+                      },
                       fieldLabel: 'Hours Played',
                       inputType: TextInputType.number),
                   const SizedBox(
                     height: 16,
                   ),
-                  ConfirmFormAddButton(validateFunction: validateInput)
+                  ConfirmFormUpdateButton(validateFunction: validateInput)
                 ],
               ),
             ),
@@ -201,22 +213,22 @@ class ConfirmFormUpdateButton extends StatelessWidget {
   const ConfirmFormUpdateButton({super.key, required this.validateFunction});
 
   @override
-  Widget build (BuildContext context) {
+  Widget build(BuildContext context) {
     return ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFF35363A),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                        side: const BorderSide(color: Color(0xFFFFD232)),
-                      ),
-                    ),
-                    onPressed: () {
-                      validateFunction;
-                    },
-                    child: const Text(
-                      'Update Game',
-                      style: TextStyle(color: Color(0xFFFFD232)),
-                    ),
-                  );
+      style: ElevatedButton.styleFrom(
+        backgroundColor: const Color(0xFF35363A),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10.0),
+          side: const BorderSide(color: Color(0xFFFFD232)),
+        ),
+      ),
+      onPressed: () {
+        validateFunction;
+      },
+      child: const Text(
+        'Update Game',
+        style: TextStyle(color: Color(0xFFFFD232)),
+      ),
+    );
   }
 }
