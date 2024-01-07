@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:gamevault_flutter/add_screen.dart';
 import 'package:gamevault_flutter/db_helper.dart';
@@ -150,19 +152,61 @@ class _UpdateScreenState extends State<UpdateScreen> {
         progress: progress,
         rating: rating,
         hoursPlayed: hoursPlayed,
+        isSyncedWithServer: _game.isSyncedWithServer,
       );
-      _updateGameInDatabase(game);
+      _updateGame(game);
     }
   }
 
-  void _updateGameInDatabase(Game game) async {
+  void _updateGame(Game game) async {
     final gameViewModel = Provider.of<GameViewModel>(context, listen: false);
     try {
+      if (!gameViewModel.serverStatus && !_game.syncedWithServer) {
+        await _showOfflineUpdateAknowledgementDialog();
+      }
+      else if(!gameViewModel.serverStatus && _game.syncedWithServer){
+        _showErrorDialog("Seems u are trying to update an synced game while offline! Operation cannot be done! Please try again");
+        return;
+      }
       await gameViewModel.updateGame(game);
       _showSuccessDialog('Game updated successfully!');
     } catch (e) {
       _showErrorDialog('Failed to update the game. Please try again.');
     }
+  }
+
+  Future<void> _showOfflineUpdateAknowledgementDialog() async {
+    Completer<void> completer = Completer<void>();
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          backgroundColor: const Color(0xFF333437),
+          title: const Text(
+            'Information',
+            style: TextStyle(color: Color(0xFFE0E0E2)),
+          ),
+          content: const Text(
+            'You are offine! Closing the application before a sync with the server is done will lead to this data being lost',
+            style: TextStyle(color: Color(0xFFE0E0E2)),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop(); // Close the dialog
+                completer.complete();
+              },
+              style: TextButton.styleFrom(
+                backgroundColor: const Color(0xFFFFD232),
+              ),
+              child: const Text('OK'),
+            ),
+          ],
+        );
+      },
+    );
+
+    await completer.future;
   }
 
   void _showSuccessDialog(String message) {
@@ -223,7 +267,7 @@ class ConfirmFormUpdateButton extends StatelessWidget {
         ),
       ),
       onPressed: () {
-        validateFunction;
+        validateFunction();
       },
       child: const Text(
         'Update Game',

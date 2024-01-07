@@ -10,4 +10,6 @@
 *.PNG
 *.iml
 **/.idea/
+**/__pycache__/**
 scripted_resnet18.pt
+Semester5/Mobile Development/backendServer/db.sqlite3

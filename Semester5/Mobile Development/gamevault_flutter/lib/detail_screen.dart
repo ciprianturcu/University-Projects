@@ -42,6 +42,13 @@ class GameDetailScreenContent extends StatelessWidget {
                 '',
                 style: TextStyle(fontWeight: FontWeight.w700, fontSize: 34.0),
               ),
+              bottom: gameViewModel.serverStatus
+                  ? const PreferredSize(
+                      preferredSize: Size.zero, child: SizedBox())
+                  : const PreferredSize(
+                      preferredSize: Size.zero,
+                      child: Text("Offline mode"),
+                    ),
               backgroundColor: const Color(0xFF212223),
               leading: IconButton(
                 icon: const Icon(Icons.arrow_back),
@@ -50,55 +57,57 @@ class GameDetailScreenContent extends StatelessWidget {
             ),
             backgroundColor: const Color(0xFF333437),
             body: Padding(
-                padding: const EdgeInsets.all(8),
-                child: Column(
-                  children: [
-                    const SizedBox(height: 20),
-                    TitleAndGenreColumn(
-                      gameTitle: game.title,
-                      gameGenre: game.genre,
-                    ),
-                    const SizedBox(
-                      height: 5,
-                    ),
-                    Expanded(
-                      child: Card(
-                          color: const Color(0xFF212223),
-                          elevation: 4,
-                          child: Padding(
-                            padding: const EdgeInsets.all(8),
-                            child: Column(
-                              children: [
-                                DescriptionRow(
-                                    gameDescription: game.description),
-                                ProgressAndRatingRow(
-                                  gameProgress: game.progress.toString(),
-                                  gameRating: game.rating.toString(),
-                                ),
-                                HoursPlayedRow(
-                                    hoursPlayed: game.hoursPlayed.toString()),
-                              ],
-                            ),
-                          )),
-                    ),
-                    ActionButtons(
-                      onDeleteClick: () {
-                        _showDeleteConfirmationDialog(context, gameViewModel);
-                      },
-                      onUpdateClick: () async {
-                        Navigator.pushNamed(context, '/updateGame', arguments: {'gameId' : gameId});
-                      },
-                    ),
-                  ],
-                ),
+              padding: const EdgeInsets.all(8),
+              child: Column(
+                children: [
+                  const SizedBox(height: 20),
+                  TitleAndGenreColumn(
+                    gameTitle: game.title,
+                    gameGenre: game.genre,
+                  ),
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  Expanded(
+                    child: Card(
+                        color: const Color(0xFF212223),
+                        elevation: 4,
+                        child: Padding(
+                          padding: const EdgeInsets.all(8),
+                          child: Column(
+                            children: [
+                              DescriptionRow(gameDescription: game.description),
+                              ProgressAndRatingRow(
+                                gameProgress: game.progress.toString(),
+                                gameRating: game.rating.toString(),
+                              ),
+                              HoursPlayedRow(
+                                  hoursPlayed: game.hoursPlayed.toString()),
+                            ],
+                          ),
+                        )),
+                  ),
+                  ActionButtons(
+                    onDeleteClick: () {
+                      _showDeleteConfirmationDialog(context, gameViewModel);
+                    },
+                    onUpdateClick: () async {
+                      Navigator.pushNamed(context, '/updateGame',
+                          arguments: {'gameId': gameId});
+                    },
+                    gameId: gameId,
+                  ),
+                ],
               ),
+            ),
           );
         }
       },
     );
   }
 
-  Future<void> _showDeleteConfirmationDialog(BuildContext context, GameViewModel gameViewModel) async {
+  Future<void> _showDeleteConfirmationDialog(
+      BuildContext context, GameViewModel gameViewModel) async {
     return showDialog<void>(
       context: context,
       builder: (BuildContext context) {
@@ -287,19 +296,49 @@ class HoursPlayedRow extends StatelessWidget {
   }
 }
 
-class ActionButtons extends StatelessWidget {
+class ActionButtons extends StatefulWidget {
   final void Function() onDeleteClick;
   final void Function() onUpdateClick;
+  final int gameId;
 
-  ActionButtons({required this.onDeleteClick, required this.onUpdateClick});
+  const ActionButtons({
+    super.key,
+    required this.onDeleteClick,
+    required this.onUpdateClick,
+    required this.gameId,
+  });
+
+  @override
+  _ActionButtonsState createState() => _ActionButtonsState();
+}
+
+class _ActionButtonsState extends State<ActionButtons> {
+  bool syncStatusOfGame = false; // Initial value
+
+  @override
+  void initState() {
+    super.initState();
+    _loadSyncStatusOfGame();
+  }
+
+  _loadSyncStatusOfGame() async {
+    final gameViewModel = Provider.of<GameViewModel>(context, listen: false);
+    syncStatusOfGame = await gameViewModel.getSyncStatusByGameId(widget.gameId);
+    if (mounted) {
+      setState(() {});
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
+    final gameViewModel = Provider.of<GameViewModel>(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         ElevatedButton(
-          onPressed: onUpdateClick,
+          onPressed: (!gameViewModel.serverStatus && syncStatusOfGame)
+              ? null
+              : widget.onUpdateClick,
           style: ButtonStyle(
             backgroundColor: MaterialStateProperty.all(const Color(0xFF333437)),
             side: MaterialStateProperty.all(const BorderSide(
@@ -312,7 +351,9 @@ class ActionButtons extends StatelessWidget {
         ),
         const SizedBox(height: 16),
         ElevatedButton(
-          onPressed: onDeleteClick,
+          onPressed: (!gameViewModel.serverStatus && syncStatusOfGame)
+              ? null
+              : widget.onDeleteClick,
           style: ButtonStyle(
             backgroundColor: MaterialStateProperty.all(const Color(0xFF333437)),
             side: MaterialStateProperty.all(const BorderSide(
@@ -372,3 +413,4 @@ class DeleteConfirmationDialog extends StatelessWidget {
     );
   }
 }
+

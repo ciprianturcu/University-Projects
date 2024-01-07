@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:gamevault_flutter/game.dart';
 import 'package:gamevault_flutter/game_viewmodel.dart';
@@ -15,7 +17,6 @@ class AddScreen extends StatefulWidget {
 }
 
 class _AddScreenState extends State<AddScreen> {
-  
   final TextEditingController _titleController = TextEditingController();
   final TextEditingController _descriptionController = TextEditingController();
   final TextEditingController _genreController = TextEditingController();
@@ -129,20 +130,58 @@ class _AddScreenState extends State<AddScreen> {
         progress: progress,
         rating: rating,
         hoursPlayed: hoursPlayed,
+        isSyncedWithServer: 0,
       );
-      _addGameToDatabase(game);
+      _addGame(game);
     }
   }
 
-  void _addGameToDatabase(Game game) async {
-    final gameViewModel = Provider.of<GameViewModel>(context, listen: false);
+  void _addGame(Game game) async {
+    final gameViewModel = Provider.of<GameViewModel>(context, listen : false);
     try {
+      if(!gameViewModel.serverStatus) {
+        await _showOfflineAddAknowledgementDialog();
+      }
       await gameViewModel.addGame(game);
       _showDialog(true);
     } catch (e) {
       _log.e('error adding game in viewmodel : $e');
       _showDialog(false);
     }
+  }
+
+  Future<void> _showOfflineAddAknowledgementDialog() async{
+    Completer<void> completer = Completer<void>();
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          backgroundColor: const Color(0xFF333437),
+          title: const Text(
+            'Information',
+            style: TextStyle(color: Color(0xFFE0E0E2)),
+          ),
+          content: const Text(
+            'You are offine! Closing the application before a sync with the server is done will lead to this data being lost',
+            style: TextStyle(color: Color(0xFFE0E0E2)),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop(); // Close the dialog
+                completer.complete();
+              },
+              style: TextButton.styleFrom(
+                backgroundColor: const Color(0xFFFFD232),
+              ),
+              child: const Text('OK'),
+            ),
+          ],
+        );
+      },
+    );
+
+    await completer.future;
   }
 
   void _showDialog(bool isSuccess) {

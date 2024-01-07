@@ -30,7 +30,7 @@ class GameVault extends StatelessWidget {
         '/overview': (context) => const OverviewScreen(),
         '/gameDetail': (context) => const GameDetailScreen(),
         '/addGame' :(context) => const AddScreen(),
-        '/updateGame' :(context) => UpdateScreen(),
+        '/updateGame' :(context) => const UpdateScreen(),
       },
     );
   }

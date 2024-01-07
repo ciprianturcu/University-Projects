@@ -17,7 +17,7 @@ class OverviewScreen extends StatefulWidget {
 class _OverviewScreenState extends State<OverviewScreen> {
   @override
   Widget build(BuildContext context) {
-    _log.d('entered render of overview screen');
+    final gameViewModel = Provider.of<GameViewModel>(context);
     return Scaffold(
       backgroundColor: const Color(0xFF212223),
       appBar: AppBar(
@@ -26,6 +26,12 @@ class _OverviewScreenState extends State<OverviewScreen> {
           "Game Vault",
           style: TextStyle(fontWeight: FontWeight.w700, fontSize: 34.0),
         ),
+        bottom: gameViewModel.serverStatus
+            ? const PreferredSize(preferredSize: Size.zero, child: SizedBox())
+            : const PreferredSize(
+                preferredSize: Size.zero,
+                child: Text("Offline mode", style: TextStyle(color: Color(0xFFE0E0E2)),),
+              ),
         backgroundColor: const Color(0xFF212223),
       ),
       body: const GameListView(),
@@ -41,7 +47,6 @@ class GameListView extends StatelessWidget {
   Widget build(BuildContext context) {
     final gameViewModel = Provider.of<GameViewModel>(context);
     final games = gameViewModel.games;
-    _log.d('entered render of list in overview screen');
     return ListView.builder(
       itemCount: games.length,
       itemBuilder: (context, index) {
@@ -66,7 +71,6 @@ class GameItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    _log.d('entered render of individual item from list in overview screen');
     return Card(
       margin: const EdgeInsets.all(15),
       child: ListTile(
