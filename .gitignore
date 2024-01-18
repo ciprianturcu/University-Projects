@@ -13,3 +13,17 @@
 **/__pycache__/**
 scripted_resnet18.pt
 Semester5/Mobile Development/backendServer/db.sqlite3
+**/oxford-iiit-pet/**
+**/data_lab5/**
+Semester5/Computer Vision and Deep Learning/lab6/flagged/log.csv
+Semester5/Computer Vision and Deep Learning/lab5/model_epoch_9.pth
+Semester5/Computer Vision and Deep Learning/lab5/model_epoch_8.pth
+Semester5/Computer Vision and Deep Learning/lab5/model_epoch_7.pth
+Semester5/Computer Vision and Deep Learning/lab5/model_epoch_6.pth
+Semester5/Computer Vision and Deep Learning/lab5/model_epoch_5.pth
+Semester5/Computer Vision and Deep Learning/lab5/model_epoch_4.pth
+Semester5/Computer Vision and Deep Learning/lab5/model_epoch_3.pth
+Semester5/Computer Vision and Deep Learning/lab5/model_epoch_2.pth
+Semester5/Computer Vision and Deep Learning/lab5/model_epoch_1.pt
+Semester5/Computer Vision and Deep Learning/lab5/model_epoch_10.pth
+Semester5/Computer Vision and Deep Learning/lab6/model_epoch_10.pth
