@@ -1,0 +1,22 @@
+$
+	
+Integer a, b, c;
+in(a);
+in(b);
+in(c);
+if (a>b) {
+	if(a>c){out(a);}
+}
+elif (b>a){
+	if(b>c){out(b);}
+}
+else{
+	out(c);
+}
+
+return 0;
+$
+
+
+
+

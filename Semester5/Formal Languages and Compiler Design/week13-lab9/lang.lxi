@@ -1,0 +1,105 @@
+%{
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "y.tab.h"
+
+int currentLine=0;
+typedef struct {
+  char* keyword;
+  int token;
+} KeywordTokenMap;
+
+KeywordTokenMap keywordTokenMap[] = {
+    {"Integer", INTEGER},
+    {"String", STRING},
+    {"Char", CHAR},
+    {"for", FOR},
+    {"return", RETURN},
+    {"in", IN},
+    {"OUT", OUT},
+    {"if", IF},
+    {"elif", ELIF},
+    {"else", ELSE},
+    {"ArrayList", VECTOR},
+    {"while", WHILE},
+    {"and", AND},
+    {"or", OR},
+    
+    {"+", ADD},
+    {"-", SUB},
+    {"*", MUL},
+    {"/", DIV},
+    {"%", MOD},
+
+    {"==", EQ},
+    {"!=", NE},
+    {"<", LT},
+    {">", GT},
+    {"<=", LE},
+    {">=", GE},
+
+    {"=", ASSIGN},
+
+    {"&&", AND},
+    {"||", OR},
+
+    {"{", OPEN_CURLY},
+    {"}", CLOSE_CURLY},
+    {"(", OPEN_BRACKET},
+    {")", CLOSE_BRACKET},
+    {"[", OPEN_SQUARE},
+    {"]", CLOSE_SQUARE},
+
+    {"$", DOLLAR_SIGN},
+    {";", SEMICOLON},
+    {",", COMMA},
+  };
+
+  int mapKeywordToToken(char* keyword) 
+  {
+    int size = sizeof(keywordTokenMap) / sizeof(KeywordTokenMap);
+    int i = 0;
+    for (i = 0; i < size; i++) 
+    {
+      if (strcmp(keyword, keywordTokenMap[i].keyword) == 0) 
+      {
+        return keywordTokenMap[i].token;
+      }
+    }
+
+    printf("Keyword not found: %s\n", keyword);
+    return -1;
+  }
+
+%}
+
+%option noyywrap
+
+IDENTIFIER [a-zA-Z][a-zA-Z_0-9]*
+NUMBER_CONST (-?[1-9][0-9]*)|0
+STRING_CONST \"[a-zA-Z][a-zA-Z_0-9]*\"
+CHAR_CONST \"[a-zA-Z0-9]\"
+RESERVED_WORDS "Integer"|"String"|"Char"|"for"|"return"|"in"|"out"|"if"|"elif"|"else"|"ArrayList"|"while"|"and"|"or"
+OPERATORS "+"|"-"|"*"|"/"|"=="|"<"|">"|"<="|">="|"="|"!="|"&&"|"||"|"%"
+SEPARATORS "["|"]"|"{"|"}"|"("|")"|";"|" "|"\""|"$"|","
+
+%%
+
+{RESERVED_WORDS} {printf("Reserved word: %s\n", yytext);}
+[+|-]0		{printf("Illegal numeric constant at line %d\n", currentLine);}
+{NUMBER_CONST}		{printf("Number: %s\n", yytext);}
+[\"][a-zA-Z_0-9]+[^\"a-zA-Z_0-9] | [^\"][a-zA-Z_0-9]+[\"]	{printf("Illegal string constant at line %d\n", currentLine);}
+{STRING_CONST}		{printf("String: %s\n", yytext);}
+[\"][^a-zA-Z0-9][\"]	{printf("Illegal character constant at line %d\n", currentLine);}
+{CHAR_CONST}		{printf("Character: %s\n", yytext);}
+[0-9][a-zA-Z_0-9]*		{printf("Illegal identifier at line %d\n", currentLine);}
+{IDENTIFIER}		{printf("Identifier: %s\n", yytext);}
+{OPERATORS}	{printf("Operator: %s\n", yytext);}
+{SEPARATORS}	{printf("Separator: %s\n", yytext);}
+
+
+[ \t]+		{}
+[\n]+	{currentLine++;}
+
+%%
