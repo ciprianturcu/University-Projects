@@ -18,7 +18,7 @@ class WebSocketHelper {
   });
 
   bool _isReconnecting = false;
-  static const String _ip = "192.168.1.101:8000";
+  static const String _ip = "192.168.100.6:8000";
   late IOWebSocketChannel ws;
   static const _reconnectCooldown = Duration(seconds: 10);
   static final _log = Logger();

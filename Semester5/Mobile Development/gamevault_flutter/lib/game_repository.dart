@@ -11,7 +11,7 @@ class GameRepository {
 
   static final _log = Logger();
 
-  static const String _ip = "192.168.1.101:8000";
+  static const String _ip = "192.168.100.6:8000";
 
   bool _serverStatus = false;
   bool get serverStatus => _serverStatus;
