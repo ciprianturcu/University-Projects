@@ -16,15 +16,13 @@ public class Main {
 
         executorService = Executors.newFixedThreadPool(NR_THREADS);
 
-        Matrix solution = solve(initialState);
-
-        System.out.println(solution);
+        solve(initialState);
 
         executorService.shutdown();
         executorService.awaitTermination(1000000, TimeUnit.SECONDS);
     }
 
-    public static Matrix solve(Matrix root) throws ExecutionException, InterruptedException {
+    public static void solve(Matrix root) throws ExecutionException, InterruptedException {
         long time = System.currentTimeMillis();
         int minimumBound = root.manhattan;
         int distance;
@@ -33,8 +31,11 @@ public class Main {
             Pair<Integer, Matrix> solution = searchParallel(root, 0, minimumBound, NR_TASKS);
             distance = solution.getFirst();
             if (distance == -1) {
-                System.out.println(solution.getSecond().numberOfSteps + " steps - " + (System.currentTimeMillis() - time) + "ms");
-                return solution.getSecond();
+                System.out.println("Solution found in " + solution.getSecond().numberOfSteps + " steps - " + (System.currentTimeMillis() - time) + "ms");
+                System.out.println("Solution is:");
+                System.out.println(solution.getSecond());
+                System.out.println("Execution time: " + (System.currentTimeMillis() - time) + "ms");
+                return;
             } else {
                 System.out.println(distance + " steps - " + (System.currentTimeMillis() - time) + "ms");
             }
