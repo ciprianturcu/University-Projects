@@ -18,9 +18,7 @@ disp(x_qr);
 
 % Solve using Cholesky Factorization (only if A is symmetric and positive definite)
 if issymmetric(A) && all(eig(A) > 0)
-    R = chol(A);
-    y = backSubstitution(R', b);
-    x_cholesky = backSubstitution(R,y);
+    x_cholesky = choleskyFactorization(A,b);
     disp('Cholesky Factorization Solution:');
     disp(x_cholesky);
 else
