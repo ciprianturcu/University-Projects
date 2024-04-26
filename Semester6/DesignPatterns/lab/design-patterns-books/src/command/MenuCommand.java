@@ -1,5 +1,8 @@
 package command;
 
+import lombok.Getter;
+
+@Getter
 public abstract class MenuCommand {
     private final String key;
     private final String description;
@@ -11,11 +14,4 @@ public abstract class MenuCommand {
 
     public abstract void execute();
 
-    public String getKey() {
-        return key;
-    }
-
-    public String getDescription() {
-        return description;
-    }
 }

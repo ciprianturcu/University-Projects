@@ -1,15 +1,15 @@
 package view;
 
-import command.MenuAddCommand;
+import command.MenuAddProductCommand;
 import command.MenuCommand;
-import command.MenuDisplayCommand;
-import model.Book;
+import command.MenuDisplayArticleCommand;
+import command.MenuDisplayBookCommand;
 
 import java.util.*;
 
 public class View {
 
-    private Map<String, MenuCommand> commands = new HashMap<>();
+    private final Map<String, MenuCommand> commands = new HashMap<>();
     private static final Scanner scanner = new Scanner(System.in);
 
     public View() {
@@ -27,8 +27,9 @@ public class View {
     }
 
     private void fillCommandsMap() {
-        this.addCommand(new MenuAddCommand("1", "Add Book"));
-        this.addCommand(new MenuDisplayCommand("2", "Display Books"));
+        this.addCommand(new MenuAddProductCommand("1", "Add Product"));
+        this.addCommand(new MenuDisplayArticleCommand("2", "Display Articles"));
+        this.addCommand(new MenuDisplayBookCommand("3", "Display Books"));
     }
 
     public void run() {

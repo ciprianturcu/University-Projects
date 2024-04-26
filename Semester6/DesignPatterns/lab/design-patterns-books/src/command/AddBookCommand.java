@@ -3,11 +3,11 @@ package command;
 import decorator.BorrowedBookDecorator;
 import decorator.ReservedBookDecorator;
 import model.Book;
-import persistance.Database;
+import persistance.BookDatabase;
 
 import java.util.List;
 
-public class AddBookCommand implements BookCommand {
+public class AddBookCommand implements ProductCommand {
     private Book book;
 
     public AddBookCommand(Book book, List<String> decorators) {
@@ -29,6 +29,6 @@ public class AddBookCommand implements BookCommand {
 
     @Override
     public void execute() {
-        Database.getInstance().addBook(book);
+        BookDatabase.getInstance().addBook(book);
     }
 }

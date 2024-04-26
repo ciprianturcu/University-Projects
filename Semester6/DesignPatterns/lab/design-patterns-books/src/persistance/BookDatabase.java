@@ -2,18 +2,20 @@ package persistance;
 
 
 import lombok.Getter;
+import model.Article;
 import model.Book;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class Database implements Iterable<Book> {
+public class BookDatabase implements Iterable<Book> {
     @Getter
-    private static Database instance = new Database();
+    private static BookDatabase instance = new BookDatabase();
     private List<Book> books = new ArrayList<>();
 
-    private Database() {}  // Private constructor to ensure Singleton
+
+    private BookDatabase() {}  // Private constructor to ensure Singleton
 
     public void addBook(Book book) {
         books.add(book);

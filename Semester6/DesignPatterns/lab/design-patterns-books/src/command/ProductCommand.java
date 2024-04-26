@@ -1,5 +1,5 @@
 package command;
 
-public interface BookCommand {
+public interface ProductCommand {
     void execute();
 }

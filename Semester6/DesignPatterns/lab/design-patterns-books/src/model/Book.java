@@ -3,10 +3,10 @@ package model;
 import lombok.Getter;
 
 @Getter
-public abstract class Book {
-    private String title;
-    private String author;
-    private String genre;
+public class Book implements Product{
+    private final String title;
+    private final String author;
+    private final String genre;
 
     public Book(String title, String author, String genre) {
         this.title = title;
@@ -14,5 +14,8 @@ public abstract class Book {
         this.genre = genre;
     }
 
-    public abstract String display();
+    @Override
+    public String display() {
+        return title + " by " + author + ", genre: " + genre;
+    }
 }

@@ -1,0 +1,129 @@
+@startuml
+interface Product {
+    {abstract} +display() : String
+}
+
+class Book {
+    -title : String
+    -author : String
+    -genre : String
+    +display() : String
+}
+
+class Article {
+    -title : String
+    -publication : String
+    -field : String
+    +display() : String
+}
+
+class ArticleDatabase {
+    -articles : List<Article>
+    +addArticle(Article) : void
+    +iterator() : Iterator<Article>
+}
+
+class BookDatabase {
+    -books : List<Book>
+    +addBook(Book) : void
+    +iterator() : Iterator<Book>
+}
+
+abstract class BookDecorator extends Book{
+    -decoratedBook : Book
+    {abstract} +display() : String
+}
+
+class BorrowedBookDecorator extends BookDecorator {
+    +display() : String
+}
+
+class ReservedBookDecorator extends BookDecorator {
+    +display() : String
+}
+
+abstract class ProductFactory {
+    {abstract} +createProduct(title : String, authorOrPublication : String, genreOrField : String) : Product
+}
+
+class BookFactory extends ProductFactory {
+    +createProduct(title : String, author : String, genre : String) : Book
+}
+
+class ArticleFactory extends ProductFactory {
+    +createProduct(title : String, publication : String, field : String) : Article
+}
+
+class ProductController {
+    -bookFactory : BookFactory
+    -articleFactory : ArticleFactory
+    +addProduct(type : String, title : String, authorOrPublisher : String, genreOrField : String, decorators : List<String>)
+    +displayBooks()
+    +displayArticles()
+}
+
+interface ProductCommand {
+    {abstract} +execute()
+}
+
+abstract class MenuCommand {
+    {abstract} +execute() : void
+}
+
+class AddArticleCommand {
+    +execute() : void
+}
+
+class AddBookCommand {
+    +execute() : void
+}
+
+class MenuDisplayArticleCommand {
+    +execute() : void
+}
+
+class MenuDisplayBookCommand {
+    +execute() : void
+}
+
+class MenuAddProductCommand {
+    +execute() : void
+}
+
+class View {
+    -commands : Map<String, MenuCommand>
+    +run() : void
+}
+
+class Utils {
+    +safeNextLine(scanner : Scanner, errorMessage : String) : String
+}
+
+class Main {
+    {static} +main(args : String[])
+}
+
+Book -up-|> Product
+Article -up-|> Product
+ArticleDatabase ..> Article : contains
+BookDatabase ..> Book : contains
+ProductController ..> BookFactory : uses >
+ProductController ..> ArticleFactory : uses >
+AddArticleCommand -down-|> ProductCommand
+AddBookCommand -down-|> ProductCommand
+MenuDisplayArticleCommand -down-|> MenuCommand
+MenuDisplayBookCommand -down-|> MenuCommand
+MenuAddProductCommand -down-|> MenuCommand
+ProductFactory ..> Product : uses >
+View ..> MenuCommand : uses >
+Main ..> View : uses >
+MenuDisplayArticleCommand ..> ProductController : uses >
+MenuDisplayBookCommand ..> ProductController : uses >
+MenuAddProductCommand ..> ProductController : uses >
+AddArticleCommand ..> ArticleDatabase : uses >
+AddBookCommand ..> BookDatabase : uses >
+AddBookCommand ..> BorrowedBookDecorator : uses >
+AddBookCommand ..> ReservedBookDecorator : uses >
+BookFactory ..> Book : uses >
+ArticleFactory ..> Article : uses >
+@enduml
