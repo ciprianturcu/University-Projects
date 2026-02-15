@@ -1,1 +1,40 @@
+# Build and compilation output
+target/
+build/
+out/
+bin/
+*.class
+*.jar
+*.war
 
+# Gradle
+.gradle/
+gradle/wrapper/gradle-wrapper.jar
+gradlew
+gradlew.bat
+
+# Maven
+.mvn/
+
+# IDE files
+.idea/
+.vscode/
+*.iml
+.project
+.classpath
+.settings/
+
+# Generated test reports (Serenity etc.)
+site/
+
+# Docker data directories
+jenkins_data/
+mariadb_data/
+testlink_data/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
